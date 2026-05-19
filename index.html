@@ -214,6 +214,14 @@
       padding-top: 0.75rem;
     }
 
+    .error-msg {
+      display: none;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: rgba(200, 93, 93, 0.85);
+      padding-top: 0.75rem;
+    }
+
     footer {
       position: relative;
       z-index: 1;
@@ -325,6 +333,7 @@
         <button onclick="handleSubmit()">Notify me</button>
       </div>
       <div class="success-msg" id="success-msg">You're on the list. We'll be in touch.</div>
+      <div class="error-msg" id="error-msg">Something went wrong. Please try again.</div>
     </div>
   </main>
 
@@ -336,16 +345,39 @@
   </footer>
 
   <script>
-    function handleSubmit() {
+    async function handleSubmit() {
       const input = document.getElementById('email-input');
-      const msg = document.getElementById('success-msg');
+      const success = document.getElementById('success-msg');
+      const error = document.getElementById('error-msg');
+      const row = input.closest('.input-row');
       const val = input.value.trim();
+
       if (!val || !val.includes('@')) {
-        input.style.borderBottom = '1px solid rgba(200,93,93,0.5)';
+        row.style.borderColor = 'rgba(200,93,93,0.5)';
         return;
       }
-      input.closest('.input-row').style.opacity = '0.4';
-      msg.style.display = 'block';
+
+      row.style.opacity = '0.5';
+      row.style.pointerEvents = 'none';
+
+      try {
+        const res = await fetch('https://formspree.io/f/xvzyzgza', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ email: val })
+        });
+
+        if (res.ok) {
+          success.style.display = 'block';
+          error.style.display = 'none';
+        } else {
+          throw new Error();
+        }
+      } catch {
+        row.style.opacity = '1';
+        row.style.pointerEvents = 'auto';
+        error.style.display = 'block';
+      }
     }
 
     document.getElementById('email-input').addEventListener('keydown', function(e) {
