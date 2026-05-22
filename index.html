@@ -1,389 +1,563 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Clozing CRE — Coming Soon</title>
-  <meta name="description" content="Commercial real estate. Coming soon." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Karla:wght@300;400&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clozing CRE | Commercial Real Estate | Palm Springs & California</title>
+<meta name="description" content="Clozing CRE at Windermere Commercial Palm Springs — expert commercial real estate advisors serving high-net-worth buyers, sellers, and investors across California and the Pacific Northwest.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --sand:#E8E0D4;--sand-dark:#C9BFB0;--clay:#A08060;
+  --obsidian:#1A1714;--obsidian-mid:#2E2A26;--smoke:#7A7168;
+  --wb:#003087;--wr:#C8102E;--gold:#C4A052;--gold-light:#DDB96A;
+  --white:#FDFCFA;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);font-size:21px;background:var(--obsidian);color:var(--white);font-weight:300;line-height:1.7;overflow-x:hidden;-webkit-text-size-adjust:100%}
 
-    :root {
-      --ink: #0e0e0c;
-      --paper: #f5f2eb;
-      --muted: #8a876f;
-      --accent: #c8a96e;
-      --rule: rgba(200, 195, 175, 0.18);
-    }
+/* DEV BANNER */
+.dev-banner{background:var(--obsidian-mid);border-bottom:1px solid rgba(196,160,82,.25);padding:14px 24px;text-align:center;position:relative;z-index:200}
+.dev-banner-inner{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+.dev-pill{font-size:13px;letter-spacing:.18em;text-transform:uppercase;background:rgba(196,160,82,.12);border:1px solid rgba(196,160,82,.35);color:var(--gold);padding:4px 12px;white-space:nowrap}
+.dev-banner-text{font-family:var(--serif);font-size:20px;font-style:italic;color:var(--sand)}
+.dev-banner-sub{font-size:16px;color:var(--smoke)}
+.dev-divider{width:1px;height:18px;background:rgba(196,160,82,.2);flex-shrink:0}
+.dev-stay{font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(196,160,82,.3);padding-bottom:1px;white-space:nowrap}
+.dev-stay:hover{color:var(--gold-light)}
 
-    html, body {
-      height: 100%;
-    }
+/* NAV */
+nav{position:sticky;top:0;z-index:100;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(26,23,20,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(196,160,82,.15)}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo-svg{width:36px;height:36px}
+.nav-wordmark{font-family:var(--serif);font-size:24px;font-weight:500;color:var(--white);letter-spacing:.04em}
+.nav-wordmark span{color:var(--gold)}
+.nav-links{display:flex;gap:40px;list-style:none;align-items:center}
+.nav-links a{font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--sand);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{border:1px solid var(--gold);color:var(--gold)!important;padding:10px 22px;transition:background .2s,color .2s!important}
+.nav-cta:hover{background:var(--gold)!important;color:var(--obsidian)!important}
 
-    body {
-      background-color: var(--ink);
-      color: var(--paper);
-      font-family: 'Karla', sans-serif;
-      font-weight: 300;
-      letter-spacing: 0.01em;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+/* HERO */
+.hero{min-height:100svh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:80px 64px 80px 96px;position:relative;z-index:2}
+.hero-eyebrow{font-size:15px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:28px;display:flex;align-items:center;gap:16px}
+.hero-eyebrow::before{content:'';display:block;width:40px;height:1px;background:var(--gold);flex-shrink:0}
+.hero-headline{font-family:var(--serif);font-size:clamp(48px,5.5vw,80px);line-height:1.08;font-weight:400;margin-bottom:24px;color:var(--white)}
+.hero-headline em{font-style:italic;color:var(--gold-light)}
+.hero-tagline{font-family:var(--serif);font-style:italic;font-size:24px;color:var(--sand-dark);margin-bottom:20px;line-height:1.6}
+.hero-body{font-size:21px;color:var(--sand);max-width:480px;line-height:1.8;margin-bottom:16px;font-weight:300}
+.hero-actions{display:flex;gap:20px;align-items:center;margin-top:20px}
+.btn-primary{background:var(--gold);color:var(--obsidian);padding:18px 36px;font-size:15px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;font-weight:500;transition:background .2s,transform .15s;display:inline-block}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-1px)}
+.btn-secondary{font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:var(--sand);text-decoration:none;display:flex;align-items:center;gap:8px;transition:color .2s}
+.btn-secondary:hover{color:var(--gold)}
+.btn-secondary svg{width:18px;height:18px}
+.hero-right{position:relative;overflow:hidden}
+.hero-right::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--obsidian) 0%,transparent 30%),linear-gradient(to top,rgba(26,23,20,.5) 0%,transparent 50%)}
+.hero-stat-strip{position:absolute;bottom:48px;right:48px;z-index:10;display:flex;flex-direction:column;gap:24px;text-align:right}
+.hero-stat-num{font-family:var(--serif);font-size:42px;font-weight:400;color:var(--gold);line-height:1}
+.hero-stat-label{font-size:13px;letter-spacing:.15em;text-transform:uppercase;color:var(--sand-dark);margin-top:4px}
 
-    /* Subtle grain overlay */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.6;
-    }
+/* BRAND BAR */
+.logo-section{padding:48px 96px;display:flex;align-items:center;gap:40px;border-top:1px solid rgba(196,160,82,.12);border-bottom:1px solid rgba(196,160,82,.12);background:var(--obsidian-mid)}
+.windermere-badge{display:flex;align-items:center;gap:16px;flex-shrink:0}
+.windermere-logo-block{width:48px;height:48px;background:var(--wb);display:flex;align-items:center;justify-content:center}
+.windermere-text{font-size:14px;letter-spacing:.15em;text-transform:uppercase;color:var(--sand-dark);line-height:1.6}
+.windermere-text strong{display:block;color:var(--white);font-weight:500;font-size:19px;letter-spacing:.06em;text-transform:none}
+.divider-v{width:1px;height:48px;background:rgba(196,160,82,.2);flex-shrink:0}
+.tagline-text{font-family:var(--serif);font-size:21px;font-style:italic;color:var(--sand)}
+.license-badges{margin-left:auto;display:flex;gap:16px}
+.license-badge{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--smoke);border:1px solid rgba(122,113,104,.4);padding:7px 16px}
 
-    /* Top rule */
-    .top-rule {
-      width: 100%;
-      height: 1px;
-      background: var(--accent);
-      opacity: 0.5;
-    }
+/* SECTIONS */
+section{padding:96px}
+.section-eyebrow{font-size:14px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:16px}
+.section-eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--gold);flex-shrink:0}
+.section-headline{font-family:var(--serif);font-size:clamp(36px,4vw,60px);font-weight:400;line-height:1.15;margin-bottom:24px}
 
-    header {
-      position: relative;
-      z-index: 1;
-      padding: 2.5rem 3rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid var(--rule);
-    }
+/* EXPERTISE */
+.focus-section{background:var(--obsidian-mid);display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start}
+.focus-intro p{font-size:21px;color:var(--sand);line-height:1.85;margin-bottom:20px}
+.expertise-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(196,160,82,.12)}
+.expertise-card{background:var(--obsidian);padding:36px 32px;transition:background .3s}
+.expertise-card:hover{background:rgba(196,160,82,.04)}
+.expertise-icon{width:40px;height:40px;margin-bottom:20px;color:var(--gold)}
+.expertise-card h3{font-family:var(--serif);font-size:23px;font-weight:400;margin-bottom:10px;color:var(--white)}
+.expertise-card p{font-size:18px;color:var(--smoke);line-height:1.75}
 
-    .wordmark {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-weight: 300;
-      font-size: 1.35rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--paper);
-    }
+/* MARKETS */
+.markets-section{background:var(--obsidian)}
+.markets-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(196,160,82,.1);margin-top:56px}
+.market-tile{background:var(--obsidian-mid);padding:40px 32px;position:relative;overflow:hidden;transition:background .3s}
+.market-tile:hover{background:rgba(196,160,82,.04)}
+.market-tile.featured{grid-column:span 2;background:rgba(196,160,82,.05)}
+.market-tile-region{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.market-tile h3{font-family:var(--serif);font-size:26px;font-weight:400;margin-bottom:16px;color:var(--white)}
+.market-tile p{font-size:16px;color:var(--sand-dark);line-height:1.75;max-width:500px}
+.market-tile-accent{position:absolute;bottom:24px;right:24px;font-family:var(--serif);font-size:48px;font-weight:400;color:rgba(196,160,82,.08);line-height:1}
 
-    .wordmark span {
-      color: var(--accent);
-    }
+/* TEAM */
+.team-section{background:var(--obsidian-mid)}
+.team-intro{max-width:600px;margin-bottom:56px}
+.team-intro p{font-size:18px;color:var(--sand);line-height:1.85}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(196,160,82,.1)}
+.team-card{background:var(--obsidian);padding:44px 36px;transition:background .3s}
+.team-card:hover{background:#1e1b18}
+.team-initials{width:60px;height:60px;background:rgba(196,160,82,.12);border:1px solid rgba(196,160,82,.25);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:18px;color:var(--gold);margin-bottom:24px;font-style:italic}
+.team-card h3{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--white);margin-bottom:4px}
+.team-nickname{font-style:italic;font-size:16px;color:var(--gold);margin-bottom:12px;font-family:var(--serif)}
+.team-title{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--smoke);margin-bottom:24px;line-height:1.6}
+.team-bio{font-size:16px;color:var(--sand-dark);line-height:1.8;margin-bottom:28px}
+.team-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.tag{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--clay);border:1px solid rgba(160,128,96,.3);padding:5px 12px}
+.tag.wa{color:var(--wb);border-color:rgba(0,48,135,.35)}
+.team-linkedin{display:inline-flex;align-items:center;gap:8px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--smoke);text-decoration:none;transition:color .2s}
+.team-linkedin:hover{color:var(--gold)}
+.team-linkedin svg{width:16px;height:16px}
 
-    .header-tag {
-      font-size: 0.65rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
+/* WHY */
+.why-section{background:var(--obsidian);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.why-list{list-style:none;margin-top:32px}
+.why-list li{display:grid;grid-template-columns:28px 1fr;gap:16px;padding:24px 0;border-bottom:1px solid rgba(196,160,82,.08);align-items:start}
+.why-num{font-family:var(--serif);font-size:14px;color:var(--gold);font-style:italic;padding-top:2px}
+.why-content h4{font-size:17px;font-weight:500;color:var(--white);margin-bottom:6px}
+.why-content p{font-size:15px;color:var(--smoke);line-height:1.75}
+.why-right{position:relative}
+.why-quote{font-family:var(--serif);font-size:clamp(22px,2.5vw,32px);font-style:italic;color:var(--sand);line-height:1.5;margin-bottom:24px}
+.why-quote::before{content:'\201C';display:block;font-size:64px;color:var(--gold);line-height:.8;margin-bottom:16px}
+.why-attr{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--smoke)}
 
-    main {
-      position: relative;
-      z-index: 1;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 6rem 3rem 4rem;
-      max-width: 960px;
-      margin: 0 auto;
-      width: 100%;
-    }
+/* CTA */
+.cta-section{background:rgba(196,160,82,.04);border-top:1px solid rgba(196,160,82,.12);border-bottom:1px solid rgba(196,160,82,.12);text-align:center;padding:112px 96px}
+.cta-section .section-headline{max-width:700px;margin:0 auto 24px}
+.cta-sub{font-size:18px;color:var(--sand);max-width:520px;margin:0 auto 48px;line-height:1.8}
+.cta-actions{display:flex;justify-content:center;gap:20px;align-items:center;flex-wrap:wrap}
+.btn-ghost{border:1px solid rgba(196,160,82,.4);color:var(--sand);padding:16px 32px;font-size:14px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;font-weight:400;transition:border-color .2s,color .2s;display:inline-block}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
 
-    .eyebrow {
-      font-size: 0.6rem;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 2.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
+/* FOOTER */
+footer{background:var(--obsidian);padding:64px 96px 48px;border-top:1px solid rgba(255,255,255,.05)}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:64px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:32px}
+.footer-brand p{font-size:15px;color:var(--smoke);line-height:1.8;margin-top:16px;max-width:300px}
+.footer-col h4{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sand-dark);margin-bottom:20px;font-weight:500}
+.footer-col ul{list-style:none}
+.footer-col li{font-size:15px;color:var(--smoke);margin-bottom:12px}
+.footer-col a{color:var(--smoke);text-decoration:none;transition:color .2s}
+.footer-col a:hover{color:var(--gold)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-legal{font-size:13px;color:rgba(122,113,104,.6);letter-spacing:.04em;line-height:1.7}
+.footer-windermere{display:flex;align-items:center;gap:12px;font-size:12px;color:rgba(122,113,104,.5);letter-spacing:.08em;text-transform:uppercase}
+.windermere-dot-blue{width:8px;height:8px;background:var(--wb)}
+.windermere-dot-red{width:8px;height:8px;background:var(--wr)}
 
-    .eyebrow::before {
-      content: '';
-      display: block;
-      width: 32px;
-      height: 1px;
-      background: var(--accent);
-      opacity: 0.7;
-    }
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
 
-    h1 {
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-weight: 300;
-      font-size: clamp(3rem, 7vw, 6.5rem);
-      line-height: 1.05;
-      letter-spacing: -0.01em;
-      color: var(--paper);
-      margin-bottom: 2.5rem;
-    }
+/* MOBILE 900px */
+@media(max-width:900px){
+  .dev-banner{padding:12px 20px}
+  .dev-divider,.dev-banner-sub{display:none}
+  .dev-banner-text{font-size:16px}
+  .dev-banner-inner{gap:12px}
+  nav{padding:16px 20px}
+  .nav-links{display:none}
+  .nav-wordmark{font-size:18px}
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-right{display:none}
+  .hero-left{padding:48px 24px 56px}
+  .hero-headline{font-size:clamp(38px,10vw,56px)}
+  .hero-tagline{font-size:18px}
+  .hero-body{font-size:17px;max-width:100%}
+  .hero-eyebrow{font-size:12px}
+  .hero-actions{flex-direction:column;align-items:stretch;gap:12px;margin-top:24px}
+  .btn-primary{text-align:center;padding:18px 24px;font-size:15px}
+  .btn-secondary{justify-content:center;font-size:15px}
+  .logo-section{padding:32px 24px;flex-wrap:wrap;gap:20px}
+  .tagline-text{font-size:16px}
+  .license-badges{margin-left:0;flex-wrap:wrap;gap:10px}
+  .windermere-text strong{font-size:15px}
+  section{padding:56px 24px}
+  .section-eyebrow{font-size:12px}
+  .section-headline{font-size:clamp(30px,8vw,44px)}
+  .focus-section{grid-template-columns:1fr;gap:40px}
+  .focus-intro p{font-size:17px}
+  .expertise-grid{grid-template-columns:1fr}
+  .expertise-card{padding:28px 24px}
+  .expertise-card h3{font-size:19px}
+  .expertise-card p{font-size:16px}
+  .markets-grid{grid-template-columns:1fr}
+  .market-tile.featured{grid-column:span 1}
+  .market-tile{padding:32px 24px}
+  .market-tile h3{font-size:22px}
+  .market-tile p{font-size:16px}
+  .team-grid{grid-template-columns:1fr}
+  .team-card{padding:36px 24px}
+  .team-card h3{font-size:22px}
+  .team-bio{font-size:16px}
+  .team-title{font-size:12px}
+  .team-linkedin{font-size:14px}
+  .tag{font-size:12px;padding:6px 12px}
+  .team-intro p{font-size:17px}
+  .why-section{grid-template-columns:1fr;gap:40px}
+  .why-right{display:none}
+  .why-content h4{font-size:17px}
+  .why-content p{font-size:16px}
+  .cta-section{padding:64px 24px}
+  .cta-sub{font-size:17px}
+  .cta-actions{flex-direction:column;align-items:stretch}
+  .btn-ghost{text-align:center;padding:18px 24px;font-size:15px}
+  .footer-top{grid-template-columns:1fr;gap:40px}
+  footer{padding:48px 24px 32px}
+  .footer-bottom{flex-direction:column;align-items:flex-start;gap:12px}
+  .footer-brand p,.footer-col li{font-size:15px}
+  .footer-legal{font-size:13px}
+}
 
-    h1 em {
-      font-style: italic;
-      color: var(--accent);
-    }
-
-    .divider {
-      width: 48px;
-      height: 1px;
-      background: var(--rule);
-      margin-bottom: 2.5rem;
-    }
-
-    .body-text {
-      font-size: 0.95rem;
-      line-height: 1.85;
-      color: var(--muted);
-      max-width: 480px;
-      margin-bottom: 4rem;
-    }
-
-    .notify-form {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      max-width: 420px;
-    }
-
-    .notify-label {
-      font-size: 0.6rem;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.9rem;
-    }
-
-    .input-row {
-      display: flex;
-      border: 1px solid rgba(200, 169, 110, 0.3);
-    }
-
-    .input-row input[type="email"] {
-      flex: 1;
-      background: transparent;
-      border: none;
-      outline: none;
-      color: var(--paper);
-      font-family: 'Karla', sans-serif;
-      font-weight: 300;
-      font-size: 0.85rem;
-      letter-spacing: 0.04em;
-      padding: 0.85rem 1.1rem;
-    }
-
-    .input-row input[type="email"]::placeholder {
-      color: rgba(138, 135, 111, 0.5);
-    }
-
-    .input-row button {
-      background: var(--accent);
-      border: none;
-      color: var(--ink);
-      font-family: 'Karla', sans-serif;
-      font-size: 0.6rem;
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      padding: 0.85rem 1.4rem;
-      cursor: pointer;
-      transition: opacity 0.2s ease;
-      white-space: nowrap;
-    }
-
-    .input-row button:hover {
-      opacity: 0.85;
-    }
-
-    .success-msg {
-      display: none;
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      color: var(--accent);
-      padding-top: 0.75rem;
-    }
-
-    .error-msg {
-      display: none;
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      color: rgba(200, 93, 93, 0.85);
-      padding-top: 0.75rem;
-    }
-
-    footer {
-      position: relative;
-      z-index: 1;
-      padding: 2rem 3rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-top: 1px solid var(--rule);
-    }
-
-    .footer-left {
-      font-size: 0.6rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .footer-right {
-      font-size: 0.6rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .footer-right a {
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-right a:hover {
-      color: var(--paper);
-    }
-
-    /* Fade-in animation */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(16px);
-      animation: fadeUp 0.9s ease forwards;
-    }
-
-    .fade-up:nth-child(1) { animation-delay: 0.1s; }
-    .fade-up:nth-child(2) { animation-delay: 0.3s; }
-    .fade-up:nth-child(3) { animation-delay: 0.45s; }
-    .fade-up:nth-child(4) { animation-delay: 0.6s; }
-    .fade-up:nth-child(5) { animation-delay: 0.75s; }
-
-    @keyframes fadeUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @media (max-width: 600px) {
-      header {
-        padding: 1.75rem 1.5rem;
-      }
-
-      main {
-        padding: 4rem 1.5rem 3rem;
-      }
-
-      footer {
-        padding: 1.5rem;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-      }
-
-      .input-row {
-        flex-direction: column;
-      }
-
-      .input-row button {
-        padding: 0.85rem;
-      }
-    }
-  </style>
+/* MOBILE 480px */
+@media(max-width:480px){
+  .hero-left{padding:40px 20px 48px}
+  .hero-headline{font-size:clamp(34px,11vw,48px)}
+  .hero-tagline{font-size:17px}
+  .hero-body{font-size:16px}
+  section{padding:48px 20px}
+  .logo-section{padding:28px 20px}
+  footer{padding:40px 20px 28px}
+  .cta-section{padding:56px 20px}
+  .team-card{padding:32px 20px}
+  .expertise-card{padding:24px 20px}
+  .market-tile{padding:28px 20px}
+  .section-headline{font-size:clamp(28px,9vw,40px)}
+}
+</style>
 </head>
 <body>
 
-  <div class="top-rule"></div>
+<!-- DEV BANNER -->
+<div class="dev-banner">
+  <div class="dev-banner-inner">
+    <span class="dev-pill">In Development</span>
+    <span class="dev-banner-text">Something is closing in.</span>
+    <span class="dev-divider"></span>
+    <span class="dev-banner-sub">A new approach to commercial real estate — built for clarity, speed, and the deals that matter.</span>
+    <a href="#contact" class="dev-stay">Stay Informed</a>
+  </div>
+</div>
 
-  <header>
-    <div class="wordmark">Clozing <span>CRE</span></div>
-    <div class="header-tag">Commercial Real Estate</div>
-  </header>
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <svg class="nav-logo-svg" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M28 10 C28 10 20 6 12 10 C6 13 5 18 5 18 C5 18 6 23 12 26 C20 30 28 26 28 26" stroke="#C4A052" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <line x1="13" y1="13" x2="23" y2="23" stroke="#C4A052" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="13" y1="13" x2="23" y2="13" stroke="#C4A052" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="13" y1="23" x2="23" y2="23" stroke="#C4A052" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <span class="nav-wordmark">CLOZING<span> CRE</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#markets">Markets</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#contact" class="nav-cta">Connect</a></li>
+  </ul>
+</nav>
 
-  <main>
-    <div class="eyebrow fade-up">In Development</div>
+<!-- HERO -->
+<section class="hero" style="padding:0;">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Windermere Commercial Palm Springs</div>
+    <h1 class="hero-headline">Something is<br><em>closing in.</em></h1>
+    <p class="hero-tagline">A new approach to commercial real estate is on its way. Built for clarity, speed, and the deals that matter.</p>
+    <p class="hero-body">Clozing CRE brings institutional-grade expertise to the Coachella Valley, Greater Palm Springs, and California's most dynamic investment corridors — serving high-net-worth buyers, sellers, and investors who expect more.</p>
+    <div class="hero-actions">
+      <a href="tel:+14426770396" class="btn-primary">Schedule a Consultation</a>
+      <a href="#team" class="btn-secondary">
+        Meet the Team
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <svg viewBox="0 0 800 900" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.18;">
+      <defs><linearGradient id="skyg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1A1714"/><stop offset="100%" stop-color="#2E2A26"/></linearGradient></defs>
+      <rect width="800" height="900" fill="url(#skyg)"/>
+      <polygon points="0,600 200,300 350,480 500,250 650,420 800,350 800,900 0,900" fill="#2E2A26"/>
+      <polygon points="0,650 150,400 300,550 450,380 600,500 800,430 800,900 0,900" fill="#26221F"/>
+      <rect x="0" y="700" width="800" height="200" fill="#1A1714"/>
+      <rect x="80" y="580" width="120" height="120" fill="#221E1B"/>
+      <rect x="70" y="545" width="140" height="10" fill="#C4A052" opacity="0.3"/>
+      <rect x="520" y="560" width="150" height="140" fill="#221E1B"/>
+      <rect x="510" y="530" width="170" height="10" fill="#C4A052" opacity="0.3"/>
+      <line x1="400" y1="700" x2="400" y2="580" stroke="#3A342E" stroke-width="8"/>
+      <ellipse cx="400" cy="570" rx="32" ry="18" fill="#3A342E" transform="rotate(-15 400 570)"/>
+      <ellipse cx="400" cy="555" rx="26" ry="14" fill="#3A342E" transform="rotate(20 400 555)"/>
+    </svg>
+    <div class="hero-stat-strip">
+      <div><div class="hero-stat-num">CA + WA</div><div class="hero-stat-label">Licensed States</div></div>
+      <div><div class="hero-stat-num">3</div><div class="hero-stat-label">Senior Principals</div></div>
+      <div><div class="hero-stat-num">Desert</div><div class="hero-stat-label">Market Specialists</div></div>
+    </div>
+  </div>
+</section>
 
-    <h1 class="fade-up">
-      Something is<br />
-      <em>closing in.</em>
-    </h1>
+<!-- BRAND BAR -->
+<div class="logo-section">
+  <div class="windermere-badge">
+    <div class="windermere-logo-block">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 4L14 24L24 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="windermere-text"><strong>Windermere Commercial</strong>Palm Springs</div>
+  </div>
+  <div class="divider-v"></div>
+  <div class="tagline-text">The standard for commercial real estate in the desert.</div>
+  <div class="license-badges">
+    <div class="license-badge">CA DRE Licensed</div>
+    <div class="license-badge">WA Managing Broker</div>
+  </div>
+</div>
 
-    <div class="divider fade-up"></div>
+<!-- EXPERTISE -->
+<section class="focus-section" id="expertise">
+  <div class="focus-intro fade-up">
+    <div class="section-eyebrow">What We Do</div>
+    <h2 class="section-headline">Built for<br><em>complex</em> deals.</h2>
+    <p>Clozing CRE operates at the intersection of investment strategy, market intelligence, and creative deal-making. We represent buyers, sellers, landlords, and tenants across every commercial asset class — from legacy hospitality properties to ground-up development opportunities.</p>
+    <p>With deep Coachella Valley roots and a Pacific Northwest network, we connect capital to opportunity across state lines and market cycles.</p>
+  </div>
+  <div class="expertise-grid">
+    <div class="expertise-card fade-up">
+      <svg class="expertise-icon" viewBox="0 0 36 36" fill="none"><rect x="4" y="10" width="28" height="22" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M12 10V7a6 6 0 0 1 12 0v3" stroke="currentColor" stroke-width="1.5"/><path d="M18 20v4M14 22h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <h3>Investment Sales</h3>
+      <p>Office, retail, hospitality, mixed-use, and land. We represent HNW principals with institutional rigor and boutique attention.</p>
+    </div>
+    <div class="expertise-card fade-up">
+      <svg class="expertise-icon" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="16" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M18 7V4M18 28v-3M29 16h3M4 16h3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M14 16c0-2.2 1.8-4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <h3>1031 Exchange Advisory</h3>
+      <p>Strategic identification and execution of like-kind exchanges — including inbound California and outbound Pacific Northwest transactions.</p>
+    </div>
+    <div class="expertise-card fade-up">
+      <svg class="expertise-icon" viewBox="0 0 36 36" fill="none"><rect x="6" y="14" width="24" height="16" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M12 14V11a6 6 0 0 1 12 0v3" stroke="currentColor" stroke-width="1.5"/><path d="M10 26V22M18 26V20M26 26V24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <h3>Tenant Representation</h3>
+      <p>From flagship retailers to boutique hospitality brands — we secure space that performs. Palm Canyon Drive and beyond.</p>
+    </div>
+    <div class="expertise-card fade-up">
+      <svg class="expertise-icon" viewBox="0 0 36 36" fill="none"><path d="M6 28L18 8l12 20H6z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M12 28v-8h12v8M18 20v8" stroke="currentColor" stroke-width="1.5"/></svg>
+      <h3>Landlord Services</h3>
+      <p>Positioning, leasing strategy, and broker activation for legacy commercial properties seeking modern tenants and premium rents.</p>
+    </div>
+    <div class="expertise-card fade-up">
+      <svg class="expertise-icon" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="14" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M8 30c0-5.5 4.5-9 10-9s10 3.5 10 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <h3>Brand-to-Space Matching</h3>
+      <p>Curating tenants that elevate properties — activating commercial real estate as a platform for culture and commerce.</p>
+    </div>
+    <div class="expertise-card fade-up">
+      <svg class="expertise-icon" viewBox="0 0 36 36" fill="none"><path d="M6 24l8-8 6 6 4-4 6 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="4" y="6" width="28" height="24" rx="1" stroke="currentColor" stroke-width="1.5"/></svg>
+      <h3>Cap Rate &amp; Valuation</h3>
+      <p>Independent analysis for acquisitions, dispositions, and portfolio optimization. Numbers that hold up in due diligence.</p>
+    </div>
+  </div>
+</section>
 
-    <p class="body-text fade-up">
-      A new approach to commercial real estate is on its way.
-      Built for clarity, speed, and the deals that matter.
-    </p>
+<!-- MARKETS -->
+<section class="markets-section" id="markets">
+  <div class="section-eyebrow fade-up">Where We Work</div>
+  <h2 class="section-headline fade-up">Markets We Know<br><em>Deeply.</em></h2>
+  <div class="markets-grid">
+    <div class="market-tile featured fade-up">
+      <div class="market-tile-region">Primary Market</div>
+      <h3>Greater Palm Springs &amp; Coachella Valley</h3>
+      <p>Our home market. From Palm Springs to Indio — we have deep knowledge of every corridor, every asset class, and every major landlord in the valley. Active since 2018, we've watched this market mature from seasonal retreat to year-round investment destination.</p>
+      <div class="market-tile-accent">PS</div>
+    </div>
+    <div class="market-tile fade-up">
+      <div class="market-tile-region">Extended Market</div>
+      <h3>High Desert &amp; Inland Empire</h3>
+      <p>Twentynine Palms, Joshua Tree, Yucca Valley — the outlier desert markets generating outsized investor interest.</p>
+      <div class="market-tile-accent">JT</div>
+    </div>
+    <div class="market-tile fade-up">
+      <div class="market-tile-region">Southern California</div>
+      <h3>Los Angeles &amp; Orange County</h3>
+      <p>Capital origination, 1031 exchange buyers, and institutional investors seeking desert exposure.</p>
+      <div class="market-tile-accent">LA</div>
+    </div>
+    <div class="market-tile fade-up">
+      <div class="market-tile-region">Pacific Northwest</div>
+      <h3>Washington State</h3>
+      <p>Managing Broker licensed. Seattle-market relationships and cross-state investment advisory.</p>
+      <div class="market-tile-accent">WA</div>
+    </div>
+    <div class="market-tile fade-up">
+      <div class="market-tile-region">Northern California</div>
+      <h3>Bay Area &amp; Sacramento</h3>
+      <p>NorCal capital moving south — we connect Bay Area and Sacramento investors to desert and SoCal commercial opportunities.</p>
+      <div class="market-tile-accent">NCA</div>
+    </div>
+    <div class="market-tile fade-up">
+      <div class="market-tile-region">Southern California</div>
+      <h3>San Diego &amp; Surrounding Region</h3>
+      <p>Statewide buyer relationships. California-licensed for any transaction, any market.</p>
+      <div class="market-tile-accent">SD</div>
+    </div>
+  </div>
+</section>
 
-    <div class="notify-form fade-up">
-      <div class="notify-label">Stay informed</div>
-      <div class="input-row">
-        <input type="email" id="email-input" placeholder="your@email.com" aria-label="Email address" />
-        <button onclick="handleSubmit()">Notify me</button>
+<!-- TEAM -->
+<section class="team-section" id="team">
+  <div class="team-intro fade-up">
+    <div class="section-eyebrow">The Principals</div>
+    <h2 class="section-headline">The people<br><em>at the table.</em></h2>
+    <p>Three licensed professionals with complementary depth — in markets, brands, capital, and culture. Clozing CRE is a team by design, not by default.</p>
+  </div>
+  <div class="team-grid">
+    <div class="team-card fade-up">
+      <div class="team-initials">SP</div>
+      <h3>Slavyan Panayotov</h3>
+      <div class="team-nickname">"Slav"</div>
+      <div class="team-title">Principal Broker &middot; Windermere Commercial</div>
+      <p class="team-bio">A trusted commercial real estate advisor with deep expertise across the Coachella Valley. Slav brings transaction-level intelligence and long-standing client relationships to every deal — from investment sales to complex lease negotiations.</p>
+      <div class="team-tags">
+        <span class="tag">Investment Sales</span>
+        <span class="tag">Leasing</span>
+        <span class="tag">Desert Markets</span>
+        <span class="tag">CA Licensed</span>
       </div>
-      <div class="success-msg" id="success-msg">You're on the list. We'll be in touch.</div>
-      <div class="error-msg" id="error-msg">Something went wrong. Please try again.</div>
+      <a href="https://www.linkedin.com/in/slavtherealtor/" target="_blank" rel="noopener noreferrer" class="team-linkedin">
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M13.5 1.5h-11A1 1 0 0 0 1.5 2.5v11A1 1 0 0 0 2.5 14.5h11a1 1 0 0 0 1-1v-11A1 1 0 0 0 13.5 1.5zM5.5 12.5h-2v-6h2v6zm-1-7a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm8 7h-2V9c0-.8-.3-1.3-1-1.3s-1.2.6-1.2 1.3v3.5h-2v-6h2v.9a2.2 2.2 0 0 1 2-1c1.4 0 2.2.9 2.2 2.9v3.2z"/></svg>
+        LinkedIn Profile
+      </a>
     </div>
-  </main>
-
-  <footer>
-    <div class="footer-left">clozingcre.com</div>
-    <div class="footer-right">
-      <a href="mailto:hello@clozingcre.com">hello@clozingcre.com</a>
+    <div class="team-card fade-up">
+      <div class="team-initials">MK</div>
+      <h3>Mahnaz Khazen Shadman</h3>
+      <div class="team-nickname">"MK"</div>
+      <div class="team-title">Principal Broker &middot; Windermere Commercial</div>
+      <p class="team-bio">MK brings a sophisticated investor perspective and client-first approach developed across years of California commercial transactions. Her analytical fluency and market relationships make her an invaluable advocate for buyers and sellers operating at the highest level.</p>
+      <div class="team-tags">
+        <span class="tag">Acquisitions</span>
+        <span class="tag">Client Advisory</span>
+        <span class="tag">Portfolio Strategy</span>
+        <span class="tag">CA Licensed</span>
+      </div>
+      <a href="https://www.linkedin.com/in/mahnaz-khazen-shadman-a2a68a10/" target="_blank" rel="noopener noreferrer" class="team-linkedin">
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M13.5 1.5h-11A1 1 0 0 0 1.5 2.5v11A1 1 0 0 0 2.5 14.5h11a1 1 0 0 0 1-1v-11A1 1 0 0 0 13.5 1.5zM5.5 12.5h-2v-6h2v6zm-1-7a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm8 7h-2V9c0-.8-.3-1.3-1-1.3s-1.2.6-1.2 1.3v3.5h-2v-6h2v.9a2.2 2.2 0 0 1 2-1c1.4 0 2.2.9 2.2 2.9v3.2z"/></svg>
+        LinkedIn Profile
+      </a>
     </div>
-  </footer>
+    <div class="team-card fade-up">
+      <div class="team-initials">KPB</div>
+      <h3>Kate Pawlicki Bourne</h3>
+      <div class="team-nickname">"KPB"</div>
+      <div class="team-title">Incoming Commercial Broker &middot; Windermere Palm Springs &middot; CA + WA Licensed</div>
+      <p class="team-bio">Founder of Pulp Media Lab — with enterprise clients including Microsoft, Google, YouTube, and Meta — Kate brings a brand strategist's precision to commercial real estate. Her dual CA/WA Managing Broker licensure and Coachella Valley roots since 2018 make her a rare cross-market asset.</p>
+      <div class="team-tags">
+        <span class="tag">Brand Strategy</span>
+        <span class="tag">Tenant Relations</span>
+        <span class="tag">CA Licensed</span>
+        <span class="tag wa">WA Managing Broker</span>
+      </div>
+      <a href="https://www.linkedin.com/in/pulpinc/" target="_blank" rel="noopener noreferrer" class="team-linkedin">
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M13.5 1.5h-11A1 1 0 0 0 1.5 2.5v11A1 1 0 0 0 2.5 14.5h11a1 1 0 0 0 1-1v-11A1 1 0 0 0 13.5 1.5zM5.5 12.5h-2v-6h2v6zm-1-7a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm8 7h-2V9c0-.8-.3-1.3-1-1.3s-1.2.6-1.2 1.3v3.5h-2v-6h2v.9a2.2 2.2 0 0 1 2-1c1.4 0 2.2.9 2.2 2.9v3.2z"/></svg>
+        LinkedIn Profile
+      </a>
+    </div>
+  </div>
+</section>
 
-  <script>
-    async function handleSubmit() {
-      const input = document.getElementById('email-input');
-      const success = document.getElementById('success-msg');
-      const error = document.getElementById('error-msg');
-      const row = input.closest('.input-row');
-      const val = input.value.trim();
+<!-- WHY -->
+<section class="why-section">
+  <div>
+    <div class="section-eyebrow fade-up">Our Edge</div>
+    <h2 class="section-headline fade-up">Why investors<br>choose <em>Clozing CRE.</em></h2>
+    <ul class="why-list">
+      <li class="fade-up"><span class="why-num">01</span><div class="why-content"><h4>Desert-First Market Intelligence</h4><p>Coachella Valley roots since 2018. We don't parachute in — we live here, track every listing, and know who holds what.</p></div></li>
+      <li class="fade-up"><span class="why-num">02</span><div class="why-content"><h4>Cross-State Deal Capability</h4><p>CA and WA licensed. We run 1031 exchanges, interstate acquisitions, and multi-market portfolio strategies without handoffs.</p></div></li>
+      <li class="fade-up"><span class="why-num">03</span><div class="why-content"><h4>Brand + Real Estate Convergence</h4><p>We think about commercial space the way brand strategists think about positioning — who belongs here and why it matters.</p></div></li>
+      <li class="fade-up"><span class="why-num">04</span><div class="why-content"><h4>Windermere Network + Resources</h4><p>The reach of a major regional brand. The attention of a boutique practice. Windermere Commercial's platform behind every deal.</p></div></li>
+      <li class="fade-up"><span class="why-num">05</span><div class="why-content"><h4>High-Net-Worth Client Focus</h4><p>We work with serious buyers, sellers, and investors. Discretion, precision, and performance are baseline expectations — not selling points.</p></div></li>
+    </ul>
+  </div>
+  <div class="why-right fade-up">
+    <div class="why-quote">Palm Springs isn't a secondary market anymore. It's a primary investment destination — and the window is still open.</div>
+    <div class="why-attr">— Clozing CRE, 2025</div>
+    <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;margin-top:64px;opacity:0.18;">
+      <line x1="0" y1="100" x2="400" y2="100" stroke="#C4A052" stroke-width="0.5"/>
+      <polyline points="0,100 60,60 110,80 170,20 240,65 290,45 350,70 400,50" stroke="#C4A052" stroke-width="1" fill="none"/>
+      <circle cx="200" cy="150" r="30" stroke="#C4A052" stroke-width="0.5"/>
+      <line x1="200" y1="120" x2="200" y2="180" stroke="#C4A052" stroke-width="0.5"/>
+      <line x1="170" y1="150" x2="230" y2="150" stroke="#C4A052" stroke-width="0.5"/>
+      <polygon points="200,122 196,136 200,133 204,136" fill="#C4A052" opacity="0.6"/>
+    </svg>
+  </div>
+</section>
 
-      if (!val || !val.includes('@')) {
-        row.style.borderColor = 'rgba(200,93,93,0.5)';
-        return;
-      }
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="section-eyebrow fade-up" style="justify-content:center;"><span>Let's Talk</span></div>
+  <h2 class="section-headline fade-up">Ready to move?<br><em>So are we.</em></h2>
+  <p class="cta-sub fade-up">Whether you're acquiring, divesting, 1031-ing, or positioning a commercial asset for the next chapter — Clozing CRE is the call to make first.</p>
+  <div class="cta-actions fade-up">
+    <a href="tel:+14426770396" class="btn-primary">Call Us Directly</a>
+    <a href="tel:+14426770396" class="btn-ghost">Call Palm Springs Office</a>
+  </div>
+  <div style="margin-top:48px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:rgba(122,113,104,.5);">An affiliated team of Windermere Commercial &middot; Palm Springs, CA</div>
+</section>
 
-      row.style.opacity = '0.5';
-      row.style.pointerEvents = 'none';
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+        <svg width="30" height="30" viewBox="0 0 36 36" fill="none"><path d="M28 10 C28 10 20 6 12 10 C6 13 5 18 5 18 C5 18 6 23 12 26 C20 30 28 26 28 26" stroke="#C4A052" stroke-width="2" fill="none" stroke-linecap="round"/><line x1="13" y1="13" x2="23" y2="23" stroke="#C4A052" stroke-width="1.5" stroke-linecap="round"/><line x1="13" y1="13" x2="23" y2="13" stroke="#C4A052" stroke-width="1.5" stroke-linecap="round"/><line x1="13" y1="23" x2="23" y2="23" stroke="#C4A052" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span style="font-family:var(--serif);font-size:18px;font-weight:500;color:var(--white);letter-spacing:.04em;">CLOZING <span style="color:var(--gold)">CRE</span></span>
+      </div>
+      <p>Commercial real estate advisors serving Palm Springs, the Coachella Valley, and greater California. An affiliated team of Windermere Commercial.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li>Investment Sales</li>
+        <li>1031 Exchange Advisory</li>
+        <li>Tenant Representation</li>
+        <li>Landlord Services</li>
+        <li>Portfolio Valuation</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="https://www.linkedin.com/in/slavtherealtor/" target="_blank" rel="noopener">Slav on LinkedIn</a></li>
+        <li><a href="https://www.linkedin.com/in/mahnaz-khazen-shadman-a2a68a10/" target="_blank" rel="noopener">MK on LinkedIn</a></li>
+        <li><a href="https://www.linkedin.com/in/pulpinc/" target="_blank" rel="noopener">KPB on LinkedIn</a></li>
+        <li><a href="https://windermerecommercial.com" target="_blank" rel="noopener">Windermere Commercial</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-legal">&copy; 2025 Clozing CRE. All rights reserved. CA DRE Licensed. WA Managing Broker Licensed.<br>An affiliated team of Windermere Commercial, Palm Springs.</div>
+    <div class="footer-windermere">
+      <div class="windermere-dot-blue"></div>
+      <div class="windermere-dot-red"></div>
+      Windermere Commercial
+    </div>
+  </div>
+</footer>
 
-      try {
-        const res = await fetch('https://formspree.io/f/xvzyzgza', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ email: val })
-        });
-
-        if (res.ok) {
-          success.style.display = 'block';
-          error.style.display = 'none';
-        } else {
-          throw new Error();
-        }
-      } catch {
-        row.style.opacity = '1';
-        row.style.pointerEvents = 'auto';
-        error.style.display = 'block';
-      }
-    }
-
-    document.getElementById('email-input').addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') handleSubmit();
-    });
-  </script>
-
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  document.querySelectorAll('.expertise-grid,.team-grid,.markets-grid,.why-list').forEach(grid => {
+    Array.from(grid.children).forEach((child,i) => { child.style.transitionDelay = (i*0.08)+'s'; });
+  });
+</script>
 </body>
 </html>
