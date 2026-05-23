@@ -116,7 +116,7 @@ section{padding:96px}
 .team-bio{font-size:16px;color:var(--sand-dark);line-height:1.8;margin-bottom:28px}
 .team-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
 .tag{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--clay);border:1px solid rgba(160,128,96,.3);padding:5px 12px}
-.tag.wa{color:var(--white);border-color:rgba(196,160,82,.35)}
+.tag.wa{color:var(--wb);border-color:rgba(0,48,135,.35)}
 .team-linkedin{display:inline-flex;align-items:center;gap:8px;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--smoke);text-decoration:none;transition:color .2s}
 .team-linkedin:hover{color:var(--gold)}
 .team-linkedin svg{width:16px;height:16px}
@@ -140,20 +140,6 @@ section{padding:96px}
 .cta-actions{display:flex;justify-content:center;gap:20px;align-items:center;flex-wrap:wrap}
 .btn-ghost{border:1px solid rgba(196,160,82,.4);color:var(--sand);padding:16px 32px;font-size:14px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;font-weight:400;transition:border-color .2s,color .2s;display:inline-block}
 .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
-.contact-form{max-width:560px;margin:48px auto 0;text-align:left}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
-.form-group{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
-.form-group label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--smoke)}
-.form-group input,.form-group select,.form-group textarea{background:rgba(255,255,255,.04);border:1px solid rgba(196,160,82,.2);color:var(--white);font-family:var(--sans);font-size:16px;font-weight:300;padding:14px 16px;outline:none;transition:border-color .2s;width:100%}
-.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(122,113,104,.6)}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:rgba(196,160,82,.6)}
-.form-group select{appearance:none;cursor:pointer;color:var(--smoke)}
-.form-group select option{background:var(--obsidian-mid);color:var(--white)}
-.form-group textarea{resize:vertical;min-height:110px}
-.form-submit{width:100%;background:var(--gold);color:var(--obsidian);border:none;padding:18px;font-family:var(--sans);font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;cursor:pointer;transition:background .2s;margin-top:8px}
-.form-submit:hover{background:var(--gold-light)}
-.form-success{text-align:center;padding:32px;border:1px solid rgba(196,160,82,.25);color:var(--sand);font-family:var(--serif);font-style:italic;font-size:20px;display:none}
-@media(max-width:600px){.form-row{grid-template-columns:1fr}}
 
 /* FOOTER */
 footer{background:var(--obsidian);padding:64px 96px 48px;border-top:1px solid rgba(255,255,255,.05)}
@@ -169,6 +155,43 @@ footer{background:var(--obsidian);padding:64px 96px 48px;border-top:1px solid rg
 .footer-windermere{display:flex;align-items:center;gap:12px;font-size:12px;color:rgba(122,113,104,.5);letter-spacing:.08em;text-transform:uppercase}
 .windermere-dot-blue{width:8px;height:8px;background:var(--wb)}
 .windermere-dot-red{width:8px;height:8px;background:var(--wr)}
+
+/* LISTINGS */
+.listings-section{background:var(--obsidian)}
+.listings-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(196,160,82,.1);margin-top:56px}
+.listing-card{background:var(--obsidian-mid);display:flex;flex-direction:column;transition:background .3s;position:relative;overflow:hidden}
+.listing-card:hover{background:rgba(44,40,36,1)}
+.listing-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:var(--obsidian);position:relative;overflow:hidden}
+.listing-img-inner{width:100%;height:100%;background:linear-gradient(135deg,#2a2520 0%,#1e1b18 100%);display:flex;align-items:center;justify-content:center}
+.listing-img-placeholder{font-family:var(--serif);font-size:48px;color:rgba(196,160,82,.12);font-style:italic;user-select:none}
+.listing-status{position:absolute;top:16px;left:16px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:4px 12px;font-weight:500}
+.listing-status.for-sale{background:var(--gold);color:var(--obsidian)}
+.listing-status.for-lease{background:var(--wb);color:var(--white)}
+.listing-status.sold{background:rgba(92,85,78,.8);color:var(--sand)}
+.listing-body{padding:28px 28px 24px;flex:1;display:flex;flex-direction:column}
+.listing-type{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.listing-address{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--white);margin-bottom:4px;line-height:1.2}
+.listing-city{font-size:15px;color:var(--smoke);margin-bottom:20px}
+.listing-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:20px 0;border-top:1px solid rgba(196,160,82,.1);border-bottom:1px solid rgba(196,160,82,.1);margin-bottom:20px}
+.listing-stat-item{}
+.listing-stat-val{font-family:var(--serif);font-size:20px;color:var(--white);font-weight:400;line-height:1.1}
+.listing-stat-key{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--smoke);margin-top:3px}
+.listing-desc{font-size:15px;color:var(--sand-dark);line-height:1.75;margin-bottom:24px;flex:1}
+.listing-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:auto}
+.listing-btn{font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:10px 18px;text-decoration:none;font-weight:500;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.listing-btn.primary{background:var(--gold);color:var(--obsidian)}
+.listing-btn.primary:hover{background:var(--gold-light)}
+.listing-btn.secondary{border:1px solid rgba(196,160,82,.3);color:var(--sand)}
+.listing-btn.secondary:hover{border-color:var(--gold);color:var(--gold)}
+.listing-btn svg{width:13px;height:13px;flex-shrink:0}
+.listings-note{margin-top:40px;font-size:14px;color:var(--smoke);letter-spacing:.04em;text-align:center}
+.listings-note a{color:var(--gold);text-decoration:none}
+.listings-note a:hover{text-decoration:underline}
+
+@media(max-width:900px){
+  .listings-grid{grid-template-columns:1fr}
+  .listing-address{font-size:20px}
+}
 
 /* ANIMATIONS */
 .fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
@@ -278,6 +301,7 @@ footer{background:var(--obsidian);padding:64px 96px 48px;border-top:1px solid rg
   <ul class="nav-links">
     <li><a href="#expertise">Expertise</a></li>
     <li><a href="#markets">Markets</a></li>
+    <li><a href="#listings">Listings</a></li>
     <li><a href="#team">Team</a></li>
     <li><a href="#contact" class="nav-cta">Connect</a></li>
   </ul>
@@ -291,7 +315,7 @@ footer{background:var(--obsidian);padding:64px 96px 48px;border-top:1px solid rg
     <p class="hero-tagline">A new approach to commercial real estate is on its way. Built for clarity, speed, and the deals that matter.</p>
     <p class="hero-body">Clozing CRE brings institutional-grade expertise to the Coachella Valley, Greater Palm Springs, and California's most dynamic investment corridors — serving high-net-worth buyers, sellers, and investors who expect more.</p>
     <div class="hero-actions">
-
+      <a href="tel:+14426770396" class="btn-primary">Schedule a Consultation</a>
       <a href="#team" class="btn-secondary">
         Meet the Team
         <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -343,7 +367,7 @@ footer{background:var(--obsidian);padding:64px 96px 48px;border-top:1px solid rg
     <div class="section-eyebrow">What We Do</div>
     <h2 class="section-headline">Built for<br><em>complex</em> deals.</h2>
     <p>Clozing CRE operates at the intersection of investment strategy, market intelligence, and creative deal-making. We represent buyers, sellers, landlords, and tenants across every commercial asset class — from legacy hospitality properties to ground-up development opportunities.</p>
-    <p>With deep Coachella Valley roots, Northern California relationships, and a Pacific Northwest network, we connect capital to opportunity across state lines and market cycles.</p>
+    <p>With deep Coachella Valley roots and a Pacific Northwest network, we connect capital to opportunity across state lines and market cycles.</p>
   </div>
   <div class="expertise-grid">
     <div class="expertise-card fade-up">
@@ -387,7 +411,7 @@ footer{background:var(--obsidian);padding:64px 96px 48px;border-top:1px solid rg
     <div class="market-tile featured fade-up">
       <div class="market-tile-region">Primary Market</div>
       <h3>Greater Palm Springs &amp; Coachella Valley</h3>
-      <p>Our home market. From Palm Springs to Indio — we have deep knowledge of every corridor, every asset class, and every major landlord in the valley. For decades, we've watched this market mature from seasonal retreat to year-round investment destination.</p>
+      <p>Our home market. From Palm Springs to Indio — we have deep knowledge of every corridor, every asset class, and every major landlord in the valley. Active since 2018, we've watched this market mature from seasonal retreat to year-round investment destination.</p>
       <div class="market-tile-accent">PS</div>
     </div>
     <div class="market-tile fade-up">
@@ -421,6 +445,144 @@ footer{background:var(--obsidian);padding:64px 96px 48px;border-top:1px solid rg
       <div class="market-tile-accent">SD</div>
     </div>
   </div>
+</section>
+
+<!-- LISTINGS -->
+<section class="listings-section" id="listings">
+  <div class="section-eyebrow fade-up">Active Listings</div>
+  <h2 class="section-headline fade-up">Current<br><em>Opportunities.</em></h2>
+  <div class="listings-grid">
+
+    <!-- LISTING 1: 850 N Palm Canyon -->
+    <div class="listing-card fade-up">
+      <div class="listing-img">
+        <div class="listing-img-inner">
+          <span class="listing-img-placeholder">850</span>
+        </div>
+        <span class="listing-status for-lease">For Lease</span>
+      </div>
+      <div class="listing-body">
+        <div class="listing-type">Retail / Creative Office</div>
+        <div class="listing-address">850 N Palm Canyon Dr</div>
+        <div class="listing-city">Palm Springs, CA 92262</div>
+        <div class="listing-stats">
+          <div class="listing-stat-item">
+            <div class="listing-stat-val">±3,200</div>
+            <div class="listing-stat-key">Sq Ft</div>
+          </div>
+          <div class="listing-stat-item">
+            <div class="listing-stat-val">NNN</div>
+            <div class="listing-stat-key">Lease Type</div>
+          </div>
+          <div class="listing-stat-item">
+            <div class="listing-stat-val">Palm Canyon</div>
+            <div class="listing-stat-key">Corridor</div>
+          </div>
+          <div class="listing-stat-item">
+            <div class="listing-stat-val">Immediate</div>
+            <div class="listing-stat-key">Availability</div>
+          </div>
+        </div>
+        <p class="listing-desc">Former Arthur Elrod studio. A rare creative/retail opportunity on Palm Springs' primary commercial corridor — high visibility, architecturally significant, ideal for a flagship brand or design-forward tenant.</p>
+        <div class="listing-actions">
+          <a href="tel:+14426770396" class="listing-btn primary">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M2 3a1 1 0 0 1 1-1h2.5a1 1 0 0 1 .95.68l.8 2.4a1 1 0 0 1-.23 1.02L5.9 7.2a8 8 0 0 0 2.9 2.9l1.1-1.13a1 1 0 0 1 1.02-.23l2.4.8a1 1 0 0 1 .68.95V13a1 1 0 0 1-1 1C6.27 14 2 9.73 2 4.5V3z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+            Inquire
+          </a>
+          <a href="https://www.loopnet.com" target="_blank" rel="noopener" class="listing-btn secondary">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9M9 2h5v5M14 2L8 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            LoopNet
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- LISTING 2: Villa Mykonos -->
+    <div class="listing-card fade-up">
+      <div class="listing-img">
+        <div class="listing-img-inner">
+          <span class="listing-img-placeholder">VM</span>
+        </div>
+        <span class="listing-status for-sale">For Sale</span>
+      </div>
+      <div class="listing-body">
+        <div class="listing-type">Hospitality / Investment</div>
+        <div class="listing-address">67590 Jones Rd</div>
+        <div class="listing-city">Cathedral City, CA 92234</div>
+        <div class="listing-stats">
+          <div class="listing-stat-item">
+            <div class="listing-stat-val">$3.89M</div>
+            <div class="listing-stat-key">List Price</div>
+          </div>
+          <div class="listing-stat-item">
+            <div class="listing-stat-val">8.86%</div>
+            <div class="listing-stat-key">Cap Rate</div>
+          </div>
+          <div class="listing-stat-item">
+            <div class="listing-stat-val">1031</div>
+            <div class="listing-stat-key">Exchange Ready</div>
+          </div>
+          <div class="listing-stat-item">
+            <div class="listing-stat-val">Hospitality</div>
+            <div class="listing-stat-key">Asset Type</div>
+          </div>
+        </div>
+        <p class="listing-desc">Villa Mykonos Resort — a fully operating boutique hospitality asset with an 8.86% cap rate. Ideal for 1031 exchange buyers seeking stabilized desert income with significant upside.</p>
+        <div class="listing-actions">
+          <a href="tel:+14426770396" class="listing-btn primary">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M2 3a1 1 0 0 1 1-1h2.5a1 1 0 0 1 .95.68l.8 2.4a1 1 0 0 1-.23 1.02L5.9 7.2a8 8 0 0 0 2.9 2.9l1.1-1.13a1 1 0 0 1 1.02-.23l2.4.8a1 1 0 0 1 .68.95V13a1 1 0 0 1-1 1C6.27 14 2 9.73 2 4.5V3z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+            Inquire
+          </a>
+          <a href="https://www.loopnet.com" target="_blank" rel="noopener" class="listing-btn secondary">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9M9 2h5v5M14 2L8 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            LoopNet
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- LISTING 3: Placeholder -->
+    <div class="listing-card fade-up">
+      <div class="listing-img">
+        <div class="listing-img-inner">
+          <span class="listing-img-placeholder">+</span>
+        </div>
+        <span class="listing-status for-sale">Coming Soon</span>
+      </div>
+      <div class="listing-body">
+        <div class="listing-type">Your Listing Here</div>
+        <div class="listing-address">Add Your Property</div>
+        <div class="listing-city">Coachella Valley, CA</div>
+        <div class="listing-stats">
+          <div class="listing-stat-item">
+            <div class="listing-stat-val">—</div>
+            <div class="listing-stat-key">Price / Rate</div>
+          </div>
+          <div class="listing-stat-item">
+            <div class="listing-stat-val">—</div>
+            <div class="listing-stat-key">Asset Type</div>
+          </div>
+          <div class="listing-stat-item">
+            <div class="listing-stat-val">—</div>
+            <div class="listing-stat-key">Sq Ft / Units</div>
+          </div>
+          <div class="listing-stat-item">
+            <div class="listing-stat-val">—</div>
+            <div class="listing-stat-key">Market</div>
+          </div>
+        </div>
+        <p class="listing-desc">Have a commercial property to list? Contact us to discuss representation. We work with sellers, landlords, and investors across the Coachella Valley and greater California.</p>
+        <div class="listing-actions">
+          <a href="tel:+14426770396" class="listing-btn primary">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M2 3a1 1 0 0 1 1-1h2.5a1 1 0 0 1 .95.68l.8 2.4a1 1 0 0 1-.23 1.02L5.9 7.2a8 8 0 0 0 2.9 2.9l1.1-1.13a1 1 0 0 1 1.02-.23l2.4.8a1 1 0 0 1 .68.95V13a1 1 0 0 1-1 1C6.27 14 2 9.73 2 4.5V3z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+            Talk to Us
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <p class="listings-note fade-up">All listings also available on <a href="https://www.loopnet.com" target="_blank" rel="noopener">LoopNet</a> and <a href="https://www.costar.com" target="_blank" rel="noopener">CoStar</a>. Contact us for off-market opportunities.</p>
 </section>
 
 <!-- TEAM -->
@@ -469,12 +631,12 @@ footer{background:var(--obsidian);padding:64px 96px 48px;border-top:1px solid rg
       <div class="team-initials">KPB</div>
       <h3>Kate Pawlicki Bourne</h3>
       <div class="team-nickname">"KPB"</div>
-      <div class="team-title">Licensed Managing Broker WA &nbsp;|&nbsp; Incoming Commercial Broker CA &middot; Windermere Palm Springs</div>
+      <div class="team-title">Incoming Commercial Broker &middot; Windermere Palm Springs &middot; CA + WA Licensed</div>
       <p class="team-bio">Founder of Pulp Media Lab — with enterprise clients including Microsoft, Google, YouTube, and Meta — Kate brings a brand strategist's precision to commercial real estate. Her dual CA/WA Managing Broker licensure and Coachella Valley roots since 2018 make her a rare cross-market asset.</p>
       <div class="team-tags">
         <span class="tag">Brand Strategy</span>
         <span class="tag">Tenant Relations</span>
-        <span class="tag">Incoming CA Broker 2026</span>
+        <span class="tag">CA Licensed</span>
         <span class="tag wa">WA Managing Broker</span>
       </div>
       <a href="https://www.linkedin.com/in/pulpinc/" target="_blank" rel="noopener noreferrer" class="team-linkedin">
@@ -518,46 +680,9 @@ footer{background:var(--obsidian);padding:64px 96px 48px;border-top:1px solid rg
   <h2 class="section-headline fade-up">Ready to move?<br><em>So are we.</em></h2>
   <p class="cta-sub fade-up">Whether you're acquiring, divesting, 1031-ing, or positioning a commercial asset for the next chapter — Clozing CRE is the call to make first.</p>
   <div class="cta-actions fade-up">
-    <span class="btn-primary" style="cursor:default;">442.677.0396</span>
-    <a href="mailto:kate.clozingcre@gmail.com" class="btn-ghost">Email Us</a>
+    <a href="tel:+14426770396" class="btn-primary">Call Us Directly</a>
+    <a href="tel:+14426770396" class="btn-ghost">Call Palm Springs Office</a>
   </div>
-  <form class="contact-form fade-up" id="contact-form" action="https://formspree.io/f/xvzyzgza" method="POST">
-    <div class="form-row">
-      <div class="form-group">
-        <label for="fname">First Name</label>
-        <input type="text" id="fname" name="first_name" placeholder="First" required>
-      </div>
-      <div class="form-group">
-        <label for="lname">Last Name</label>
-        <input type="text" id="lname" name="last_name" placeholder="Last" required>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="your@email.com" required>
-    </div>
-    <div class="form-group">
-      <label for="phone">Phone</label>
-      <input type="tel" id="phone" name="phone" placeholder="Optional">
-    </div>
-    <div class="form-group">
-      <label for="interest">I'm interested in</label>
-      <select id="interest" name="interest">
-        <option value="" disabled selected>Select one</option>
-        <option>Investment Sales</option>
-        <option>1031 Exchange Advisory</option>
-        <option>Tenant Representation</option>
-        <option>Landlord Services</option>
-        <option>General Inquiry</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="message">Message</label>
-      <textarea id="message" name="message" placeholder="Tell us about your goals or the deal you have in mind."></textarea>
-    </div>
-    <button type="submit" class="form-submit">Send Message</button>
-  </form>
-  <div class="form-success" id="form-success">Thank you — we'll be in touch shortly.</div>
   <div style="margin-top:48px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:rgba(122,113,104,.5);">An affiliated team of Windermere Commercial &middot; Palm Springs, CA</div>
 </section>
 
@@ -609,35 +734,6 @@ footer{background:var(--obsidian);padding:64px 96px 48px;border-top:1px solid rg
   document.querySelectorAll('.expertise-grid,.team-grid,.markets-grid,.why-list').forEach(grid => {
     Array.from(grid.children).forEach((child,i) => { child.style.transitionDelay = (i*0.08)+'s'; });
   });
-
-  // Formspree AJAX submission
-  const form = document.getElementById('contact-form');
-  const success = document.getElementById('form-success');
-  if(form){
-    form.addEventListener('submit', async function(e){
-      e.preventDefault();
-      const btn = form.querySelector('.form-submit');
-      btn.textContent = 'Sending…';
-      btn.disabled = true;
-      try {
-        const res = await fetch(form.action, {
-          method: 'POST',
-          body: new FormData(form),
-          headers: { 'Accept': 'application/json' }
-        });
-        if(res.ok){
-          form.style.display = 'none';
-          success.style.display = 'block';
-        } else {
-          btn.textContent = 'Try Again';
-          btn.disabled = false;
-        }
-      } catch(err){
-        btn.textContent = 'Try Again';
-        btn.disabled = false;
-      }
-    });
-  }
 </script>
 </body>
 </html>
