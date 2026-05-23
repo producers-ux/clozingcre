@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Listings | Clozing CRE | Commercial Real Estate | Palm Springs & California</title>
+<meta name="description" content="Active commercial real estate listings from Clozing CRE at Windermere Commercial Palm Springs — retail, hospitality, investment, and creative office opportunities across the Coachella Valley.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --sand:#E8E0D4;--sand-dark:#C9BFB0;--clay:#A08060;
+  --obsidian:#1A1714;--obsidian-mid:#2E2A26;--smoke:#7A7168;
+  --wb:#003087;--wr:#C8102E;--gold:#C4A052;--gold-light:#DDB96A;
+  --white:#FDFCFA;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'DM Sans',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);font-size:21px;background:var(--obsidian);color:var(--white);font-weight:300;line-height:1.7;overflow-x:hidden;-webkit-text-size-adjust:100%}
+
+/* DEV BANNER */
+.dev-banner{background:var(--obsidian-mid);border-bottom:1px solid rgba(196,160,82,.25);padding:14px 24px;text-align:center;position:relative;z-index:200}
+.dev-banner-inner{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+.dev-pill{font-size:13px;letter-spacing:.18em;text-transform:uppercase;background:rgba(196,160,82,.12);border:1px solid rgba(196,160,82,.35);color:var(--gold);padding:4px 12px;white-space:nowrap}
+.dev-banner-text{font-family:var(--serif);font-size:20px;font-style:italic;color:var(--sand)}
+.dev-banner-sub{font-size:16px;color:var(--smoke)}
+.dev-divider{width:1px;height:18px;background:rgba(196,160,82,.2);flex-shrink:0}
+.dev-stay{font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(196,160,82,.3);padding-bottom:1px;white-space:nowrap}
+.dev-stay:hover{color:var(--gold-light)}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(26,23,20,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(196,160,82,.15)}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo-svg{width:36px;height:36px}
+.nav-wordmark{font-family:var(--serif);font-size:24px;font-weight:500;color:var(--white);letter-spacing:.04em}
+.nav-wordmark span{color:var(--gold)}
+.nav-links{display:flex;gap:40px;list-style:none;align-items:center}
+.nav-links a{font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--sand);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a.active{color:var(--gold)}
+.nav-cta{border:1px solid var(--gold);color:var(--gold)!important;padding:10px 22px;transition:background .2s,color .2s!important}
+.nav-cta:hover{background:var(--gold)!important;color:var(--obsidian)!important}
+
+/* PAGE HEADER */
+.page-header{padding:80px 96px 64px;border-bottom:1px solid rgba(196,160,82,.1);background:var(--obsidian-mid);position:relative;overflow:hidden}
+.page-header::before{content:'';position:absolute;top:0;right:0;width:50%;height:100%;background:linear-gradient(135deg,transparent 0%,rgba(196,160,82,.03) 100%);pointer-events:none}
+.page-header-inner{position:relative;z-index:1;display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap}
+.page-eyebrow{font-size:14px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:16px}
+.page-eyebrow::before{content:'';display:block;width:32px;height:1px;background:var(--gold);flex-shrink:0}
+.page-headline{font-family:var(--serif);font-size:clamp(44px,5vw,72px);font-weight:400;line-height:1.08;color:var(--white)}
+.page-headline em{font-style:italic;color:var(--gold-light)}
+.page-sub{font-size:18px;color:var(--sand-dark);max-width:480px;line-height:1.8;margin-top:20px}
+.page-header-right{flex-shrink:0;display:flex;flex-direction:column;align-items:flex-end;gap:16px}
+.header-stat{text-align:right}
+.header-stat-num{font-family:var(--serif);font-size:40px;color:var(--gold);line-height:1}
+.header-stat-label{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--smoke);margin-top:4px}
+.header-divider{width:1px;height:40px;background:rgba(196,160,82,.2)}
+
+/* FILTER BAR */
+.filter-bar{padding:28px 96px;background:var(--obsidian);border-bottom:1px solid rgba(196,160,82,.1);display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.filter-label{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--smoke);margin-right:8px;flex-shrink:0}
+.filter-btn{font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:8px 18px;border:1px solid rgba(196,160,82,.2);color:var(--sand-dark);background:transparent;cursor:pointer;transition:all .2s;font-family:var(--sans)}
+.filter-btn:hover{border-color:var(--gold);color:var(--gold)}
+.filter-btn.active{background:var(--gold);color:var(--obsidian);border-color:var(--gold)}
+.filter-count{margin-left:auto;font-size:14px;color:var(--smoke);letter-spacing:.06em}
+.filter-count span{color:var(--gold);font-family:var(--serif);font-size:18px}
+
+/* LISTINGS GRID */
+.listings-main{padding:64px 96px 96px;background:var(--obsidian)}
+.listings-grid-full{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(196,160,82,.1)}
+.listing-card{background:var(--obsidian-mid);display:flex;flex-direction:column;transition:background .3s;position:relative;overflow:hidden}
+.listing-card:hover{background:rgba(44,40,36,1)}
+.listing-card[data-hidden]{display:none}
+.listing-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:var(--obsidian);position:relative;overflow:hidden}
+.listing-img-inner{width:100%;height:100%;background:linear-gradient(135deg,#2a2520 0%,#1e1b18 100%);display:flex;align-items:center;justify-content:center}
+.listing-img-placeholder{font-family:var(--serif);font-size:48px;color:rgba(196,160,82,.12);font-style:italic;user-select:none}
+.listing-status{position:absolute;top:16px;left:16px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:4px 12px;font-weight:500;z-index:2}
+.listing-status.for-sale{background:var(--gold);color:var(--obsidian)}
+.listing-status.for-lease{background:var(--wb);color:var(--white)}
+.listing-status.sold{background:rgba(92,85,78,.8);color:var(--sand)}
+.listing-status.coming-soon{background:rgba(26,23,20,.85);color:var(--sand);border:1px solid rgba(196,160,82,.3)}
+.listing-body{padding:28px 28px 24px;flex:1;display:flex;flex-direction:column}
+.listing-type{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.listing-address{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--white);margin-bottom:4px;line-height:1.2}
+.listing-city{font-size:15px;color:var(--smoke);margin-bottom:20px}
+.listing-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:20px 0;border-top:1px solid rgba(196,160,82,.1);border-bottom:1px solid rgba(196,160,82,.1);margin-bottom:20px}
+.listing-stat-val{font-family:var(--serif);font-size:20px;color:var(--white);font-weight:400;line-height:1.1}
+.listing-stat-key{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--smoke);margin-top:3px}
+.listing-desc{font-size:15px;color:var(--sand-dark);line-height:1.75;margin-bottom:24px;flex:1}
+.listing-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:auto}
+.listing-btn{font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:10px 18px;text-decoration:none;font-weight:500;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.listing-btn.primary{background:var(--gold);color:var(--obsidian)}
+.listing-btn.primary:hover{background:var(--gold-light)}
+.listing-btn.secondary{border:1px solid rgba(196,160,82,.3);color:var(--sand)}
+.listing-btn.secondary:hover{border-color:var(--gold);color:var(--gold)}
+.listing-btn svg{width:13px;height:13px;flex-shrink:0}
+
+/* FEATURED LISTING — spans 2 cols */
+.listing-card.featured{grid-column:span 2}
+.listing-card.featured .listing-img-wrap{position:relative;overflow:hidden}
+.listing-card.featured .listing-img-wrap img{width:100%;aspect-ratio:16/7;object-fit:cover;display:block}
+.listing-card.featured .listing-stats{grid-template-columns:repeat(4,1fr)}
+.listing-card.featured .listing-address{font-size:28px}
+
+/* PLACEHOLDER CARD */
+.listing-card.placeholder{border:1px dashed rgba(196,160,82,.15);background:transparent}
+.listing-card.placeholder:hover{background:rgba(196,160,82,.02)}
+
+/* NO RESULTS */
+.no-results{grid-column:1/-1;padding:80px 40px;text-align:center;display:none}
+.no-results.visible{display:block}
+.no-results p{font-family:var(--serif);font-size:28px;font-style:italic;color:var(--smoke)}
+
+/* OFF-MARKET STRIP */
+.off-market-strip{margin-top:2px;background:rgba(196,160,82,.04);border:1px solid rgba(196,160,82,.1);padding:48px 56px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.off-market-left h3{font-family:var(--serif);font-size:28px;font-weight:400;color:var(--white);margin-bottom:8px}
+.off-market-left p{font-size:16px;color:var(--sand-dark);max-width:480px;line-height:1.75}
+.off-market-actions{display:flex;gap:12px;flex-wrap:wrap;flex-shrink:0}
+.btn-primary{background:var(--gold);color:var(--obsidian);padding:16px 32px;font-size:14px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;font-weight:500;transition:background .2s;display:inline-block}
+.btn-primary:hover{background:var(--gold-light)}
+.btn-ghost{border:1px solid rgba(196,160,82,.35);color:var(--sand);padding:14px 28px;font-size:14px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:border-color .2s,color .2s;display:inline-block}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+
+/* BOTTOM NOTE */
+.listings-note{margin-top:48px;font-size:14px;color:var(--smoke);letter-spacing:.04em;text-align:center}
+.listings-note a{color:var(--gold);text-decoration:none}
+.listings-note a:hover{text-decoration:underline}
+
+/* FOOTER */
+footer{background:var(--obsidian);padding:64px 96px 48px;border-top:1px solid rgba(255,255,255,.05)}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:64px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:32px}
+.footer-brand p{font-size:15px;color:var(--smoke);line-height:1.8;margin-top:16px;max-width:300px}
+.footer-col h4{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--sand-dark);margin-bottom:20px;font-weight:500}
+.footer-col ul{list-style:none}
+.footer-col li{font-size:15px;color:var(--smoke);margin-bottom:12px}
+.footer-col a{color:var(--smoke);text-decoration:none;transition:color .2s}
+.footer-col a:hover{color:var(--gold)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.footer-legal{font-size:13px;color:rgba(122,113,104,.6);letter-spacing:.04em;line-height:1.7}
+.footer-windermere{display:flex;align-items:center;gap:12px;font-size:12px;color:rgba(122,113,104,.5);letter-spacing:.08em;text-transform:uppercase}
+.windermere-dot-blue{width:8px;height:8px;background:var(--wb)}
+.windermere-dot-red{width:8px;height:8px;background:var(--wr)}
+
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* MOBILE */
+@media(max-width:900px){
+  nav{padding:16px 20px}
+  .nav-links{display:none}
+  .nav-wordmark{font-size:18px}
+  .page-header{padding:48px 24px 40px}
+  .page-header-inner{flex-direction:column;align-items:flex-start;gap:24px}
+  .page-headline{font-size:clamp(36px,9vw,52px)}
+  .page-header-right{align-items:flex-start;flex-direction:row;gap:28px}
+  .header-stat{text-align:left}
+  .filter-bar{padding:20px 24px}
+  .listings-main{padding:32px 0 64px}
+  .listings-grid-full{grid-template-columns:1fr}
+  .listing-card.featured{grid-column:span 1}
+  .listing-card.featured .listing-stats{grid-template-columns:1fr 1fr}
+  .listing-card.featured .listing-address{font-size:22px}
+  .off-market-strip{padding:32px 24px;flex-direction:column;align-items:flex-start}
+  .listings-note{padding:0 24px}
+  footer{padding:48px 24px 32px}
+  .footer-top{grid-template-columns:1fr;gap:40px}
+  .footer-bottom{flex-direction:column;align-items:flex-start;gap:12px}
+  .dev-divider,.dev-banner-sub{display:none}
+  .dev-banner-text{font-size:16px}
+  .dev-banner-inner{gap:12px}
+  .dev-banner{padding:12px 20px}
+}
+@media(max-width:480px){
+  .page-header{padding:40px 20px 32px}
+  .filter-bar{padding:16px 20px}
+  .off-market-strip{padding:28px 20px}
+  footer{padding:40px 20px 28px}
+}
+</style>
+</head>
+<body>
+
+<!-- DEV BANNER -->
+<div class="dev-banner">
+  <div class="dev-banner-inner">
+    <span class="dev-pill">In Development</span>
+    <span class="dev-banner-text">Something is closing in.</span>
+    <span class="dev-divider"></span>
+    <span class="dev-banner-sub">A new approach to commercial real estate — built for clarity, speed, and the deals that matter.</span>
+    <a href="index.html#contact" class="dev-stay">Stay Informed</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg class="nav-logo-svg" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M28 10 C28 10 20 6 12 10 C6 13 5 18 5 18 C5 18 6 23 12 26 C20 30 28 26 28 26" stroke="#C4A052" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <line x1="13" y1="13" x2="23" y2="23" stroke="#C4A052" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="13" y1="13" x2="23" y2="13" stroke="#C4A052" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="13" y1="23" x2="23" y2="23" stroke="#C4A052" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <span class="nav-wordmark">CLOZING<span> CRE</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#expertise">Expertise</a></li>
+    <li><a href="index.html#markets">Markets</a></li>
+    <li><a href="listings.html" class="active">Listings</a></li>
+    <li><a href="index.html#team">Team</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Connect</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <div>
+      <div class="page-eyebrow fade-up">Clozing CRE &middot; Windermere Commercial</div>
+      <h1 class="page-headline fade-up">Active<br><em>Listings.</em></h1>
+      <p class="page-sub fade-up">Curated commercial opportunities across the Coachella Valley — retail, hospitality, and investment assets represented by our principals.</p>
+    </div>
+    <div class="page-header-right fade-up">
+      <div class="header-stat">
+        <div class="header-stat-num">2</div>
+        <div class="header-stat-label">Active Listings</div>
+      </div>
+      <div class="header-divider"></div>
+      <div class="header-stat">
+        <div class="header-stat-num">CA</div>
+        <div class="header-stat-label">Licensed State</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <span class="filter-label">Filter:</span>
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="for-lease">For Lease</button>
+  <button class="filter-btn" data-filter="for-sale">For Sale</button>
+  <button class="filter-btn" data-filter="hospitality">Hospitality</button>
+  <button class="filter-btn" data-filter="retail">Retail</button>
+  <span class="filter-count"><span id="result-count">2</span> properties</span>
+</div>
+
+<!-- LISTINGS -->
+<div class="listings-main">
+  <div class="listings-grid-full" id="listings-grid">
+
+    <!-- LISTING 1: 850 N Palm Canyon — FEATURED -->
+    <div class="listing-card featured fade-up" data-status="for-lease" data-type="retail">
+      <div class="listing-img-wrap" style="position:relative;">
+        <img src="https://images1.loopnet.com/i2/i5AN-iDckY3VNRpnKKB6LwlacGjdhEIErAH7Rnbjlcg/116/850-N-Palm-Canyon-Dr-Palm-Springs-CA-Building-Photo-2-LargeHighDefinition.jpg" alt="850 N Palm Canyon Dr, Palm Springs" style="width:100%;aspect-ratio:16/7;object-fit:cover;display:block;">
+        <span class="listing-status for-lease">For Lease</span>
+      </div>
+      <div class="listing-body">
+        <div class="listing-type">Retail / Creative Office &mdash; Featured Listing</div>
+        <div class="listing-address">850 N Palm Canyon Dr</div>
+        <div class="listing-city">Palm Springs, CA 92262</div>
+        <div class="listing-stats">
+          <div>
+            <div class="listing-stat-val">±3,200</div>
+            <div class="listing-stat-key">Sq Ft</div>
+          </div>
+          <div>
+            <div class="listing-stat-val">NNN</div>
+            <div class="listing-stat-key">Lease Type</div>
+          </div>
+          <div>
+            <div class="listing-stat-val">Palm Canyon</div>
+            <div class="listing-stat-key">Corridor</div>
+          </div>
+          <div>
+            <div class="listing-stat-val">Immediate</div>
+            <div class="listing-stat-key">Availability</div>
+          </div>
+        </div>
+        <p class="listing-desc">Former Arthur Elrod studio. A rare creative/retail opportunity on Palm Springs' primary commercial corridor — high visibility, architecturally significant, ideal for a flagship brand or design-forward tenant. The space retains original character while offering flexible buildout potential for retail, showroom, or creative office use. Contact us for lease rate and full offering memorandum.</p>
+        <div class="listing-actions">
+          <a href="mailto:kate@clozingcre.com?subject=Inquiry%3A%20850%20N%20Palm%20Canyon%20Dr%2C%20Palm%20Springs&body=Hi%20Clozing%20CRE%2C%0A%0AI%20am%20interested%20in%20learning%20more%20about%20850%20N%20Palm%20Canyon%20Dr%2C%20Palm%20Springs.%0A%0AName%3A%0ACompany%3A%0APhone%3A%0A%0AThanks" class="listing-btn primary">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M2 4h12v10H2zM2 4l6 5 6-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Inquire
+          </a>
+          <a href="https://www.loopnet.com/Listing/850-N-Palm-Canyon-Dr-Palm-Springs-CA/39793613/" target="_blank" rel="noopener" class="listing-btn secondary">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9M9 2h5v5M14 2L8 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            View on LoopNet
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- LISTING 2: Villa Mykonos -->
+    <div class="listing-card fade-up" data-status="for-sale" data-type="hospitality">
+      <div style="position:relative;">
+        <img src="https://images1.loopnet.com/i2/f3GZy5yjC_ukzI9zC03CFS32EmJDApU6KFon6U_TEtQ/116/67590-Jones-Rd-Cathedral-City-CA-Primary-Photo-1-LargeHighDefinition.jpg" alt="67590 Jones Rd — Villa Mykonos, Cathedral City" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;">
+        <span class="listing-status for-sale">For Sale</span>
+      </div>
+      <div class="listing-body">
+        <div class="listing-type">Hospitality / Investment</div>
+        <div class="listing-address">67590 Jones Rd</div>
+        <div class="listing-city">Cathedral City, CA 92234</div>
+        <div class="listing-stats">
+          <div>
+            <div class="listing-stat-val">$3.89M</div>
+            <div class="listing-stat-key">List Price</div>
+          </div>
+          <div>
+            <div class="listing-stat-val">8.86%</div>
+            <div class="listing-stat-key">Cap Rate</div>
+          </div>
+          <div>
+            <div class="listing-stat-val">1031</div>
+            <div class="listing-stat-key">Exchange Ready</div>
+          </div>
+          <div>
+            <div class="listing-stat-val">Hospitality</div>
+            <div class="listing-stat-key">Asset Type</div>
+          </div>
+        </div>
+        <p class="listing-desc">Villa Mykonos Resort — a fully operating boutique hospitality asset with an 8.86% cap rate. Ideal for 1031 exchange buyers seeking stabilized desert income with significant upside. Strong occupancy history and a recognizable brand in the short-term luxury market.</p>
+        <div class="listing-actions">
+          <a href="mailto:kate@clozingcre.com?subject=Inquiry%3A%2067590%20Jones%20Rd%2C%20Cathedral%20City&body=Hi%20Clozing%20CRE%2C%0A%0AI%20am%20interested%20in%20learning%20more%20about%20Villa%20Mykonos%20Resort%20at%2067590%20Jones%20Rd%2C%20Cathedral%20City.%0A%0AName%3A%0ACompany%3A%0APhone%3A%0A%0AThanks" class="listing-btn primary">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M2 4h12v10H2zM2 4l6 5 6-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Inquire
+          </a>
+          <a href="https://www.loopnet.com/Listing/67590-Jones-Rd-Cathedral-City-CA/37356814/" target="_blank" rel="noopener" class="listing-btn secondary">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9M9 2h5v5M14 2L8 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            View on LoopNet
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLACEHOLDER CARD -->
+    <div class="listing-card placeholder fade-up" data-status="coming-soon" data-type="other">
+      <div style="position:relative;">
+        <div style="width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#1e1b18 0%,#2a2520 100%);display:flex;align-items:center;justify-content:center;">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="23" stroke="rgba(196,160,82,0.2)" stroke-width="1"/>
+            <line x1="24" y1="14" x2="24" y2="34" stroke="rgba(196,160,82,0.4)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="14" y1="24" x2="34" y2="24" stroke="rgba(196,160,82,0.4)" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="listing-status coming-soon">Coming Soon</span>
+      </div>
+      <div class="listing-body">
+        <div class="listing-type">Your Listing Here</div>
+        <div class="listing-address">Add Your Property</div>
+        <div class="listing-city">Coachella Valley, CA</div>
+        <div class="listing-stats">
+          <div><div class="listing-stat-val">—</div><div class="listing-stat-key">Price / Rate</div></div>
+          <div><div class="listing-stat-val">—</div><div class="listing-stat-key">Asset Type</div></div>
+          <div><div class="listing-stat-val">—</div><div class="listing-stat-key">Sq Ft / Units</div></div>
+          <div><div class="listing-stat-val">—</div><div class="listing-stat-key">Market</div></div>
+        </div>
+        <p class="listing-desc">Have a commercial property to list? We represent sellers, landlords, and investors across the Coachella Valley and greater California. Reach out to discuss representation.</p>
+        <div class="listing-actions">
+          <a href="mailto:kate@clozingcre.com?subject=Commercial%20Listing%20Inquiry&body=Hi%20Clozing%20CRE%2C%0A%0AI%20have%20a%20commercial%20property%20I%27d%20like%20to%20discuss.%0A%0AProperty%20Address%3A%0AAsset%20Type%3A%0AName%3A%0APhone%3A%0A%0AThanks" class="listing-btn primary">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M2 4h12v10H2zM2 4l6 5 6-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Talk to Us
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- NO RESULTS -->
+    <div class="no-results" id="no-results">
+      <p>No listings match that filter — <a href="#" onclick="resetFilter()" style="color:var(--gold);text-decoration:none;">view all</a>.</p>
+    </div>
+
+  </div>
+
+  <!-- OFF-MARKET STRIP -->
+  <div class="off-market-strip fade-up">
+    <div class="off-market-left">
+      <h3>Looking for something off-market?</h3>
+      <p>We maintain relationships across the Coachella Valley and greater California. If you're seeking a specific asset type, price point, or corridor — tell us what you need.</p>
+    </div>
+    <div class="off-market-actions">
+      <a href="tel:+14426770396" class="btn-primary">Call Us Directly</a>
+      <a href="mailto:kate@clozingcre.com?subject=Off-Market%20Inquiry&body=Hi%20Clozing%20CRE%2C%0A%0AI%20am%20looking%20for%20off-market%20commercial%20opportunities.%0A%0AAsset%20Type%3A%0ATarget%20Market%3A%0APrice%20Range%3A%0AName%3A%0APhone%3A%0A%0AThanks" class="btn-ghost">Email Off-Market Inquiry</a>
+    </div>
+  </div>
+
+  <p class="listings-note fade-up">All listings also available on <a href="https://www.loopnet.com" target="_blank" rel="noopener">LoopNet</a> and <a href="https://www.costar.com" target="_blank" rel="noopener">CoStar</a>. Contact us for off-market opportunities and buyer representation.</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+        <svg width="30" height="30" viewBox="0 0 36 36" fill="none"><path d="M28 10 C28 10 20 6 12 10 C6 13 5 18 5 18 C5 18 6 23 12 26 C20 30 28 26 28 26" stroke="#C4A052" stroke-width="2" fill="none" stroke-linecap="round"/><line x1="13" y1="13" x2="23" y2="23" stroke="#C4A052" stroke-width="1.5" stroke-linecap="round"/><line x1="13" y1="13" x2="23" y2="13" stroke="#C4A052" stroke-width="1.5" stroke-linecap="round"/><line x1="13" y1="23" x2="23" y2="23" stroke="#C4A052" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span style="font-family:var(--serif);font-size:18px;font-weight:500;color:var(--white);letter-spacing:.04em;">CLOZING <span style="color:var(--gold)">CRE</span></span>
+      </div>
+      <p>Commercial real estate advisors serving Palm Springs, the Coachella Valley, and greater California. An affiliated team of Windermere Commercial.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li>Investment Sales</li>
+        <li>1031 Exchange Advisory</li>
+        <li>Tenant Representation</li>
+        <li>Landlord Services</li>
+        <li>Portfolio Valuation</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="https://www.linkedin.com/in/slavtherealtor/" target="_blank" rel="noopener">Slav on LinkedIn</a></li>
+        <li><a href="https://www.linkedin.com/in/mahnaz-khazen-shadman-a2a68a10/" target="_blank" rel="noopener">MK on LinkedIn</a></li>
+        <li><a href="https://www.linkedin.com/in/pulpinc/" target="_blank" rel="noopener">KPB on LinkedIn</a></li>
+        <li><a href="https://windermerecommercial.com" target="_blank" rel="noopener">Windermere Commercial</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-legal">&copy; 2025 Clozing CRE. All rights reserved. CA DRE Licensed. WA Managing Broker Licensed.<br>An affiliated team of Windermere Commercial, Palm Springs.</div>
+    <div class="footer-windermere">
+      <div class="windermere-dot-blue"></div>
+      <div class="windermere-dot-red"></div>
+      Windermere Commercial
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Fade-up observer
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Filter logic
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.listing-card:not(.placeholder)');
+  const placeholder = document.querySelector('.listing-card.placeholder');
+  const noResults = document.getElementById('no-results');
+  const countEl = document.getElementById('result-count');
+
+  function updateCount() {
+    const visible = document.querySelectorAll('.listing-card:not(.placeholder):not([data-hidden])').length;
+    countEl.textContent = visible;
+  }
+
+  function resetFilter() {
+    filterBtns.forEach(b => b.classList.toggle('active', b.dataset.filter === 'all'));
+    cards.forEach(c => delete c.dataset.hidden);
+    placeholder.removeAttribute('data-hidden');
+    noResults.classList.remove('visible');
+    updateCount();
+    return false;
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      let visibleCount = 0;
+      cards.forEach(card => {
+        const match = f === 'all' || card.dataset.status === f || card.dataset.type === f;
+        if(match){ delete card.dataset.hidden; visibleCount++; }
+        else { card.dataset.hidden = ''; }
+      });
+      // placeholder always hidden when filtering
+      if(f !== 'all') placeholder.dataset.hidden = '';
+      else delete placeholder.dataset.hidden;
+      noResults.classList.toggle('visible', visibleCount === 0);
+      updateCount();
+    });
+  });
+</script>
+</body>
+</html>
