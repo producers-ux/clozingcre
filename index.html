@@ -165,33 +165,114 @@ footer{background:var(--obsidian);padding:64px 96px 48px;border-top:1px solid rg
 .listing-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:var(--obsidian);position:relative;overflow:hidden}
 .listing-img-inner{width:100%;height:100%;background:linear-gradient(135deg,#2a2520 0%,#1e1b18 100%);display:flex;align-items:center;justify-content:center}
 .listing-img-placeholder{font-family:var(--serif);font-size:56px;color:rgba(196,160,82,.2);font-style:italic;user-select:none}
-.listing-status{position:absolute;top:16px;left:16px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;padding:5px 14px;font-weight:600}
+.listing-status{position:absolute;top:16px;left:16px;font-size:14px;letter-spacing:.18em;text-transform:uppercase;padding:6px 16px;font-weight:600}
 .listing-status.for-sale{background:var(--gold);color:var(--obsidian)}
 .listing-status.for-lease{background:var(--wb);color:var(--white)}
 .listing-status.sold{background:rgba(92,85,78,.9);color:var(--white)}
 .listing-body{padding:32px;flex:1;display:flex;flex-direction:column}
-.listing-type{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
-.listing-address{font-family:var(--serif);font-size:24px;font-weight:400;color:var(--white);margin-bottom:4px;line-height:1.2}
-.listing-city{font-size:17px;color:var(--sand);margin-bottom:24px}
+.listing-type{font-size:15px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.listing-address{font-family:var(--serif);font-size:28px;font-weight:400;color:var(--white);margin-bottom:6px;line-height:1.2}
+.listing-city{font-size:19px;color:var(--sand);margin-bottom:24px}
 .listing-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:20px 0;border-top:1px solid rgba(196,160,82,.2);border-bottom:1px solid rgba(196,160,82,.2);margin-bottom:24px}
-.listing-stat-val{font-family:var(--serif);font-size:22px;color:var(--white);font-weight:400;line-height:1.1}
-.listing-stat-key{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--sand);margin-top:4px}
-.listing-desc{font-size:17px;color:var(--sand);line-height:1.8;margin-bottom:28px;flex:1}
+.listing-stat-val{font-family:var(--serif);font-size:26px;color:var(--white);font-weight:400;line-height:1.1}
+.listing-stat-key{font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--sand);margin-top:5px}
+.listing-desc{font-size:18px;color:var(--sand);line-height:1.8;margin-bottom:28px;flex:1}
 .listing-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:auto}
-.listing-btn{font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding:12px 20px;text-decoration:none;font-weight:600;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.listing-btn{font-size:15px;letter-spacing:.08em;text-transform:uppercase;padding:14px 24px;text-decoration:none;font-weight:600;transition:all .2s;display:inline-flex;align-items:center;gap:8px}
 .listing-btn.primary{background:var(--gold);color:var(--obsidian)}
 .listing-btn.primary:hover{background:var(--gold-light)}
 .listing-btn.secondary{border:1px solid rgba(196,160,82,.5);color:var(--sand)}
 .listing-btn.secondary:hover{border-color:var(--gold);color:var(--gold)}
-.listing-btn svg{width:13px;height:13px;flex-shrink:0}
-.listings-note{margin-top:40px;font-size:16px;color:var(--sand);letter-spacing:.02em;text-align:center}
+.listing-btn svg{width:15px;height:15px;flex-shrink:0}
+.listings-note{margin-top:40px;font-size:18px;color:var(--sand);letter-spacing:.02em;text-align:center}
 .listings-note a{color:var(--gold);text-decoration:none}
 .listings-note a:hover{text-decoration:underline}
 
 @media(max-width:900px){
   .listings-grid{grid-template-columns:1fr}
-  .listing-address{font-size:22px}
+  .listing-address{font-size:24px}
+  .listing-city{font-size:18px}
+  .listing-stat-val{font-size:22px}
+  .listing-desc{font-size:17px}
+  .listing-btn{font-size:14px;padding:13px 20px}
   .listing-body{padding:28px 24px}
+}
+
+/* FIRST LOOK - OFF MARKET */
+.firstlook-section{background:#111009}
+.firstlook-header{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:56px;flex-wrap:wrap}
+.firstlook-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(196,160,82,.1);border:1px solid rgba(196,160,82,.4);padding:8px 18px;margin-bottom:20px}
+.firstlook-badge-dot{width:8px;height:8px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.firstlook-badge-text{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.firstlook-intro{max-width:560px}
+.firstlook-intro p{font-size:19px;color:var(--sand);line-height:1.8}
+.firstlook-disclaimer{font-size:14px;color:var(--sand-dark);border:1px solid rgba(196,160,82,.2);padding:16px 24px;max-width:360px;line-height:1.7;align-self:flex-end}
+.firstlook-disclaimer strong{color:var(--gold);display:block;margin-bottom:4px;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+
+.deal-grid{display:flex;flex-direction:column;gap:2px}
+.deal-card{background:#1e1a16;padding:48px 56px;display:grid;grid-template-columns:1fr 1.4fr;gap:64px;align-items:start;transition:background .3s;border-left:3px solid transparent}
+.deal-card:hover{background:#242018;border-left-color:var(--gold)}
+
+.deal-left{}
+.deal-number{font-family:var(--serif);font-size:13px;color:rgba(196,160,82,.4);letter-spacing:.2em;text-transform:uppercase;margin-bottom:16px}
+.deal-type-badge{display:inline-block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;background:rgba(196,160,82,.12);color:var(--gold);padding:5px 14px;margin-bottom:20px}
+.deal-title{font-family:var(--serif);font-size:32px;font-weight:400;color:var(--white);line-height:1.15;margin-bottom:8px}
+.deal-location{font-size:17px;color:var(--sand);margin-bottom:28px}
+.deal-stats{display:flex;flex-direction:column;gap:16px;margin-bottom:32px}
+.deal-stat{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:12px;border-bottom:1px solid rgba(196,160,82,.1)}
+.deal-stat-label{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--sand-dark)}
+.deal-stat-value{font-family:var(--serif);font-size:22px;color:var(--white)}
+.deal-stat-value.highlight{color:var(--gold)}
+.deal-cta{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--obsidian);padding:16px 28px;font-size:14px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;text-decoration:none;transition:background .2s}
+.deal-cta:hover{background:var(--gold-light)}
+
+.deal-right{}
+.deal-memo-label{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(196,160,82,.5);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.deal-memo-label::after{content:'';flex:1;height:1px;background:rgba(196,160,82,.15)}
+.deal-memo{font-size:18px;color:var(--sand);line-height:1.9;margin-bottom:28px}
+.deal-memo strong{color:var(--white);font-weight:600}
+.deal-upside{background:rgba(196,160,82,.07);border:1px solid rgba(196,160,82,.2);padding:24px 28px;margin-bottom:24px}
+.deal-upside-label{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.deal-upside-items{display:flex;flex-direction:column;gap:10px}
+.deal-upside-item{display:flex;align-items:flex-start;gap:12px;font-size:17px;color:var(--sand);line-height:1.6}
+.deal-upside-item::before{content:'→';color:var(--gold);flex-shrink:0;font-size:16px;margin-top:1px}
+.deal-nda{font-size:14px;color:var(--sand-dark);font-style:italic}
+
+.firstlook-cta-strip{margin-top:48px;padding:40px 56px;background:rgba(196,160,82,.05);border:1px solid rgba(196,160,82,.15);display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.firstlook-cta-text h3{font-family:var(--serif);font-size:26px;font-weight:400;color:var(--white);margin-bottom:8px}
+.firstlook-cta-text p{font-size:17px;color:var(--sand)}
+.firstlook-cta-actions{display:flex;gap:16px;flex-shrink:0;flex-wrap:wrap}
+
+@media(max-width:900px){
+  .deal-card{grid-template-columns:1fr;gap:40px;padding:36px 24px}
+  .firstlook-cta-strip{padding:32px 24px;flex-direction:column;align-items:flex-start}
+  .firstlook-header{flex-direction:column;align-items:flex-start}
+  .deal-title{font-size:26px}
+}
+
+/* FILTER BAR */
+.filter-bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px;margin-top:32px}
+.filter-btn{font-size:14px;letter-spacing:.1em;text-transform:uppercase;padding:11px 22px;background:transparent;border:1px solid rgba(240,232,220,.2);color:var(--sand);cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:8px;font-family:var(--sans)}
+.filter-btn:hover{border-color:var(--gold);color:var(--gold)}
+.filter-btn.active{background:var(--gold);border-color:var(--gold);color:var(--obsidian);font-weight:600}
+.filter-btn.firstlook-filter{border-color:rgba(196,160,82,.4);color:var(--gold)}
+.filter-btn.firstlook-filter.active{background:var(--gold);color:var(--obsidian)}
+.filter-dot{width:8px;height:8px;background:var(--gold);border-radius:50%;animation:pulse 2s infinite;flex-shrink:0}
+.filter-btn.active .filter-dot{background:var(--obsidian)}
+
+/* FIRST LOOK CARD STYLING */
+.firstlook-card{border-top:2px solid var(--gold)}
+.fl-badge{position:absolute;top:16px;right:16px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;background:rgba(26,23,20,.85);color:var(--gold);padding:4px 10px;border:1px solid rgba(196,160,82,.4);backdrop-filter:blur(4px)}
+
+/* FIRST LOOK EXPLAINER */
+.fl-explainer{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:56px;padding-top:48px;border-top:1px solid rgba(196,160,82,.2);align-items:start}
+.fl-explainer-title{font-family:var(--serif);font-size:28px;font-weight:400;color:var(--white);margin-bottom:16px}
+.fl-explainer-body{font-size:18px;color:var(--sand);line-height:1.8}
+@media(max-width:900px){
+  .fl-explainer{grid-template-columns:1fr;gap:32px}
+  .filter-bar{gap:8px}
+  .filter-btn{font-size:13px;padding:10px 16px}
 }
 
 /* ANIMATIONS */
@@ -448,18 +529,36 @@ footer{background:var(--obsidian);padding:64px 96px 48px;border-top:1px solid rg
   </div>
 </section>
 
-<!-- LISTINGS -->
-<section class="listings-section" id="listings">
-  <div class="section-eyebrow fade-up">Active Listings</div>
-  <h2 class="section-headline fade-up">Current<br><em>Opportunities.</em></h2>
-  <div class="listings-grid">
+<!-- LISTINGS: UNIFIED -->
+<section class="listings-section" id="listings" style="padding:96px;">
 
-    <!-- LISTING 1: 850 N Palm Canyon -->
-    <div class="listing-card fade-up">
+  <div class="fade-up">
+    <div class="section-eyebrow">Active Opportunities</div>
+    <h2 class="section-headline">Every Deal.<br><em>One Place.</em></h2>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar fade-up">
+    <button class="filter-btn active" data-filter="all">All Listings</button>
+    <button class="filter-btn" data-filter="public">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9M9 2h5v5M14 2L8 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      On LoopNet / CoStar
+    </button>
+    <button class="filter-btn firstlook-filter" data-filter="firstlook">
+      <span class="filter-dot"></span>
+      First Look — Off Market
+    </button>
+    <button class="filter-btn" data-filter="forsale">For Sale</button>
+    <button class="filter-btn" data-filter="forlease">For Lease</button>
+  </div>
+
+  <!-- GRID -->
+  <div class="listings-grid" id="listingsGrid">
+
+    <!-- 1: 850 N Palm Canyon | public | forlease -->
+    <div class="listing-card fade-up" data-category="public forlease">
       <div class="listing-img">
-        <div class="listing-img-inner">
-          <span class="listing-img-placeholder">850</span>
-        </div>
+        <div class="listing-img-inner"><span class="listing-img-placeholder">850</span></div>
         <span class="listing-status for-lease">For Lease</span>
       </div>
       <div class="listing-body">
@@ -467,43 +566,27 @@ footer{background:var(--obsidian);padding:64px 96px 48px;border-top:1px solid rg
         <div class="listing-address">850 N Palm Canyon Dr</div>
         <div class="listing-city">Palm Springs, CA 92262</div>
         <div class="listing-stats">
-          <div class="listing-stat-item">
-            <div class="listing-stat-val">±3,200</div>
-            <div class="listing-stat-key">Sq Ft</div>
-          </div>
-          <div class="listing-stat-item">
-            <div class="listing-stat-val">NNN</div>
-            <div class="listing-stat-key">Lease Type</div>
-          </div>
-          <div class="listing-stat-item">
-            <div class="listing-stat-val">Palm Canyon</div>
-            <div class="listing-stat-key">Corridor</div>
-          </div>
-          <div class="listing-stat-item">
-            <div class="listing-stat-val">Immediate</div>
-            <div class="listing-stat-key">Availability</div>
-          </div>
+          <div class="listing-stat-item"><div class="listing-stat-val">±3,200</div><div class="listing-stat-key">Sq Ft</div></div>
+          <div class="listing-stat-item"><div class="listing-stat-val">NNN</div><div class="listing-stat-key">Lease Type</div></div>
+          <div class="listing-stat-item"><div class="listing-stat-val">Palm Canyon</div><div class="listing-stat-key">Corridor</div></div>
+          <div class="listing-stat-item"><div class="listing-stat-val">Immediate</div><div class="listing-stat-key">Availability</div></div>
         </div>
         <p class="listing-desc">Former Arthur Elrod studio. A rare creative/retail opportunity on Palm Springs' primary commercial corridor — high visibility, architecturally significant, ideal for a flagship brand or design-forward tenant.</p>
         <div class="listing-actions">
-          <a href="mailto:kate@clozingcre.com?subject=Inquiry%3A%20850%20N%20Palm%20Canyon%20Dr%2C%20Palm%20Springs&body=Hi%20Clozing%20CRE%2C%0A%0AI%20am%20interested%20in%20learning%20more%20about%20850%20N%20Palm%20Canyon%20Dr%2C%20Palm%20Springs.%0A%0AName%3A%0ACompany%3A%0APhone%3A%0A%0AThanks" class="listing-btn primary">
-            <svg viewBox="0 0 16 16" fill="none"><path d="M2 4h12v10H2zM2 4l6 5 6-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Inquire
+          <a href="mailto:kate@clozingcre.com?subject=Inquiry%3A%20850%20N%20Palm%20Canyon%20Dr%2C%20Palm%20Springs&body=Hi%20Clozing%20CRE%2C%0A%0AI%20am%20interested%20in%20850%20N%20Palm%20Canyon%20Dr.%0A%0AName%3A%0ACompany%3A%0APhone%3A%0A%0AThanks" class="listing-btn primary">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M2 4h12v10H2zM2 4l6 5 6-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Inquire
           </a>
           <a href="https://www.loopnet.com/Listing/850-N-Palm-Canyon-Dr-Palm-Springs-CA/39793613/" target="_blank" rel="noopener" class="listing-btn secondary">
-            <svg viewBox="0 0 16 16" fill="none"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9M9 2h5v5M14 2L8 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            LoopNet
+            <svg viewBox="0 0 16 16" fill="none"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9M9 2h5v5M14 2L8 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>LoopNet
           </a>
         </div>
       </div>
     </div>
 
-    <!-- LISTING 2: Villa Mykonos -->
-    <div class="listing-card fade-up">
+    <!-- 2: Villa Mykonos | public | forsale -->
+    <div class="listing-card fade-up" data-category="public forsale">
       <div class="listing-img">
-        <div class="listing-img-inner">
-          <span class="listing-img-placeholder">VM</span>
-        </div>
+        <div class="listing-img-inner"><span class="listing-img-placeholder">VM</span></div>
         <span class="listing-status for-sale">For Sale</span>
       </div>
       <div class="listing-body">
@@ -511,79 +594,103 @@ footer{background:var(--obsidian);padding:64px 96px 48px;border-top:1px solid rg
         <div class="listing-address">67590 Jones Rd</div>
         <div class="listing-city">Cathedral City, CA 92234</div>
         <div class="listing-stats">
-          <div class="listing-stat-item">
-            <div class="listing-stat-val">$3.89M</div>
-            <div class="listing-stat-key">List Price</div>
-          </div>
-          <div class="listing-stat-item">
-            <div class="listing-stat-val">8.86%</div>
-            <div class="listing-stat-key">Cap Rate</div>
-          </div>
-          <div class="listing-stat-item">
-            <div class="listing-stat-val">1031</div>
-            <div class="listing-stat-key">Exchange Ready</div>
-          </div>
-          <div class="listing-stat-item">
-            <div class="listing-stat-val">Hospitality</div>
-            <div class="listing-stat-key">Asset Type</div>
-          </div>
+          <div class="listing-stat-item"><div class="listing-stat-val">$3.89M</div><div class="listing-stat-key">List Price</div></div>
+          <div class="listing-stat-item"><div class="listing-stat-val">8.86%</div><div class="listing-stat-key">Cap Rate</div></div>
+          <div class="listing-stat-item"><div class="listing-stat-val">1031</div><div class="listing-stat-key">Exchange Ready</div></div>
+          <div class="listing-stat-item"><div class="listing-stat-val">Hospitality</div><div class="listing-stat-key">Asset Type</div></div>
         </div>
         <p class="listing-desc">Villa Mykonos Resort — a fully operating boutique hospitality asset with an 8.86% cap rate. Ideal for 1031 exchange buyers seeking stabilized desert income with significant upside.</p>
         <div class="listing-actions">
-          <a href="mailto:kate@clozingcre.com?subject=Inquiry%3A%2067590%20Jones%20Rd%2C%20Cathedral%20City&body=Hi%20Clozing%20CRE%2C%0A%0AI%20am%20interested%20in%20learning%20more%20about%20Villa%20Mykonos%20Resort%20at%2067590%20Jones%20Rd%2C%20Cathedral%20City.%0A%0AName%3A%0ACompany%3A%0APhone%3A%0A%0AThanks" class="listing-btn primary">
-            <svg viewBox="0 0 16 16" fill="none"><path d="M2 4h12v10H2zM2 4l6 5 6-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Inquire
+          <a href="mailto:kate@clozingcre.com?subject=Inquiry%3A%2067590%20Jones%20Rd%2C%20Cathedral%20City&body=Hi%20Clozing%20CRE%2C%0A%0AI%20am%20interested%20in%20Villa%20Mykonos%20Resort.%0A%0AName%3A%0ACompany%3A%0APhone%3A%0A%0AThanks" class="listing-btn primary">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M2 4h12v10H2zM2 4l6 5 6-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Inquire
           </a>
           <a href="https://www.loopnet.com/Listing/67590-Jones-Rd-Cathedral-City-CA/37356814/" target="_blank" rel="noopener" class="listing-btn secondary">
-            <svg viewBox="0 0 16 16" fill="none"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9M9 2h5v5M14 2L8 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            LoopNet
+            <svg viewBox="0 0 16 16" fill="none"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9M9 2h5v5M14 2L8 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>LoopNet
           </a>
         </div>
       </div>
     </div>
 
-    <!-- LISTING 3: Placeholder -->
-    <div class="listing-card fade-up">
+    <!-- 3: El Paseo | firstlook | forsale -->
+    <div class="listing-card fade-up firstlook-card" data-category="firstlook forsale">
       <div class="listing-img">
-        <div class="listing-img-inner">
-          <span class="listing-img-placeholder">+</span>
-        </div>
-        <span class="listing-status for-sale">Coming Soon</span>
+        <div class="listing-img-inner"><span class="listing-img-placeholder">EP</span></div>
+        <span class="listing-status for-sale">For Sale</span>
+        <span class="fl-badge">⬡ First Look</span>
       </div>
       <div class="listing-body">
-        <div class="listing-type">Your Listing Here</div>
-        <div class="listing-address">Add Your Property</div>
-        <div class="listing-city">Coachella Valley, CA</div>
+        <div class="listing-type">Multi-Tenant Retail · Off Market</div>
+        <div class="listing-address">73750 El Paseo</div>
+        <div class="listing-city">Palm Desert, CA 92260</div>
         <div class="listing-stats">
-          <div class="listing-stat-item">
-            <div class="listing-stat-val">—</div>
-            <div class="listing-stat-key">Price / Rate</div>
-          </div>
-          <div class="listing-stat-item">
-            <div class="listing-stat-val">—</div>
-            <div class="listing-stat-key">Asset Type</div>
-          </div>
-          <div class="listing-stat-item">
-            <div class="listing-stat-val">—</div>
-            <div class="listing-stat-key">Sq Ft / Units</div>
-          </div>
-          <div class="listing-stat-item">
-            <div class="listing-stat-val">—</div>
-            <div class="listing-stat-key">Market</div>
-          </div>
+          <div class="listing-stat-item"><div class="listing-stat-val">$3,000,000</div><div class="listing-stat-key">Ask Price</div></div>
+          <div class="listing-stat-item"><div class="listing-stat-val">~5.9%</div><div class="listing-stat-key">Cap Rate</div></div>
+          <div class="listing-stat-item"><div class="listing-stat-val">5,604 SF</div><div class="listing-stat-key">5 Units</div></div>
+          <div class="listing-stat-item"><div class="listing-stat-val">$18,550</div><div class="listing-stat-key">Gross/Mo</div></div>
         </div>
-        <p class="listing-desc">Have a commercial property to list? Contact us to discuss representation. We work with sellers, landlords, and investors across the Coachella Valley and greater California.</p>
+        <p class="listing-desc">Fully occupied 5-unit retail on El Paseo with three long-term tenants. Separate AC, meters, and restrooms per unit. Two leases up for renewal at higher rates — immediate income upside with zero vacancy risk. Not on LoopNet.</p>
         <div class="listing-actions">
-          <a href="mailto:kate@clozingcre.com?subject=Commercial%20Listing%20Inquiry&body=Hi%20Clozing%20CRE%2C%0A%0AI%20have%20a%20commercial%20property%20I%27d%20like%20to%20discuss.%0A%0AProperty%20Address%3A%0AAsset%20Type%3A%0AName%3A%0APhone%3A%0A%0AThanks" class="listing-btn primary">
-            <svg viewBox="0 0 16 16" fill="none"><path d="M2 4h12v10H2zM2 4l6 5 6-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Talk to Us
+          <a href="mailto:kate@clozingcre.com?subject=First%20Look%20Inquiry%3A%2073750%20El%20Paseo%2C%20Palm%20Desert&body=I%20am%20interested%20in%2073750%20El%20Paseo.%0A%0AName%3A%0ACompany%3A%0APhone%3A%0AQualification%3A" class="listing-btn primary">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M2 4h12v10H2zM2 4l6 5 6-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Request Full Memo
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4: Sherwin-Williams | firstlook | forsale -->
+    <div class="listing-card fade-up firstlook-card" data-category="firstlook forsale">
+      <div class="listing-img">
+        <div class="listing-img-inner"><span class="listing-img-placeholder">SW</span></div>
+        <span class="listing-status for-sale">For Sale · NNN</span>
+        <span class="fl-badge">⬡ First Look</span>
+      </div>
+      <div class="listing-body">
+        <div class="listing-type">NNN · Fortune 200 · New Construction</div>
+        <div class="listing-address">1488 N. Palm Canyon Dr</div>
+        <div class="listing-city">Palm Springs, CA 92262</div>
+        <div class="listing-stats">
+          <div class="listing-stat-item"><div class="listing-stat-val">$4,200,000</div><div class="listing-stat-key">Ask Price</div></div>
+          <div class="listing-stat-item"><div class="listing-stat-val">5.0%</div><div class="listing-stat-key">Cap Rate</div></div>
+          <div class="listing-stat-item"><div class="listing-stat-val">$210,000</div><div class="listing-stat-key">Net/Year</div></div>
+          <div class="listing-stat-item"><div class="listing-stat-val">10 + 5×5</div><div class="listing-stat-key">Yr Lease</div></div>
+        </div>
+        <p class="listing-desc">Brand-new NNN leased to Sherwin-Williams — Fortune 200, 100% corporate. Tenant pays all expenses. 20-yr transferrable roof warranty. Delivery end of June. The cleanest 1031 exchange asset in the valley right now.</p>
+        <div class="listing-actions">
+          <a href="mailto:kate@clozingcre.com?subject=First%20Look%20Inquiry%3A%20Sherwin-Williams%20NNN%2C%20Palm%20Springs&body=I%20am%20interested%20in%20the%20Sherwin-Williams%20NNN.%0A%0AName%3A%0ACompany%3A%0APhone%3A%0AQualification%3A" class="listing-btn primary">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M2 4h12v10H2zM2 4l6 5 6-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Request Full Memo
           </a>
         </div>
       </div>
     </div>
 
   </div>
-  <p class="listings-note fade-up">All listings also available on <a href="https://www.loopnet.com" target="_blank" rel="noopener">LoopNet</a> and <a href="https://www.costar.com" target="_blank" rel="noopener">CoStar</a>. Contact us for off-market opportunities.</p>
+
+  <!-- FIRST LOOK EXPLAINER -->
+  <div class="fl-explainer fade-up">
+    <div class="fl-explainer-left">
+      <div class="firstlook-badge" style="margin-bottom:16px;">
+        <span class="firstlook-badge-dot"></span>
+        <span class="firstlook-badge-text">Not On LoopNet. Not On CoStar. Not For Everyone.</span>
+      </div>
+      <h3 class="fl-explainer-title">What is First Look?</h3>
+      <p class="fl-explainer-body">First Look deals are off-market opportunities sourced exclusively through our Windermere network, direct owner relationships, and Coachella Valley market knowledge built since 2018. They never appear on public platforms. When you see the ⬡ First Look badge, you're seeing something the market hasn't.</p>
+    </div>
+    <div class="fl-explainer-right">
+      <div class="firstlook-cta-strip" style="margin-top:0;">
+        <div class="firstlook-cta-text">
+          <h3>Have a deal that shouldn't be public?</h3>
+          <p>We represent sellers who need discretion. No MLS. No LoopNet. Just the right buyer.</p>
+        </div>
+        <div class="firstlook-cta-actions">
+          <a href="mailto:kate@clozingcre.com?subject=Off-Market%20Seller%20Inquiry&body=I%20have%20a%20property%20I%27d%20like%20to%20sell%20discreetly.%0A%0AProperty%3A%0AAsking%20range%3A%0AName%3A%0APhone%3A" class="btn-primary">Submit Your Property</a>
+          <a href="tel:+14426770396" class="btn-ghost">Call Kate</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="listings-note fade-up">Public listings also available on <a href="https://www.loopnet.com" target="_blank" rel="noopener">LoopNet</a> and <a href="https://www.costar.com" target="_blank" rel="noopener">CoStar</a>.</p>
+
 </section>
 
 <!-- TEAM -->
@@ -735,6 +842,30 @@ footer{background:var(--obsidian);padding:64px 96px 48px;border-top:1px solid rg
   document.querySelectorAll('.expertise-grid,.team-grid,.markets-grid,.why-list').forEach(grid => {
     Array.from(grid.children).forEach((child,i) => { child.style.transitionDelay = (i*0.08)+'s'; });
   });
+
+  // LISTINGS FILTER
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const listingCards = document.querySelectorAll('#listingsGrid .listing-card');
+
+  function applyFilter(filter) {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    document.querySelector(`.filter-btn[data-filter="${filter}"]`).classList.add('active');
+    listingCards.forEach(card => {
+      const cats = (card.dataset.category || '').split(' ');
+      const show = filter === 'all' || cats.includes(filter);
+      card.style.display = show ? '' : 'none';
+      if (show) card.classList.add('visible');
+    });
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => applyFilter(btn.dataset.filter));
+  });
+
+  applyFilter('all');
 </script>
+</body>
+</html>
+
 </body>
 </html>
