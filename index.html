@@ -162,8 +162,9 @@ footer{background:var(--obsidian);padding:64px 96px 48px;border-top:1px solid rg
 .listings-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(196,160,82,.15);margin-top:56px}
 .listing-card{background:var(--obsidian-mid);display:flex;flex-direction:column;transition:background .3s;position:relative;overflow:hidden}
 .listing-card:hover{background:#35302b}
-.listing-img{width:100%;aspect-ratio:16/9;position:relative;overflow:hidden;display:block}
-.listing-img iframe{width:100%;height:100%;border:none;display:block;position:absolute;inset:0;pointer-events:none}
+.listing-img{width:100%;aspect-ratio:16/9;position:relative;overflow:hidden;display:block;background:#2a2520}
+.listing-img img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+.listing-img-placeholder-wrap{position:absolute;inset:0;width:100%;height:100%}
 .listing-img .listing-status,.listing-img .fl-badge{position:absolute;z-index:2}
 .listing-img-placeholder{font-family:var(--serif);font-size:56px;color:rgba(196,160,82,.2);font-style:italic;user-select:none}
 .listing-status{position:absolute;top:16px;left:16px;font-size:14px;letter-spacing:.18em;text-transform:uppercase;padding:6px 16px;font-weight:600}
@@ -559,9 +560,7 @@ footer{background:var(--obsidian);padding:64px 96px 48px;border-top:1px solid rg
     <!-- 1: 850 N Palm Canyon | public | forlease -->
     <div class="listing-card fade-up" data-category="public forlease">
       <div class="listing-img">
-        <iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
-          src="https://maps.google.com/maps?q=850+N+Palm+Canyon+Dr,+Palm+Springs,+CA+92262&output=embed&z=18">
-        </iframe>
+        <img src="https://images1.loopnet.com/i2/mli7FSipUZ1G3KFzJM971vy50SZPITYUMsUpHBAgzK4/116/850-N-Palm-Canyon-Dr-Palm-Springs-CA-Primary-Photo-1-LargeHighDefinition.jpg" alt="850 N Palm Canyon Dr, Palm Springs" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0">
         <span class="listing-status for-lease">For Lease</span>
       </div>
       <div class="listing-body">
@@ -589,9 +588,7 @@ footer{background:var(--obsidian);padding:64px 96px 48px;border-top:1px solid rg
     <!-- 2: Villa Mykonos | public | forsale -->
     <div class="listing-card fade-up" data-category="public forsale">
       <div class="listing-img">
-        <iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
-          src="https://maps.google.com/maps?q=67590+Jones+Rd,+Cathedral+City,+CA+92234&output=embed&z=18">
-        </iframe>
+        <img src="https://images1.loopnet.com/i2/f3GZy5yjC_ukzI9zC03CFS32EmJDApU6KFon6U_TEtQ/116/67590-Jones-Rd-Cathedral-City-CA-Primary-Photo-1-LargeHighDefinition.jpg" alt="Villa Mykonos Resort, Cathedral City" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0">
         <span class="listing-status for-sale">For Sale</span>
       </div>
       <div class="listing-body">
@@ -619,9 +616,14 @@ footer{background:var(--obsidian);padding:64px 96px 48px;border-top:1px solid rg
     <!-- 3: El Paseo | firstlook | forsale -->
     <div class="listing-card fade-up firstlook-card" data-category="firstlook forsale">
       <div class="listing-img">
-        <iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
-          src="https://maps.google.com/maps?q=73750+El+Paseo,+Palm+Desert,+CA+92260&output=embed&z=18">
-        </iframe>
+        <div class="listing-img-placeholder-wrap">
+          <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block">
+            <rect width="400" height="225" fill="#2a2520"/>
+            <text x="200" y="95" font-family="Georgia,serif" font-size="48" fill="rgba(196,160,82,0.25)" text-anchor="middle" font-style="italic">EP</text>
+            <text x="200" y="135" font-family="system-ui,sans-serif" font-size="13" fill="rgba(240,232,220,0.3)" text-anchor="middle" letter-spacing="3">73750 EL PASEO</text>
+            <text x="200" y="158" font-family="system-ui,sans-serif" font-size="11" fill="rgba(196,160,82,0.4)" text-anchor="middle" letter-spacing="2">PHOTO COMING SOON</text>
+          </svg>
+        </div>
         <span class="listing-status for-sale">For Sale</span>
         <span class="fl-badge">⬡ First Look</span>
       </div>
@@ -647,9 +649,14 @@ footer{background:var(--obsidian);padding:64px 96px 48px;border-top:1px solid rg
     <!-- 4: Sherwin-Williams | firstlook | forsale -->
     <div class="listing-card fade-up firstlook-card" data-category="firstlook forsale">
       <div class="listing-img">
-        <iframe loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
-          src="https://maps.google.com/maps?q=1488+N+Palm+Canyon+Dr,+Palm+Springs,+CA+92262&output=embed&z=18">
-        </iframe>
+        <div class="listing-img-placeholder-wrap">
+          <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block">
+            <rect width="400" height="225" fill="#2a2520"/>
+            <text x="200" y="95" font-family="Georgia,serif" font-size="48" fill="rgba(196,160,82,0.25)" text-anchor="middle" font-style="italic">SW</text>
+            <text x="200" y="135" font-family="system-ui,sans-serif" font-size="13" fill="rgba(240,232,220,0.3)" text-anchor="middle" letter-spacing="3">1488 N. PALM CANYON</text>
+            <text x="200" y="158" font-family="system-ui,sans-serif" font-size="11" fill="rgba(196,160,82,0.4)" text-anchor="middle" letter-spacing="2">UNDER CONSTRUCTION · PHOTO COMING SOON</text>
+          </svg>
+        </div>
         <span class="listing-status for-sale">For Sale · NNN</span>
         <span class="fl-badge">⬡ First Look</span>
       </div>
