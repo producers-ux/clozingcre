@@ -294,6 +294,18 @@ footer{background:var(--obsidian);padding:64px 96px 48px;border-top:1px solid rg
   .filter-btn{font-size:13px;padding:10px 16px}
 }
 
+/* NAV DROPDOWN */
+.nav-dropdown{position:relative}
+.nav-dropdown>a::after{content:' ↓';font-size:10px;opacity:0.45}
+.dropdown-menu{display:none;position:absolute;top:calc(100% + 12px);left:-20px;background:rgba(22,19,16,.98);border:1px solid rgba(196,160,82,.2);padding:8px 0;min-width:230px;z-index:200;backdrop-filter:blur(12px)}
+.nav-dropdown:hover .dropdown-menu{display:block}
+.dropdown-menu a{display:block;padding:11px 22px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:rgba(240,232,220,.65);text-decoration:none;transition:background .15s,color .15s}
+.dropdown-menu a:hover{background:rgba(196,160,82,.07);color:var(--gold)}
+.dropdown-menu .dropdown-label{display:block;padding:10px 22px 5px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(196,160,82,.35);border-bottom:1px solid rgba(196,160,82,.12);margin-bottom:4px}
+
+/* SELLER FINANCING BADGE */
+.sf-badge{font-size:11px;letter-spacing:.12em;text-transform:uppercase;background:rgba(92,160,92,.12);border:1px solid rgba(92,180,92,.4);color:#7ec87e;padding:3px 10px;white-space:nowrap;display:inline-block}
+
 /* ANIMATIONS */
 .fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
 .fade-up.visible{opacity:1;transform:translateY(0)}
@@ -402,6 +414,19 @@ footer{background:var(--obsidian);padding:64px 96px 48px;border-top:1px solid rg
   </a>
   <ul class="nav-links">
     <li><a href="#expertise">Expertise</a></li>
+    <li class="nav-dropdown">
+      <a href="#">Practice</a>
+      <div class="dropdown-menu">
+        <span class="dropdown-label">Services</span>
+        <a href="#expertise">Investment Sales</a>
+        <a href="#expertise">1031 Exchange Advisory</a>
+        <a href="#expertise">Tenant Representation</a>
+        <a href="#expertise">Landlord Services</a>
+        <a href="/brand-to-space/" style="color:var(--gold);">Open + Range ↗</a>
+        <span class="dropdown-label">Resources</span>
+        <a href="https://producers-ux.github.io/windermerecre/1031-workflow-toolkit.html" target="_blank">1031 Toolkit</a>
+      </div>
+    </li>
     <li><a href="#markets">Markets</a></li>
     <li><a href="listings.html">Listings</a></li>
     <li><a href="#team">Team</a></li>
@@ -416,6 +441,7 @@ footer{background:var(--obsidian);padding:64px 96px 48px;border-top:1px solid rg
 <div class="nav-mobile" id="mobileMenu">
   <ul>
     <li><a href="#expertise" class="mobile-nav-link">Expertise</a></li>
+    <li><a href="/brand-to-space/" class="mobile-nav-link" style="color:var(--gold);">Open + Range ↗</a></li>
     <li><a href="#markets" class="mobile-nav-link">Markets</a></li>
     <li><a href="listings.html" class="mobile-nav-link">Listings</a></li>
     <li><a href="#team" class="mobile-nav-link">Team</a></li>
@@ -586,6 +612,7 @@ footer{background:var(--obsidian);padding:64px 96px 48px;border-top:1px solid rg
     </button>
     <button class="filter-btn" data-filter="forsale">For Sale</button>
     <button class="filter-btn" data-filter="forlease">For Lease</button>
+    <button class="filter-btn" data-filter="seller-financing" style="border-color:rgba(92,180,92,.4);color:#7ec87e;">✦ Seller Financing</button>
   </div>
 
   <!-- GRID -->
@@ -602,7 +629,7 @@ footer{background:var(--obsidian);padding:64px 96px 48px;border-top:1px solid rg
         <div class="listing-address">850 N Palm Canyon Dr</div>
         <div class="listing-city">Palm Springs, CA 92262</div>
         <div class="listing-stats">
-          <div class="listing-stat-item"><div class="listing-stat-val">±3,200</div><div class="listing-stat-key">Sq Ft</div></div>
+          <div class="listing-stat-item"><div class="listing-stat-val">±4,180</div><div class="listing-stat-key">Sq Ft</div></div>
           <div class="listing-stat-item"><div class="listing-stat-val">NNN</div><div class="listing-stat-key">Lease Type</div></div>
           <div class="listing-stat-item"><div class="listing-stat-val">Palm Canyon</div><div class="listing-stat-key">Corridor</div></div>
           <div class="listing-stat-item"><div class="listing-stat-val">Immediate</div><div class="listing-stat-key">Availability</div></div>
@@ -701,12 +728,16 @@ footer{background:var(--obsidian);padding:64px 96px 48px;border-top:1px solid rg
         <div class="listing-stats">
           <div class="listing-stat-item"><div class="listing-stat-val">$4,200,000</div><div class="listing-stat-key">Ask Price</div></div>
           <div class="listing-stat-item"><div class="listing-stat-val">5.0%</div><div class="listing-stat-key">Cap Rate</div></div>
-          <div class="listing-stat-item"><div class="listing-stat-val">$210,000</div><div class="listing-stat-key">Net/Year</div></div>
+          <div class="listing-stat-item"><div class="listing-stat-val">$210,000</div><div class="listing-stat-key">Net / Year</div></div>
           <div class="listing-stat-item"><div class="listing-stat-val">10 + 5×5</div><div class="listing-stat-key">Yr Lease</div></div>
+          <div class="listing-stat-item"><div class="listing-stat-val">4,012 SF</div><div class="listing-stat-key">0.38 Acres</div></div>
+          <div class="listing-stat-item"><div class="listing-stat-val">14</div><div class="listing-stat-key">Parking Spaces</div></div>
+          <div class="listing-stat-item"><div class="listing-stat-val">NN Lease</div><div class="listing-stat-key">Lease Structure</div></div>
+          <div class="listing-stat-item"><div class="listing-stat-val">June '26</div><div class="listing-stat-key">Delivery</div></div>
         </div>
-        <p class="listing-desc">Brand-new NNN leased to Sherwin-Williams — Fortune 200, 100% corporate. Tenant pays all expenses. 20-yr transferrable roof warranty. Delivery end of June. The cleanest 1031 exchange asset in the valley right now.</p>
+        <p class="listing-desc">Brand-new NN lease to Sherwin-Williams — Fortune 200, $23B+ in annual revenue, 100% corporate (not a franchise). Tenant covers all repairs, maintenance, HVAC, utilities, taxes, and insurance. Landlord responsible for roof only (20-yr transferrable warranty), structure, and parking lot. The cleanest 1031 exchange asset in the valley right now.</p>
         <div class="listing-actions">
-          <a href="mailto:kate@clozingcre.com?subject=First%20Look%20Inquiry%3A%20Sherwin-Williams%20NNN%2C%20Palm%20Springs&body=I%20am%20interested%20in%20the%20Sherwin-Williams%20NNN.%0A%0AName%3A%0ACompany%3A%0APhone%3A%0AQualification%3A" class="listing-btn primary">
+          <a href="mailto:kate@clozingcre.com?subject=First%20Look%20Inquiry%3A%20Sherwin-Williams%20NNN%2C%20Palm%20Springs&body=I%20am%20interested%20in%20the%20Sherwin-Williams%20NNN%20at%201488%20N.%20Palm%20Canyon%20Dr.%0A%0AName%3A%0ACompany%3A%0APhone%3A%0AQualification%3A%0A1031%20Exchange%3A%20Yes%20%2F%20No" class="listing-btn primary">
             <svg viewBox="0 0 16 16" fill="none"><path d="M2 4h12v10H2zM2 4l6 5 6-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Request Full Memo
           </a>
         </div>
@@ -715,7 +746,114 @@ footer{background:var(--obsidian);padding:64px 96px 48px;border-top:1px solid rg
 
   </div>
 
-  <!-- FIRST LOOK EXPLAINER -->
+    <!-- 5: Arena Blanca | firstlook | forsale | seller-financing -->
+    <div class="listing-card fade-up firstlook-card" data-category="firstlook forsale seller-financing">
+      <div class="listing-img">
+        <div class="listing-img-placeholder-wrap">
+          <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block">
+            <rect width="400" height="225" fill="#2a2520"/>
+            <text x="200" y="95" font-family="Georgia,serif" font-size="48" fill="rgba(196,160,82,0.25)" text-anchor="middle" font-style="italic">AB</text>
+            <text x="200" y="135" font-family="system-ui,sans-serif" font-size="13" fill="rgba(240,232,220,0.3)" text-anchor="middle" letter-spacing="3">67780 ARENA BLANCA RD</text>
+            <text x="200" y="158" font-family="system-ui,sans-serif" font-size="11" fill="rgba(196,160,82,0.4)" text-anchor="middle" letter-spacing="2">PHOTO COMING SOON</text>
+          </svg>
+        </div>
+        <span class="listing-status for-sale">For Sale · Land</span>
+        <span class="fl-badge">⬡ First Look</span>
+      </div>
+      <div class="listing-body">
+        <div class="listing-type" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+          Residential Land · 10 Lots
+          <span class="sf-badge">✦ Seller Financing</span>
+        </div>
+        <div class="listing-address">67780 Arena Blanca Rd</div>
+        <div class="listing-city">Desert Hot Springs, CA 92240</div>
+        <div class="listing-stats">
+          <div class="listing-stat-item"><div class="listing-stat-val">$1,500,000</div><div class="listing-stat-key">All 10 Lots</div></div>
+          <div class="listing-stat-item"><div class="listing-stat-val">45–50%</div><div class="listing-stat-key">Min. Down</div></div>
+          <div class="listing-stat-item"><div class="listing-stat-val">10</div><div class="listing-stat-key">Total Lots</div></div>
+          <div class="listing-stat-item"><div class="listing-stat-val">Seller</div><div class="listing-stat-key">Will Finance</div></div>
+        </div>
+        <p class="listing-desc">Ten contiguous lots available as a package at $1,500,000 — priced at what is owed. Seller will finance with a sufficient down payment of 45–50%, reflecting the current loan balance. A direct path to land ownership in a growing Desert Hot Springs corridor without conventional bank qualifying. Not on LoopNet.</p>
+        <div class="listing-actions">
+          <a href="mailto:kate@clozingcre.com?subject=First%20Look%20Inquiry%3A%20Arena%20Blanca%2C%20Desert%20Hot%20Springs&body=I%20am%20interested%20in%20the%20Arena%20Blanca%20land%20package.%0A%0AName%3A%0ACompany%3A%0APhone%3A%0AQualification%3A" class="listing-btn primary">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M2 4h12v10H2zM2 4l6 5 6-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Request Full Memo
+          </a>
+          <a href="https://www.flexmls.com/share/E2GKP/67780-Arena-Blanca-Road-Desert-Hot-Springs-CA-92240" target="_blank" rel="noopener" class="listing-btn secondary">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9M9 2h5v5M14 2L8 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>FlexMLS
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6: Pierson Blvd | public | forsale | seller-financing -->
+    <div class="listing-card fade-up" data-category="public forsale seller-financing">
+      <div class="listing-img">
+        <img src="https://images1.loopnet.com/i2/AjcOHZ4Uw-hwuUyKs8p2B2FuBIYDMK69PhVBqRYwHXw/116/66735-Pierson-Blvd-Desert-Hot-Springs-CA-Primary-Photo-1-LargeHighDefinition.jpg" alt="66735 Pierson Blvd, Desert Hot Springs" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0">
+        <span class="listing-status for-sale">For Sale</span>
+      </div>
+      <div class="listing-body">
+        <div class="listing-type" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+          Specialty / Redevelopment · Opportunity Zone
+          <span class="sf-badge">✦ Seller Financing</span>
+        </div>
+        <div class="listing-address">66735 Pierson Blvd</div>
+        <div class="listing-city">Desert Hot Springs, CA 92240</div>
+        <div class="listing-stats">
+          <div class="listing-stat-item"><div class="listing-stat-val">$999,000</div><div class="listing-stat-key">Ask Price</div></div>
+          <div class="listing-stat-item"><div class="listing-stat-val">$333/SF</div><div class="listing-stat-key">Price Per SF</div></div>
+          <div class="listing-stat-item"><div class="listing-stat-val">3,000 SF</div><div class="listing-stat-key">Building</div></div>
+          <div class="listing-stat-item"><div class="listing-stat-val">0.61 AC</div><div class="listing-stat-key">Hard Corner</div></div>
+          <div class="listing-stat-item"><div class="listing-stat-val">15% Down</div><div class="listing-stat-key">Min. Down</div></div>
+          <div class="listing-stat-item"><div class="listing-stat-val">6% / 2 Yr</div><div class="listing-stat-key">Interest-Only</div></div>
+          <div class="listing-stat-item"><div class="listing-stat-val">C-D Zoning</div><div class="listing-stat-key">Downtown Comm.</div></div>
+          <div class="listing-stat-item"><div class="listing-stat-val">OZ</div><div class="listing-stat-key">Opportunity Zone</div></div>
+        </div>
+        <p class="listing-desc">Former church on a hard corner at Pierson and Mesquite — 3,000 SF building on 0.61 commercially zoned acres. C-D zoning allows retail, restaurant, gallery, spa, resort, office, medical, and more. Located in a designated Opportunity Zone with preferential tax treatment eligibility. Seller may finance with as little as 15% down at 6%, interest-only, for 2 years. Built 1946, renovated 2022. Listed by Slav Panayotov, Windermere Commercial.</p>
+        <div class="listing-actions">
+          <a href="mailto:kate@clozingcre.com?subject=Inquiry%3A%2066735%20Pierson%20Blvd%2C%20Desert%20Hot%20Springs&body=I%20am%20interested%20in%2066735%20Pierson%20Blvd.%0A%0AName%3A%0ACompany%3A%0APhone%3A%0AFinancing%20needed%3A%20Yes%20%2F%20No" class="listing-btn primary">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M2 4h12v10H2zM2 4l6 5 6-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Inquire
+          </a>
+          <a href="https://www.loopnet.com/Listing/66735-Pierson-Blvd-Desert-Hot-Springs-CA/37964019/" target="_blank" rel="noopener" class="listing-btn secondary">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M7 3H3a1 1 0 0 0-1 1v9a1 1 0 0 0 1 1h9a1 1 0 0 0 1-1V9M9 2h5v5M14 2L8 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>LoopNet
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7: Indio Hwy 111 | firstlook | forsale -->
+    <div class="listing-card fade-up firstlook-card" data-category="firstlook forsale">
+      <div class="listing-img">
+        <div class="listing-img-placeholder-wrap">
+          <svg viewBox="0 0 400 225" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block">
+            <rect width="400" height="225" fill="#2a2520"/>
+            <text x="200" y="95" font-family="Georgia,serif" font-size="48" fill="rgba(196,160,82,0.25)" text-anchor="middle" font-style="italic">IN</text>
+            <text x="200" y="135" font-family="system-ui,sans-serif" font-size="13" fill="rgba(240,232,220,0.3)" text-anchor="middle" letter-spacing="3">81730 HWY 111 · INDIO</text>
+            <text x="200" y="158" font-family="system-ui,sans-serif" font-size="11" fill="rgba(196,160,82,0.4)" text-anchor="middle" letter-spacing="2">PHOTO COMING SOON</text>
+          </svg>
+        </div>
+        <span class="listing-status for-sale">For Sale</span>
+        <span class="fl-badge">⬡ First Look</span>
+      </div>
+      <div class="listing-body">
+        <div class="listing-type">Office · Hwy 111 Corridor · Income-Producing</div>
+        <div class="listing-address">81730 Highway 111</div>
+        <div class="listing-city">Indio, CA 92201</div>
+        <div class="listing-stats">
+          <div class="listing-stat-item"><div class="listing-stat-val">$3,200,000</div><div class="listing-stat-key">Ask Price</div></div>
+          <div class="listing-stat-item"><div class="listing-stat-val">$200/SF</div><div class="listing-stat-key">Price Per SF</div></div>
+          <div class="listing-stat-item"><div class="listing-stat-val">16,500 SF</div><div class="listing-stat-key">Building</div></div>
+          <div class="listing-stat-item"><div class="listing-stat-val">$300–350</div><div class="listing-stat-key">Replacement/SF</div></div>
+        </div>
+        <p class="listing-desc">16,500 SF office building on the busiest stretch of Highway 111 in Indio — the most populous city in the Coachella Valley. Income-producing asset with rent roll and annual expense summary available upon request. Seller will not discount below $200/SF ($3,200,000). At $300–$350/SF current replacement cost, acquisition at $200/SF represents significant below-replacement value. Price may also be negotiated contingent on CAP rate analysis, CMA/market value per SF, or appraisal. Not on LoopNet.</p>
+        <div class="listing-actions">
+          <a href="mailto:kate@clozingcre.com?subject=First%20Look%20Inquiry%3A%2081730%20Hwy%20111%2C%20Indio&body=I%20am%20interested%20in%2081730%20Highway%20111%2C%20Indio.%0A%0AName%3A%0ACompany%3A%0APhone%3A%0AQualification%3A%0APlease%20send%20rent%20roll%20and%20expenses%3A%20Yes%0A" class="listing-btn primary">
+            <svg viewBox="0 0 16 16" fill="none"><path d="M2 4h12v10H2zM2 4l6 5 6-5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Request Rent Roll + Memo
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
   <div class="fl-explainer fade-up">
     <div class="fl-explainer-left">
       <div class="firstlook-badge" style="margin-bottom:16px;">
