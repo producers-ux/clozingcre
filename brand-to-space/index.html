@@ -1,1 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Open + Range — Brand-to-Space Matching. Curating tenants that elevate properties, activating commercial real estate as a platform for culture and commerce.">
+  <title>Open + Range | Brand-to-Space Matching | Clozing CRE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/shared.css">
+  <style>
+    /* HERO */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 88vh;
+      border-bottom: 1px solid var(--border);
+    }
 
+    .hero-left {
+      padding: 80px 60px 80px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background: var(--sand);
+      border-right: 1px solid var(--border);
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 24px;
+    }
+
+    .hero-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(52px, 6vw, 80px);
+      font-weight: 300;
+      line-height: 1.0;
+      color: var(--ink);
+      margin-bottom: 32px;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--rust);
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--ink-mid);
+      line-height: 1.65;
+      max-width: 420px;
+      margin-bottom: 48px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+      background: var(--ink);
+    }
+
+    .hero-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.7;
+    }
+
+    .hero-right-overlay {
+      position: absolute;
+      bottom: 48px;
+      left: 48px;
+      right: 48px;
+    }
+
+    .hero-quote {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.45;
+      border-left: 2px solid var(--rust-light);
+      padding-left: 24px;
+    }
+
+    .hero-quote-attr {
+      margin-top: 16px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      padding-left: 24px;
+    }
+
+    /* WHAT IS O+R */
+    .what-section {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .what-left {
+      padding: 80px 48px 80px 80px;
+      border-right: 1px solid var(--border);
+    }
+
+    .what-right {
+      padding: 80px 80px 80px 64px;
+    }
+
+    .what-title {
+      font-family: var(--font-serif);
+      font-size: 38px;
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+
+    .what-body {
+      font-size: 16px;
+      color: var(--ink-mid);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .programs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      margin-top: 48px;
+    }
+
+    .program-card {
+      background: var(--cream);
+      padding: 40px;
+    }
+
+    .program-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      margin-bottom: 20px;
+    }
+
+    .program-tag.open { background: var(--sage); color: var(--cream); }
+    .program-tag.range { background: var(--rust); color: var(--cream); }
+
+    .program-card h3 {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 300;
+      margin-bottom: 12px;
+    }
+
+    .program-card p {
+      font-size: 14px;
+      color: var(--ink-mid);
+      line-height: 1.7;
+    }
+
+    /* ACTIVATIONS */
+    .activations-section {
+      padding: 80px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 48px;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 38px;
+      font-weight: 300;
+    }
+
+    .activation-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .activation-item {
+      background: var(--cream);
+      display: grid;
+      grid-template-columns: 120px 1fr auto;
+      gap: 40px;
+      align-items: start;
+      padding: 40px;
+      transition: background 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .activation-item:hover { background: var(--sand); }
+
+    .activation-date {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      padding-top: 4px;
+    }
+
+    .activation-month {
+      font-family: var(--font-serif);
+      font-size: 13px;
+      font-style: italic;
+      color: var(--rust);
+      margin-bottom: 4px;
+    }
+
+    .activation-title {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 300;
+      margin-bottom: 8px;
+    }
+
+    .activation-meta {
+      font-size: 12px;
+      color: var(--ink-light);
+      margin-bottom: 12px;
+      letter-spacing: 0.03em;
+    }
+
+    .activation-body {
+      font-size: 14px;
+      color: var(--ink-mid);
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    .activation-status {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      white-space: nowrap;
+    }
+
+    .status-upcoming { border: 1px solid var(--sage); color: var(--sage); }
+    .status-past { border: 1px solid var(--border-strong); color: var(--ink-light); }
+
+    /* BLOG */
+    .blog-section {
+      padding: 80px;
+      border-bottom: 1px solid var(--border);
+      background: var(--sand);
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .blog-card {
+      background: var(--sand);
+      padding: 40px;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .blog-card:hover { background: var(--sand-dark); }
+
+    .blog-tag {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 16px;
+    }
+
+    .blog-title {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 300;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+
+    .blog-excerpt {
+      font-size: 14px;
+      color: var(--ink-mid);
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    .blog-date {
+      font-size: 11px;
+      color: var(--ink-light);
+      margin-top: 24px;
+      letter-spacing: 0.04em;
+    }
+
+    /* GTR STORE CTA */
+    .store-band {
+      background: var(--ink);
+      padding: 64px 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .store-band-left {}
+
+    .store-band-eyebrow {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 12px;
+    }
+
+    .store-band-title {
+      font-family: var(--font-serif);
+      font-size: 34px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .store-band-sub {
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 8px;
+      max-width: 400px;
+    }
+
+    .btn-light {
+      border-color: rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.85);
+    }
+
+    .btn-light:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.6);
+      color: #fff;
+    }
+
+    /* PROPERTY CTA */
+    .property-cta {
+      padding: 80px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .property-cta-inner {
+      border: 1px solid var(--border);
+      padding: 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .property-cta-title {
+      font-family: var(--font-serif);
+      font-size: 38px;
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .property-cta-body {
+      font-size: 15px;
+      color: var(--ink-mid);
+      line-height: 1.75;
+    }
+
+    .property-details { display: flex; flex-direction: column; gap: 24px; }
+
+    .property-stat {
+      display: flex;
+      flex-direction: column;
+      border-left: 2px solid var(--rust);
+      padding-left: 20px;
+    }
+
+    .property-stat-value {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--ink);
+    }
+
+    .property-stat-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-top: 4px;
+    }
+
+    .property-stats-row { display: flex; gap: 40px; flex-wrap: wrap; }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { min-height: 40vh; }
+      .what-section { grid-template-columns: 1fr; }
+      .what-left { padding: 48px 32px; border-right: none; border-bottom: 1px solid var(--border); }
+      .what-right { padding: 48px 32px; }
+      .programs-grid { grid-template-columns: 1fr; }
+      .activations-section, .blog-section, .property-cta { padding: 48px 32px; }
+      .activation-item { grid-template-columns: 1fr; gap: 12px; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .store-band { padding: 48px 32px; flex-direction: column; align-items: flex-start; }
+      .property-cta-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="https://clozingcre.com" class="nav-logo">Clozing CRE</a>
+    <ul class="nav-links">
+      <li><a href="https://clozingcre.com#expertise">Expertise</a></li>
+      <li class="nav-dropdown">
+        <a href="#">Practice</a>
+        <div class="dropdown-menu">
+          <span class="dropdown-label">Services</span>
+          <a href="https://clozingcre.com#expertise">Investment Sales</a>
+          <a href="https://clozingcre.com#expertise">1031 Exchange Advisory</a>
+          <a href="https://clozingcre.com#expertise">Tenant Representation</a>
+          <a href="https://clozingcre.com#expertise">Landlord Services</a>
+          <a href="/brand-to-space/" style="color:var(--rust);">Open + Range ↗</a>
+          <span class="dropdown-label">Resources</span>
+          <a href="https://producers-ux.github.io/windermerecre/1031-workflow-toolkit.html">1031 Toolkit</a>
+        </div>
+      </li>
+      <li><a href="https://clozingcre.com/listings.html">Listings</a></li>
+      <li><a href="https://clozingcre.com#team">Team</a></li>
+      <a href="https://clozingcre.com#contact" class="nav-cta">Connect</a>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Open + Range · A Clozing CRE Practice</div>
+      <h1 class="hero-headline">
+        Putting<br><em>place</em><br>to work.
+      </h1>
+      <p class="hero-sub">
+        Brand-to-Space Matching. We curate tenants that elevate properties — activating commercial real estate as a platform for culture and commerce.
+      </p>
+      <div class="hero-actions">
+        <a href="#activations" class="btn btn-primary">Upcoming Activations</a>
+        <a href="#property" class="btn">Have a Space?</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="https://images1.loopnet.com/i2/mli7FSipUZ1G3KFzJM971vy50SZPITYUMsUpHBAgzK4/116/850-N-Palm-Canyon-Dr-Palm-Springs-CA-Primary-Photo-1-LargeHighDefinition.jpg" alt="850 N Palm Canyon Drive, Palm Springs — former Arthur Elrod studio" loading="lazy">
+      <div class="hero-right-overlay">
+        <p class="hero-quote">Place has a story. We tell it.</p>
+        <p class="hero-quote-attr">850 N Palm Canyon Dr · Former Arthur Elrod Studio</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IS O+R -->
+  <section class="what-section">
+    <div class="what-left">
+      <span class="section-label">The Practice</span>
+      <h2 class="what-title serif">What is Open + Range?</h2>
+      <p class="what-body">
+        Open + Range is Clozing CRE's Brand-to-Space practice — a framework for matching the right brands, makers, and cultural operators to the right commercial spaces.
+      </p>
+      <p class="what-body">
+        We don't just lease space. We think about who belongs in it, what story they tell, and why that matters to the property and the corridor it sits on.
+      </p>
+      <p class="what-body">
+        Rooted in Palm Springs and the Coachella Valley. Operating since 2026.
+      </p>
+      <br>
+      <a href="https://clozingcre.com#contact" class="btn">Work with us</a>
+    </div>
+    <div class="what-right">
+      <div class="programs-grid">
+        <div class="program-card">
+          <span class="program-tag open">Open</span>
+          <h3>Commercial Space Activation</h3>
+          <p>We activate underutilized commercial properties with programming, pop-ups, and brand partnerships — creating proof-of-concept tenancies that de-risk leasing decisions and generate market heat.</p>
+        </div>
+        <div class="program-card">
+          <span class="program-tag range">Range</span>
+          <h3>Visual Art + Design Exhibition</h3>
+          <p>Range brings curated visual art and design programming into commercial spaces, positioning properties within the cultural life of the Coachella Valley and attracting design-forward tenants.</p>
+        </div>
+      </div>
+      <div style="margin-top: 1px; background: var(--border);">
+        <div class="program-card" style="background: var(--sand);">
+          <span class="section-label" style="margin-bottom: 8px;">Pilot Site</span>
+          <h3 style="font-family: var(--font-serif); font-size: 20px; font-weight: 300; margin-bottom: 8px;">850 N Palm Canyon Drive</h3>
+          <p style="font-size: 14px; color: var(--ink-mid);">The former Arthur Elrod studio, Palm Springs. 4,180 SF. Architecturally significant. Available for long-term lease. O+R is launching its first activation series here in June 2026.</p>
+          <a href="https://www.loopnet.com/Listing/850-N-Palm-Canyon-Dr-Palm-Springs-CA/39793613/" target="_blank" style="display: inline-block; margin-top: 16px; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--rust); text-decoration: none;">View on LoopNet →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTIVATIONS -->
+  <section class="activations-section" id="activations">
+    <div class="section-header">
+      <div>
+        <span class="section-label">Events</span>
+        <h2 class="section-title serif">Activations</h2>
+      </div>
+      <a href="activations/" class="btn">All Activations</a>
+    </div>
+
+    <div class="activation-list">
+
+      <a class="activation-item" href="activations/the-elrod-launch.html">
+        <div class="activation-date">
+          <div class="activation-month">June</div>
+          10, 2026<br>10 AM – 5 PM
+        </div>
+        <div>
+          <h3 class="activation-title">The Elrod — Launch Day</h3>
+          <div class="activation-meta">850 N Palm Canyon Drive · Palm Springs</div>
+          <p class="activation-body">This studio was Arthur Elrod's. Constructed between 1968 and 1970, it sits at the center of what would become Palm Springs' Uptown Design District. We're opening the doors. Morning matcha at 10 AM. Conversation on design at 2 PM. Open house through 5 PM.</p>
+        </div>
+        <span class="activation-status status-upcoming">Upcoming</span>
+      </a>
+
+      <a class="activation-item" href="activations/villa-mykonos-tour.html">
+        <div class="activation-date">
+          <div class="activation-month">June</div>
+          24, 2026<br>2 – 5 PM
+        </div>
+        <div>
+          <h3 class="activation-title">Villa Mykonos — Private Investor Tour</h3>
+          <div class="activation-meta">67590 Jones Rd · Cathedral City</div>
+          <p class="activation-body">Ten units. Huge 2BD/2BTH. One pool. Grounds that feel like somewhere else. A private tour for 1031 buyers and their advisors. 8.86% cap rate. Identification window closing? Let's talk before June 12.</p>
+        </div>
+        <span class="activation-status status-upcoming">Upcoming</span>
+      </a>
+
+      <a class="activation-item" href="activations/the-elrod-community.html">
+        <div class="activation-date">
+          <div class="activation-month">July</div>
+          10, 2026<br>2 – 5 PM
+        </div>
+        <div>
+          <h3 class="activation-title">The Elrod — Community Meetup</h3>
+          <div class="activation-meta">850 N Palm Canyon Drive · Palm Springs</div>
+          <p class="activation-body">The third event in the series. Come meet the community building around this space, tour the pop-up, and see what's next for 850. Free. All welcome.</p>
+        </div>
+        <span class="activation-status status-upcoming">Upcoming</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- BLOG / FIELD NOTES -->
+  <section class="blog-section" id="field-notes">
+    <div class="section-header">
+      <div>
+        <span class="section-label">Editorial</span>
+        <h2 class="section-title serif">Field Notes</h2>
+      </div>
+      <a href="blog/" class="btn">All Posts</a>
+    </div>
+
+    <div class="blog-grid">
+      <a class="blog-card" href="blog/elrod-studio-place.html">
+        <div class="blog-tag">Place</div>
+        <h3 class="blog-title">What the Elrod Studio tells us about commercial space in Palm Springs</h3>
+        <p class="blog-excerpt">A 1968 building doesn't become architecturally significant by accident. It becomes significant because someone understood that the space itself was the message.</p>
+        <div class="blog-date">June 2026</div>
+      </a>
+
+      <a class="blog-card" href="blog/brand-to-space-matching.html">
+        <div class="blog-tag">Practice</div>
+        <h3 class="blog-title">Brand-to-Space Matching: why the tenant matters as much as the lease terms</h3>
+        <p class="blog-excerpt">A landlord thinks in terms of income. A good landlord thinks in terms of tenants. A great landlord thinks in terms of the story the building tells when the right tenant is in it.</p>
+        <div class="blog-date">May 2026</div>
+      </a>
+
+      <a class="blog-card" href="blog/coachella-valley-culture-commerce.html">
+        <div class="blog-tag">Market</div>
+        <h3 class="blog-title">Culture and commerce in the Coachella Valley: what the next five years look like</h3>
+        <p class="blog-excerpt">Palm Springs isn't a secondary market anymore. The question is what kind of primary market it wants to be — and which buildings get to define that answer.</p>
+        <div class="blog-date">April 2026</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- GTR STORE BAND -->
+  <div class="store-band">
+    <div class="store-band-left">
+      <div class="store-band-eyebrow">Ghost Town Ranch · Small-Batch Skincare &amp; Home Goods</div>
+      <div class="store-band-title serif">The Store</div>
+      <div class="store-band-sub">COSMOS-compliant desert botanicals. Skincare, fragrance, and home goods made for this landscape and no other. Shop the full collection on or-cre.com.</div>
+    </div>
+    <a href="https://or-cre.com/collections/all" target="_blank" class="btn btn-light">Shop Ghost Town Ranch →</a>
+  </div>
+
+  <!-- PROPERTY CTA -->
+  <section class="property-cta" id="property">
+    <div class="property-cta-inner">
+      <div>
+        <span class="section-label">Have a Space?</span>
+        <h2 class="property-cta-title serif">Own commercial property in the Coachella Valley?</h2>
+        <p class="property-cta-body">
+          Open + Range works with property owners who want to activate their spaces — attracting the right tenants, generating market heat, and positioning their buildings within the cultural fabric of the desert.
+        </p>
+        <br>
+        <a href="mailto:kate@clozingcre.com?subject=Brand-to-Space Inquiry" class="btn btn-primary" style="margin-right: 12px;">Get in touch</a>
+        <a href="https://clozingcre.com#expertise" class="btn">Our Services</a>
+      </div>
+      <div class="property-details">
+        <div class="property-stats-row">
+          <div class="property-stat">
+            <span class="property-stat-value">850 N</span>
+            <span class="property-stat-label">Pilot Property · Palm Canyon</span>
+          </div>
+          <div class="property-stat">
+            <span class="property-stat-value">June '26</span>
+            <span class="property-stat-label">First Activation</span>
+          </div>
+        </div>
+        <p style="font-size: 14px; color: var(--ink-mid); line-height: 1.7;">We represent owners through Windermere Commercial Palm Springs — so Brand-to-Space is always connected to real deal flow. Activations lead to leases. Programming leads to tenants. Culture leads to commerce.</p>
+        <a href="https://clozingcre.com#team" style="font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--rust); text-decoration: none;">Meet the team →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="footer-logo">Open + Range</span>
+        <p class="footer-tagline">Brand-to-Space Matching. A Clozing CRE practice. Windermere Commercial Palm Springs.</p>
+        <p style="font-size: 12px; color: rgba(255,255,255,0.25); margin-top: 16px;">Putting place to work.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Programs</h4>
+        <a href="#activations">Open — Space Activation</a>
+        <a href="#activations">Range — Art + Design</a>
+        <a href="activations/">All Activations</a>
+        <a href="blog/">Field Notes</a>
+      </div>
+      <div class="footer-col">
+        <h4>Clozing CRE</h4>
+        <a href="https://clozingcre.com">Home</a>
+        <a href="https://clozingcre.com#expertise">All Services</a>
+        <a href="https://clozingcre.com/listings.html">Listings</a>
+        <a href="https://producers-ux.github.io/windermerecre/1031-workflow-toolkit.html">1031 Toolkit</a>
+      </div>
+      <div class="footer-col">
+        <h4>Store</h4>
+        <a href="https://or-cre.com/collections/all" target="_blank">Ghost Town Ranch Shop</a>
+        <a href="https://or-cre.com" target="_blank">or-cre.com</a>
+        <h4 style="margin-top: 24px;">Contact</h4>
+        <a href="mailto:kate@clozingcre.com">kate@clozingcre.com</a>
+        <a href="tel:+14426770396">(442) 677-0396</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Open + Range · A Clozing CRE Practice · Windermere Commercial Palm Springs</span>
+      <span>CA DRE Licensed · WA Managing Broker</span>
+    </div>
+  </footer>
+
+</body>
+</html>
