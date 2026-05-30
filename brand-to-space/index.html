@@ -472,12 +472,18 @@
       .blog-tag { font-size: 12px; }
       .blog-date { font-size: 13px; }
 
-      /* gtr band */
-      .store-band {
-        padding: 48px 24px;
-        flex-direction: column;
-        align-items: flex-start;
+      /* amenities band */
+      .store-band { padding: 0 !important; }
+      .store-band > div:first-child { padding: 48px 24px 36px !important; }
+      .store-band > div:first-child > div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
       }
+      .store-band > div[style*="grid-template-columns: 1fr 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+      }
+      .store-band > div:last-child { padding: 40px 24px !important; flex-direction: column; align-items: flex-start; }
+      .store-band [style*="padding: 48px 40px"] { padding: 36px 24px !important; }
       .store-band-title { font-size: 30px; }
       .store-band-sub { font-size: 16px; max-width: 100%; }
 
@@ -677,17 +683,59 @@
     </div>
   </section>
 
-  <!-- GTR BRAND BAND -->
-  <div class="store-band">
-    <div class="store-band-left">
-      <div class="store-band-eyebrow">Brand · Retail · Product</div>
-      <div class="store-band-title serif">Ghost Town Ranch</div>
-      <div class="store-band-sub">Small-batch skincare, fragrance, and home goods rooted in the Coachella Valley. COSMOS-compliant. Made for this landscape and no other. Ghost Town Ranch is the product expression of what O+R does in space — brand built from place.</div>
+  <!-- AMENITIES PROGRAM SECTION -->
+  <div class="store-band" style="display: block; padding: 0;">
+
+    <!-- HEADER ROW -->
+    <div style="padding: 72px 80px 48px; border-bottom: 1px solid rgba(255,255,255,0.08);">
+      <div class="store-band-eyebrow">Hospitality Amenities Program</div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end; margin-top: 8px;">
+        <div class="store-band-title serif" style="margin: 0; line-height: 1.1;">Bespoke amenity lines,<br><em style="font-style:italic; color: var(--rust-light);">built from place.</em></div>
+        <div class="store-band-sub" style="max-width: 100%; margin: 0;">We design and supply custom-branded amenity programs for hospitality properties across the Coachella Valley — hotels, boutique resorts, short-term rentals, and branded residences. Every line is rooted in the property's specific story, location, and guest. We can create bespoke product suites from scratch, or activate an existing brand like Ghost Town Ranch as the amenity layer.</div>
+      </div>
     </div>
-    <div style="display: flex; flex-direction: column; gap: 12px; align-items: flex-start; flex-shrink: 0;">
-      <a href="https://or-cre.com/collections/all" target="_blank" class="btn btn-light">Shop the Collection →</a>
-      <a href="https://or-cre.com" target="_blank" style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); text-decoration: none;">ghosttownranch.com</a>
+
+    <!-- THREE CONCEPTS -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.08);">
+
+      <!-- GTR -->
+      <div style="padding: 48px 40px; background: var(--ink);">
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rust-light); margin-bottom: 20px;">Flagship Brand · Active</div>
+        <div style="font-family: var(--font-serif); font-size: 28px; font-weight: 300; color: rgba(255,255,255,0.95); margin-bottom: 16px; line-height: 1.2;">Ghost Town Ranch</div>
+        <div style="font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.75; margin-bottom: 28px;">Small-batch skincare, fragrance, and home goods. COSMOS-compliant. Made for this landscape and no other. Available now as a hospitality amenity suite or retail activation.</div>
+        <div style="font-size: 13px; color: rgba(255,255,255,0.35); letter-spacing: 0.06em; line-height: 1.8; margin-bottom: 28px;">Skincare · Fragrance · Home Goods<br>Boutique hotel suites · Welcome gifts<br>Retail pop-up · Branded residence packages</div>
+        <a href="https://or-cre.com/collections/all" target="_blank" class="btn btn-light" style="font-size: 12px; padding: 10px 20px;">Shop the Collection →</a>
+      </div>
+
+      <!-- VILLA MYKONOS -->
+      <div style="padding: 48px 40px; background: rgba(255,255,255,0.02);">
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 20px;">Place Concept · In Development</div>
+        <div style="font-family: var(--font-serif); font-size: 28px; font-weight: 300; color: rgba(255,255,255,0.95); margin-bottom: 16px; line-height: 1.2;">Villa Mykonos</div>
+        <div style="font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.75; margin-bottom: 28px;">Ten units on the grounds of a property that feels like somewhere else entirely. The amenity concept draws from whitewashed Mediterranean forms, desert heat, and the particular quiet of Cathedral City.</div>
+        <div style="font-size: 13px; color: rgba(255,255,255,0.35); letter-spacing: 0.06em; line-height: 1.8; margin-bottom: 28px;">Custom fragrance line · Linen collections<br>Guest welcome kits · Pool-side goods<br>Branded collateral · Ownership-ready packaging</div>
+        <a href="mailto:kate@clozingcre.com?subject=Villa Mykonos Amenities Concept" class="btn btn-light" style="font-size: 12px; padding: 10px 20px;">Inquire →</a>
+      </div>
+
+      <!-- THE ELROD -->
+      <div style="padding: 48px 40px; background: rgba(255,255,255,0.02);">
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 20px;">Place Concept · In Development</div>
+        <div style="font-family: var(--font-serif); font-size: 28px; font-weight: 300; color: rgba(255,255,255,0.95); margin-bottom: 16px; line-height: 1.2;">The Elrod</div>
+        <div style="font-size: 16px; color: rgba(255,255,255,0.6); line-height: 1.75; margin-bottom: 28px;">A line built from the language of the Uptown Design District — mid-century restraint, desert materiality, the sensibility of a space that dressed Walt Disney and Frank Sinatra. Bold. Minimal. Rooted.</div>
+        <div style="font-size: 13px; color: rgba(255,255,255,0.35); letter-spacing: 0.06em; line-height: 1.8; margin-bottom: 28px;">Scent as architecture · Grooming essentials<br>Archival print collateral · Design-forward packaging<br>Tenant-ready retail activation</div>
+        <a href="mailto:kate@clozingcre.com?subject=The Elrod Amenities Concept" class="btn btn-light" style="font-size: 12px; padding: 10px 20px;">Inquire →</a>
+      </div>
+
     </div>
+
+    <!-- BOTTOM CTA -->
+    <div style="padding: 48px 80px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; gap: 40px; flex-wrap: wrap;">
+      <div>
+        <div style="font-family: var(--font-serif); font-size: 26px; font-weight: 300; color: rgba(255,255,255,0.9); margin-bottom: 8px;">Have a property that needs a product identity?</div>
+        <div style="font-size: 16px; color: rgba(255,255,255,0.5);">We build the brand, design the line, and deliver the program. Custom or co-branded.</div>
+      </div>
+      <a href="mailto:kate@clozingcre.com?subject=Custom Amenities Program Inquiry" class="btn btn-light">Start a Conversation →</a>
+    </div>
+
   </div>
 
   <!-- PROPERTY CTA -->
