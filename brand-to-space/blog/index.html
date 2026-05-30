@@ -1,1 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Field Notes — editorial from Open + Range on place, culture, activations, and commercial real estate in the Coachella Valley.">
+  <title>Field Notes | Open + Range | Clozing CRE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/shared.css">
+  <style>
+    .page-header {
+      padding: 80px 80px 64px;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: end;
+    }
 
+    .page-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(48px, 5vw, 72px);
+      font-weight: 300;
+      line-height: 1.0;
+      color: var(--ink);
+    }
+
+    .page-sub {
+      font-size: 16px;
+      color: var(--ink-mid);
+      line-height: 1.75;
+      max-width: 380px;
+      align-self: end;
+    }
+
+    .filter-bar {
+      padding: 20px 80px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .filter-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-right: 8px;
+    }
+
+    .filter-btn {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--ink-mid);
+      cursor: pointer;
+      transition: all 0.15s;
+      text-decoration: none;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--ink);
+      color: var(--cream);
+      border-color: var(--ink);
+    }
+
+    .blog-index {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+    }
+
+    .blog-main {
+      border-right: 1px solid var(--border);
+    }
+
+    .post-featured {
+      padding: 60px 80px;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: background 0.2s;
+    }
+
+    .post-featured:hover { background: var(--sand); }
+
+    .post-tag {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .post-featured .post-title {
+      font-family: var(--font-serif);
+      font-size: 38px;
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .post-featured .post-excerpt {
+      font-size: 17px;
+      color: var(--ink-mid);
+      line-height: 1.75;
+      max-width: 540px;
+    }
+
+    .post-meta {
+      font-size: 11px;
+      color: var(--ink-light);
+      letter-spacing: 0.04em;
+      margin-top: 24px;
+    }
+
+    .post-list {}
+
+    .post-item {
+      padding: 40px 80px;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 32px;
+      transition: background 0.2s;
+    }
+
+    .post-item:hover { background: var(--sand); }
+
+    .post-item-num {
+      font-family: var(--font-serif);
+      font-size: 38px;
+      font-weight: 300;
+      color: var(--border-strong);
+      line-height: 1;
+      padding-top: 4px;
+    }
+
+    .post-item-title {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 300;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .post-item-excerpt {
+      font-size: 14px;
+      color: var(--ink-mid);
+      line-height: 1.65;
+    }
+
+    .blog-sidebar {
+      padding: 60px 48px;
+    }
+
+    .sidebar-section { margin-bottom: 48px; }
+
+    .sidebar-section h3 {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sidebar-link {
+      display: block;
+      font-size: 14px;
+      color: var(--ink-mid);
+      text-decoration: none;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.15s;
+    }
+
+    .sidebar-link:hover { color: var(--rust); }
+
+    .sidebar-link-tag {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      float: right;
+    }
+
+    .submit-cta {
+      background: var(--sand);
+      padding: 28px;
+      margin-top: 32px;
+    }
+
+    .submit-cta p {
+      font-size: 13px;
+      color: var(--ink-mid);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 900px) {
+      .page-header { grid-template-columns: 1fr; padding: 48px 32px; gap: 24px; }
+      .filter-bar { padding: 16px 32px; flex-wrap: wrap; }
+      .blog-index { grid-template-columns: 1fr; }
+      .blog-main { border-right: none; }
+      .post-featured { padding: 40px 32px; }
+      .post-item { padding: 32px; grid-template-columns: 1fr; }
+      .post-item-num { display: none; }
+      .blog-sidebar { padding: 40px 32px; border-top: 1px solid var(--border); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="https://clozingcre.com" class="nav-logo">Clozing CRE</a>
+    <ul class="nav-links">
+      <li><a href="https://clozingcre.com#expertise">Expertise</a></li>
+      <li class="nav-dropdown">
+        <a href="#">Practice</a>
+        <div class="dropdown-menu">
+          <span class="dropdown-label">Services</span>
+          <a href="https://clozingcre.com#expertise">Investment Sales</a>
+          <a href="https://clozingcre.com#expertise">1031 Exchange Advisory</a>
+          <a href="https://clozingcre.com#expertise">Tenant Representation</a>
+          <a href="https://clozingcre.com#expertise">Landlord Services</a>
+          <a href="/brand-to-space/" style="color:var(--rust);">Open + Range ↗</a>
+          <span class="dropdown-label">Resources</span>
+          <a href="https://producers-ux.github.io/windermerecre/1031-workflow-toolkit.html">1031 Toolkit</a>
+        </div>
+      </li>
+      <li><a href="https://clozingcre.com/listings.html">Listings</a></li>
+      <li><a href="https://clozingcre.com#team">Team</a></li>
+      <a href="https://clozingcre.com#contact" class="nav-cta">Connect</a>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <div>
+      <span class="section-label">Open + Range · Editorial</span>
+      <h1 class="page-headline serif">Field<br>Notes</h1>
+    </div>
+    <p class="page-sub">
+      Writing on place, culture, activations, and the intersection of brand and commercial real estate in the Coachella Valley. Published by the Open + Range practice at Clozing CRE.
+    </p>
+  </div>
+
+  <div class="filter-bar">
+    <span class="filter-label">Filter</span>
+    <a href="#" class="filter-btn active">All</a>
+    <a href="#" class="filter-btn">Place</a>
+    <a href="#" class="filter-btn">Practice</a>
+    <a href="#" class="filter-btn">Market</a>
+    <a href="#" class="filter-btn">Activation Recap</a>
+  </div>
+
+  <div class="blog-index">
+    <div class="blog-main">
+
+      <!-- Featured post -->
+      <a class="post-featured" href="elrod-studio-place.html">
+        <span class="post-tag">Place · Featured</span>
+        <h2 class="post-title">What the Elrod Studio tells us about commercial space in Palm Springs</h2>
+        <p class="post-excerpt">A 1968 building doesn't become architecturally significant by accident. It becomes significant because someone understood that the space itself was the message — and had the confidence to design accordingly. The Elrod Studio on Palm Canyon is that kind of building.</p>
+        <div class="post-meta">June 2026 · 6 min read</div>
+      </a>
+
+      <div class="post-list">
+
+        <a class="post-item" href="brand-to-space-matching.html">
+          <div class="post-item-num">02</div>
+          <div>
+            <span class="post-tag">Practice</span>
+            <h3 class="post-item-title">Brand-to-Space Matching: why the tenant matters as much as the lease terms</h3>
+            <p class="post-item-excerpt">A landlord thinks in terms of income. A great landlord thinks in terms of the story the building tells when the right tenant is in it.</p>
+            <div class="post-meta" style="font-size:11px; color:var(--ink-light); margin-top:12px;">May 2026 · 5 min read</div>
+          </div>
+        </a>
+
+        <a class="post-item" href="coachella-valley-culture-commerce.html">
+          <div class="post-item-num">03</div>
+          <div>
+            <span class="post-tag">Market</span>
+            <h3 class="post-item-title">Culture and commerce in the Coachella Valley: what the next five years look like</h3>
+            <p class="post-item-excerpt">Palm Springs isn't a secondary market anymore. The question is what kind of primary market it wants to be — and which buildings get to define that answer.</p>
+            <div class="post-meta" style="font-size:11px; color:var(--ink-light); margin-top:12px;">April 2026 · 7 min read</div>
+          </div>
+        </a>
+
+        <a class="post-item" href="ghost-town-ranch-desert-brand.html">
+          <div class="post-item-num">04</div>
+          <div>
+            <span class="post-tag">Place</span>
+            <h3 class="post-item-title">Ghost Town Ranch and the logic of the desert brand</h3>
+            <p class="post-item-excerpt">Scent as landscape. Skincare as autobiography. What it means to build a product brand from a place rather than toward one.</p>
+            <div class="post-meta" style="font-size:11px; color:var(--ink-light); margin-top:12px;">March 2026 · 4 min read</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="blog-sidebar">
+
+      <div class="sidebar-section">
+        <h3>Recent Activations</h3>
+        <a class="sidebar-link" href="../activations/the-elrod-launch.html">
+          The Elrod — Launch Day
+          <span class="sidebar-link-tag">Jun 10</span>
+        </a>
+        <a class="sidebar-link" href="../activations/villa-mykonos-tour.html">
+          Villa Mykonos Tour
+          <span class="sidebar-link-tag">Jun 24</span>
+        </a>
+        <a class="sidebar-link" href="../activations/the-elrod-community.html">
+          Elrod Community Meetup
+          <span class="sidebar-link-tag">Jul 10</span>
+        </a>
+        <a class="sidebar-link" href="../activations/">All Activations →</a>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Topics</h3>
+        <a class="sidebar-link" href="#">Place <span class="sidebar-link-tag">2</span></a>
+        <a class="sidebar-link" href="#">Practice <span class="sidebar-link-tag">1</span></a>
+        <a class="sidebar-link" href="#">Market <span class="sidebar-link-tag">1</span></a>
+      </div>
+
+      <div class="sidebar-section">
+        <h3>Elsewhere</h3>
+        <a class="sidebar-link" href="https://clozingcre.com" target="_blank">Clozing CRE →</a>
+        <a class="sidebar-link" href="https://clozingcre.com/listings.html" target="_blank">Current Listings →</a>
+        <a class="sidebar-link" href="https://or-cre.com/collections/all" target="_blank">Ghost Town Ranch Shop →</a>
+        <a class="sidebar-link" href="https://producers-ux.github.io/windermerecre/1031-workflow-toolkit.html" target="_blank">1031 Toolkit →</a>
+      </div>
+
+      <div class="submit-cta">
+        <h3 style="font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-light); margin-bottom:12px;">Have a property story?</h3>
+        <p>Own a building with a history worth telling? We write about place. Let's talk.</p>
+        <a href="mailto:kate@clozingcre.com?subject=Field Notes inquiry" class="btn" style="font-size:11px; padding:8px 16px;">Get in touch</a>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="footer-logo">Open + Range</span>
+        <p class="footer-tagline">Brand-to-Space Matching. A Clozing CRE practice. Windermere Commercial Palm Springs.</p>
+      </div>
+      <div class="footer-col">
+        <h4>O+R</h4>
+        <a href="../">Brand-to-Space</a>
+        <a href="../activations/">Activations</a>
+        <a href="./">Field Notes</a>
+      </div>
+      <div class="footer-col">
+        <h4>Clozing CRE</h4>
+        <a href="https://clozingcre.com">Home</a>
+        <a href="https://clozingcre.com/listings.html">Listings</a>
+        <a href="https://producers-ux.github.io/windermerecre/1031-workflow-toolkit.html">1031 Toolkit</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:kate@clozingcre.com">kate@clozingcre.com</a>
+        <a href="tel:+14426770396">(442) 677-0396</a>
+        <a href="https://or-cre.com/collections/all" target="_blank">GTR Store</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Open + Range · Clozing CRE · Windermere Commercial Palm Springs</span>
+      <span>CA DRE Licensed · WA Managing Broker</span>
+    </div>
+  </footer>
+
+</body>
+</html>
