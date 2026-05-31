@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>850 N Palm Canyon — Activation Concept | Open + Range</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --sand: #F5F0E8; --clay: #C4A882; --terracotta: #A0674A;
+    --warm-black: #1A1512; --fog: #9A9088; --sage: #7A8A78;
+    --gold: #C8A96E; --white: #FDFAF5;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Jost', sans-serif; background: var(--warm-black); color: var(--sand); font-weight: 300; line-height: 1.7; overflow-x: hidden; font-size: 18px; }
+
+  section { padding: 7vw 6vw; }
+
+  .section-label { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 3rem; display: flex; align-items: center; gap: 1.2rem; }
+  .section-label::after { content: ''; display: block; flex: 0 0 40px; height: 1px; background: var(--gold); opacity: 0.5; }
+
+  /* DRAFT BAR */
+  .draft-bar { background: rgba(160,103,74,0.08); border-bottom: 1px solid rgba(160,103,74,0.2); padding: 0.8rem 6vw; display: flex; justify-content: space-between; align-items: center; }
+  .draft-bar span { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--terracotta); }
+
+  /* HERO */
+  .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end; padding: 5vw 6vw 9vw; position: relative; background: radial-gradient(ellipse at 60% 30%, #3A2A1A 0%, #1A1512 55%, #0D0B09 100%); overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 65% 25%, rgba(200,169,110,0.12) 0%, transparent 55%), radial-gradient(ellipse at 30% 70%, rgba(160,103,74,0.08) 0%, transparent 50%); pointer-events: none; }
+  .light-field { position: absolute; top: 0; left: 0; right: 0; height: 55%; pointer-events: none; }
+  .orb { position: absolute; border-radius: 50%; filter: blur(40px); animation: drift 12s ease-in-out infinite; mix-blend-mode: screen; }
+  .orb-1 { width: 300px; height: 300px; background: radial-gradient(circle, rgba(200,169,110,0.35) 0%, transparent 70%); top: -80px; left: 35%; animation-delay: 0s; animation-duration: 14s; }
+  .orb-2 { width: 220px; height: 220px; background: radial-gradient(circle, rgba(160,103,74,0.25) 0%, transparent 70%); top: 30px; left: 55%; animation-delay: -4s; animation-duration: 18s; }
+  .orb-3 { width: 180px; height: 180px; background: radial-gradient(circle, rgba(196,168,130,0.2) 0%, transparent 70%); top: -20px; left: 20%; animation-delay: -8s; animation-duration: 11s; }
+  @keyframes drift { 0%,100% { transform: translate(0,0) scale(1); opacity:0.7; } 33% { transform: translate(-15px,20px) scale(1.08); opacity:1; } 66% { transform: translate(20px,-10px) scale(0.95); opacity:0.8; } }
+  .ceiling-lines { position: absolute; top: 0; left: 0; right: 0; height: 45%; pointer-events: none; opacity: 0.06; }
+  .ceiling-lines svg { width: 100%; height: 100%; }
+  .hero-eyebrow { font-size: 0.75rem; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 1s ease forwards 0.3s; }
+  .hero-headline { font-family: 'Cormorant Garamond', serif; font-size: clamp(4rem, 8.5vw, 8rem); font-weight: 300; line-height: 1.0; letter-spacing: -0.01em; color: var(--white); max-width: 900px; margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 1s ease forwards 0.55s; }
+  .hero-headline em { font-style: italic; color: var(--clay); }
+  .hero-sub { font-size: 1.05rem; font-weight: 300; letter-spacing: 0.04em; color: var(--fog); max-width: 520px; line-height: 1.9; opacity: 0; animation: fadeUp 1s ease forwards 0.8s; }
+  .hero-address { position: absolute; top: 5vw; right: 6vw; text-align: right; opacity: 0; animation: fadeIn 1.2s ease forwards 1.2s; }
+  .hero-address .addr-main { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 400; color: var(--clay); letter-spacing: 0.05em; }
+  .hero-address .addr-sub { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fog); margin-top: 0.3rem; }
+  @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+  /* MODEL */
+  .model { background: #141210; border-top: 1px solid rgba(200,169,110,0.15); }
+  .model-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 6vw; align-items: start; }
+  .model-left h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 4vw, 3.8rem); font-weight: 300; color: var(--white); margin-bottom: 1.8rem; line-height: 1.1; }
+  .model-left p { font-size: 1.02rem; color: var(--fog); line-height: 1.9; margin-bottom: 1.4rem; }
+  .model-left .pull { border-left: 2px solid var(--gold); padding-left: 1.5rem; margin: 2.2rem 0; font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-style: italic; color: var(--clay); line-height: 1.5; font-weight: 300; }
+  .dv-card { background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.06); padding: 2.8rem; }
+  .dv-card .card-tag { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 1.5rem; }
+  .dv-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: var(--white); margin-bottom: 1.2rem; line-height: 1.2; }
+  .dv-card p { font-size: 0.95rem; color: var(--fog); line-height: 1.9; margin-bottom: 1rem; }
+  .dv-diff { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.06); }
+  .dv-diff .diff-label { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); margin-bottom: 1rem; }
+  .compare-row { display: flex; gap: 1rem; margin-bottom: 1rem; font-size: 0.92rem; color: var(--fog); line-height: 1.65; }
+  .compare-row .co-label { flex: 0 0 80px; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; padding-top: 0.15rem; }
+  .compare-row .co-label.dv { color: var(--fog); opacity: 0.55; }
+  .compare-row .co-label.or { color: var(--gold); }
+
+  /* SPACE */
+  .space { background: var(--warm-black); }
+  .space-layout { display: grid; grid-template-columns: 1fr 1.1fr; gap: 7vw; align-items: start; }
+  .space-left h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 4.5vw, 4rem); font-weight: 300; line-height: 1.05; color: var(--white); margin-bottom: 2rem; }
+  .space-left h2 em { display: block; font-style: italic; color: var(--clay); }
+  .space-left p { font-size: 1.02rem; color: var(--fog); line-height: 1.95; margin-bottom: 1.4rem; }
+  .ceiling-feature { background: rgba(200,169,110,0.04); border: 1px solid rgba(200,169,110,0.14); padding: 3rem; position: relative; overflow: hidden; }
+  .ceiling-feature::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold) 0%, var(--terracotta) 60%, transparent 100%); }
+  .ceiling-feature .feat-tag { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.8rem; }
+  .ceiling-feature h3 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: var(--white); margin-bottom: 1.2rem; line-height: 1.2; }
+  .ceiling-feature p { font-size: 0.95rem; color: var(--fog); line-height: 1.9; margin-bottom: 1.2rem; }
+  .light-viz { margin: 2rem 0; height: 160px; background: #0A0806; border: 1px solid rgba(255,255,255,0.05); overflow: hidden; }
+  .viz-caption { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--fog); opacity: 0.45; margin-top: 0.6rem; text-align: center; }
+
+  /* FORMAT */
+  .format-hero { background: #0A0806; border-top: 1px solid rgba(255,255,255,0.04); }
+  .fh-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  .fh-copy { padding: 7vw 5vw 7vw 6vw; }
+  .fh-copy h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 300; color: var(--white); line-height: 1.0; margin-bottom: 2rem; }
+  .fh-copy h2 em { font-style: italic; color: var(--clay); }
+  .fh-copy p { font-size: 1.02rem; color: var(--fog); line-height: 1.95; margin-bottom: 1.4rem; }
+  .fh-copy .pull { border-left: 2px solid var(--gold); padding-left: 1.5rem; margin: 2.2rem 0; font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-style: italic; color: var(--clay); line-height: 1.5; font-weight: 300; }
+  .fh-viz { background: #070504; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 4vw; border-left: 1px solid rgba(255,255,255,0.04); }
+  .fh-viz .viz-label { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--fog); opacity: 0.45; margin-top: 1.5rem; text-align: center; line-height: 1.8; }
+  .overhead-view { width: 100%; max-width: 340px; }
+
+  /* ARTIST */
+  .artist { background: var(--warm-black); border-top: 1px solid rgba(255,255,255,0.04); }
+  .artist-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 7vw; align-items: start; }
+  .artist-left h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 4vw, 3.8rem); font-weight: 300; color: var(--white); margin-bottom: 1.8rem; line-height: 1.1; }
+  .artist-left p { font-size: 1.02rem; color: var(--fog); line-height: 1.9; margin-bottom: 1.4rem; }
+  .artist-left .pull { border-left: 2px solid var(--gold); padding-left: 1.5rem; margin: 2.2rem 0; font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-style: italic; color: var(--clay); line-height: 1.5; font-weight: 300; }
+  .artist-card { background: rgba(200,169,110,0.04); border: 1px solid rgba(200,169,110,0.14); padding: 3rem; }
+  .artist-card .ac-tag { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+  .artist-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; font-weight: 400; color: var(--white); margin-bottom: 0.4rem; }
+  .artist-card .ac-sub { font-size: 0.78rem; letter-spacing: 0.1em; color: var(--fog); margin-bottom: 1.5rem; }
+  .artist-card p { font-size: 0.95rem; color: var(--fog); line-height: 1.9; margin-bottom: 1rem; }
+  .artist-card a { color: var(--gold); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.08em; }
+
+  /* PROGRAM */
+  .program { background: #0F0D0B; border-top: 1px solid rgba(255,255,255,0.04); }
+  .program-intro { max-width: 640px; margin-bottom: 4rem; }
+  .program-intro h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 4vw, 3.5rem); font-weight: 300; color: var(--white); margin-bottom: 1rem; line-height: 1.15; }
+  .program-intro p { font-size: 1.02rem; color: var(--fog); line-height: 1.9; }
+  .program-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .program-item { padding: 2.8rem 2.2rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04); }
+  .program-item .num { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 300; color: rgba(200,169,110,0.13); line-height: 1; margin-bottom: 1rem; }
+  .program-item h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; color: var(--white); margin-bottom: 0.8rem; line-height: 1.2; }
+  .program-item p { font-size: 0.92rem; color: var(--fog); line-height: 1.85; }
+  .program-item .format-tag { margin-top: 1.5rem; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--terracotta); }
+
+  /* OWNER */
+  .owner { background: var(--warm-black); }
+  .owner-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 6vw; align-items: start; }
+  .owner-left h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 4vw, 3.5rem); font-weight: 300; color: var(--white); margin-bottom: 2rem; line-height: 1.15; }
+  .owner-left p { font-size: 1.02rem; color: var(--fog); line-height: 1.95; margin-bottom: 1.4rem; }
+  .value-list { list-style: none; margin-top: 2.5rem; }
+  .value-list li { display: flex; gap: 1.2rem; align-items: flex-start; padding: 1.3rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.98rem; color: var(--fog); line-height: 1.7; }
+  .value-list li::before { content: '—'; color: var(--gold); flex-shrink: 0; font-family: 'Cormorant Garamond', serif; }
+  .value-list li strong { color: var(--sand); font-weight: 400; }
+  .metrics-box { background: rgba(200,169,110,0.04); border: 1px solid rgba(200,169,110,0.15); padding: 3rem; }
+  .metrics-box .box-label { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 2.5rem; }
+  .metric-row { padding: 1.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+  .metric-row:last-child { border-bottom: none; }
+  .metric-row .metric-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; color: var(--white); line-height: 1; margin-bottom: 0.3rem; }
+  .metric-row .metric-label { font-size: 0.88rem; color: var(--fog); line-height: 1.6; }
+  .metric-row .metric-source { font-size: 0.68rem; color: rgba(154,144,136,0.5); margin-top: 0.25rem; font-style: italic; }
+
+  /* TABLE */
+  .structure { background: #0A0806; border-top: 1px solid rgba(255,255,255,0.04); }
+  .structure h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 3.5vw, 3rem); font-weight: 300; color: var(--white); margin-bottom: 3rem; line-height: 1.15; }
+  table { width: 100%; border-collapse: collapse; }
+  th { text-align: left; font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); padding: 1rem 1.2rem; border-bottom: 1px solid rgba(200,169,110,0.2); font-weight: 400; }
+  td { padding: 1.3rem 1.2rem; font-size: 0.95rem; color: var(--fog); border-bottom: 1px solid rgba(255,255,255,0.04); line-height: 1.65; vertical-align: top; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+  td:first-child { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--sand); font-weight: 400; width: 20%; }
+
+  /* CTA */
+  .cta-bar { background: var(--warm-black); padding: 6vw; display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid rgba(200,169,110,0.12); }
+  .cta-left h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 4vw, 3.8rem); font-weight: 300; color: var(--white); line-height: 1.05; max-width: 540px; }
+  .cta-left h2 em { font-style: italic; color: var(--clay); }
+  .cta-right { text-align: right; }
+  .cta-right .brand { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--clay); letter-spacing: 0.05em; }
+  .cta-right .tagline { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--fog); margin-top: 0.4rem; }
+  .cta-right .contact { margin-top: 1.5rem; font-size: 0.92rem; color: var(--fog); line-height: 1.9; }
+  .cta-right .contact a { color: var(--gold); text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .model-layout, .space-layout, .artist-layout, .owner-layout, .program-grid, .fh-inner { grid-template-columns: 1fr; }
+    .cta-bar { flex-direction: column; gap: 3rem; align-items: flex-start; }
+    .cta-right { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<div class="draft-bar">
+  <span>Draft Concept — Open + Range / 850 N Palm Canyon Drive</span>
+  <span>For Building Owner Review · June 2026</span>
+</div>
+
+<section class="hero">
+  <div class="light-field">
+    <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
+  </div>
+  <div class="ceiling-lines">
+    <svg viewBox="0 0 1200 400" preserveAspectRatio="none">
+      <g stroke="rgba(200,169,110,1)" stroke-width="0.5" fill="none">
+        <line x1="600" y1="0" x2="0" y2="400"/><line x1="600" y1="0" x2="200" y2="400"/>
+        <line x1="600" y1="0" x2="400" y2="400"/><line x1="600" y1="0" x2="600" y2="400"/>
+        <line x1="600" y1="0" x2="800" y2="400"/><line x1="600" y1="0" x2="1000" y2="400"/>
+        <line x1="600" y1="0" x2="1200" y2="400"/>
+        <line x1="0" y1="80" x2="1200" y2="80"/><line x1="0" y1="160" x2="1200" y2="160"/>
+        <line x1="0" y1="260" x2="1200" y2="260"/>
+      </g>
+    </svg>
+  </div>
+  <div class="hero-address">
+    <div class="addr-main">850 N Palm Canyon Dr</div>
+    <div class="addr-sub">Palm Springs, CA · Arthur Elrod Studio</div>
+  </div>
+  <p class="hero-eyebrow">Open + Range · Pilot Activation · June – September 2026</p>
+  <h1 class="hero-headline">Look up.<br>Lie down.<br><em>Stay a while.</em></h1>
+  <p class="hero-sub">A lie-down meditation activation built around 850's existing lighted ceiling — using the building's own architecture as the experience. Drawn from what's working in Los Angeles. Made for Palm Springs.</p>
+</section>
+
+<section class="model">
+  <div class="section-label">The Model</div>
+  <div class="model-layout">
+    <div class="model-left">
+      <h2>District Vision just proved the format. We run it further.</h2>
+      <p>District Vision opened its first-ever permanent flagship in LA's Arts District in May 2026 — and built the entire concept around meditation as much as retail. They call it a "hybrid retail and research environment." Programming runs after hours: breathwork, running, meditation in the same room where product lives during the day.</p>
+      <p>The format is proven. We're borrowing the logic and running it without the retail layer — which makes the concept cleaner and the building owner pitch simpler.</p>
+      <div class="pull">"A clothing store with a wellness studio? That's a new one." — Highsnobiety, May 2026</div>
+      <p>That was LA in May 2026. Most Coachella Valley operators won't catch on until 2027. We have the room, the ceiling, the artist, and the window.</p>
+    </div>
+    <div class="dv-card">
+      <div class="card-tag">Reference Model · Not a Tenant Anchor</div>
+      <h3>District Vision<br>LA Arts District</h3>
+      <p>939 S Santa Fe Ave. 2,700 sq ft. Retail by day, meditation studio by evening. Regular breathwork and meditation sessions. Modular interior. Fully independent, no outside capital since 2015.</p>
+      <div class="dv-diff">
+        <div class="diff-label">District Vision vs. 850 Activation</div>
+        <div class="compare-row"><span class="co-label dv">DV</span><span>Seated/standing, facing product on walls</span></div>
+        <div class="compare-row"><span class="co-label or">850</span><span>Lie-down, looking up at an architectural lighted ceiling already in the building</span></div>
+        <div class="compare-row"><span class="co-label dv">DV</span><span>Permanent flagship with retail layer</span></div>
+        <div class="compare-row"><span class="co-label or">850</span><span>June – September pilot, programming only, no retail overhead</span></div>
+        <div class="compare-row"><span class="co-label dv">DV</span><span>Long-term commitment for the building</span></div>
+        <div class="compare-row"><span class="co-label or">850</span><span>Low-risk entry — proof of concept for wellness tenancy</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="space">
+  <div class="section-label">The Space</div>
+  <div class="space-layout">
+    <div class="space-left">
+      <h2>The ceiling was<br><em>always the point.</em></h2>
+      <p>850 N Palm Canyon Drive — the former Arthur Elrod studio — has a lighted ceiling built into the architecture of the building. It is not a temporary installation. It is not a projection system. It is a feature of the space that most uses have treated as background.</p>
+      <p>A lie-down meditation session makes the ceiling the entire experience. Participants recline, look up, and the room becomes an interior sky — controlled, still, and completely specific to this address.</p>
+      <p>The activation doesn't import an experience into the building. It surfaces what the building already is. That is the argument to the building owner: the asset is already there.</p>
+    </div>
+    <div class="ceiling-feature">
+      <div class="feat-tag">Architectural Feature · Built-In · Not Temporary</div>
+      <h3>The lighted ceiling at 850</h3>
+      <p>The ceiling light system at 850 is part of the building's existing infrastructure. In standard tenancy, it functions as ambient illumination. In a lie-down meditation context, it becomes the primary visual element of the session.</p>
+      <p>Sessions use the ceiling as-is. No rigging. No permitting. No build-out. The architecture does the work.</p>
+      <div class="light-viz" id="lightViz"></div>
+      <p class="viz-caption">Conceptual — overhead light field as seen from a reclined position</p>
+    </div>
+  </div>
+</section>
+
+<section class="format-hero">
+  <div class="section-label" style="padding:0 6vw; padding-top:7vw;">The Format</div>
+  <div class="fh-inner">
+    <div class="fh-copy">
+      <h2>Not seated.<br>Not standing.<br><em>Horizontal.</em></h2>
+      <p>The lie-down format is the differentiator. Most urban meditation programming is seated — cushions, chairs, benches facing a wall or a facilitator. District Vision is no exception.</p>
+      <p>Lying down changes the relationship to the room entirely. The ceiling becomes the horizon. Peripheral vision softens. The body releases the effort of sitting. Sessions land deeper and require less from participants — which matters for a walk-up audience that didn't come planning to meditate.</p>
+      <div class="pull">"The body releases the postural effort of sitting. Sessions land deeper and require less."</div>
+      <p>For Palm Springs specifically: this maps directly onto what already works here. Sound baths are already horizontal. Desert culture already understands stillness and looking up — at mountains, at stars, at open sky. We bring that behavior indoors, under a ceiling built to hold it.</p>
+    </div>
+    <div class="fh-viz">
+      <svg class="overhead-view" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+        <rect width="320" height="320" fill="#060402"/>
+        <g stroke="rgba(200,169,110,0.08)" stroke-width="1" fill="none">
+          <line x1="0" y1="80" x2="320" y2="80"/><line x1="0" y1="160" x2="320" y2="160"/>
+          <line x1="0" y1="240" x2="320" y2="240"/><line x1="80" y1="0" x2="80" y2="320"/>
+          <line x1="160" y1="0" x2="160" y2="320"/><line x1="240" y1="0" x2="240" y2="320"/>
+        </g>
+        <defs>
+          <radialGradient id="lp1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="rgba(200,169,110,0.22)"/><stop offset="100%" stop-color="rgba(200,169,110,0)"/></radialGradient>
+          <radialGradient id="lp2" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="rgba(200,169,110,0.16)"/><stop offset="100%" stop-color="rgba(200,169,110,0)"/></radialGradient>
+        </defs>
+        <ellipse cx="160" cy="160" rx="90" ry="90" fill="url(#lp1)"/>
+        <ellipse cx="80" cy="80" rx="55" ry="55" fill="url(#lp2)"/><ellipse cx="240" cy="80" rx="55" ry="55" fill="url(#lp2)"/>
+        <ellipse cx="80" cy="240" rx="55" ry="55" fill="url(#lp2)"/><ellipse cx="240" cy="240" rx="55" ry="55" fill="url(#lp2)"/>
+        <ellipse cx="160" cy="160" rx="10" ry="28" fill="rgba(245,240,232,0.12)" stroke="rgba(245,240,232,0.2)" stroke-width="0.5"/>
+        <g transform="translate(160,160) rotate(0)"><ellipse cx="0" cy="-68" rx="8" ry="24" fill="rgba(245,240,232,0.1)" stroke="rgba(245,240,232,0.18)" stroke-width="0.5"/></g>
+        <g transform="translate(160,160) rotate(60)"><ellipse cx="0" cy="-68" rx="8" ry="24" fill="rgba(245,240,232,0.1)" stroke="rgba(245,240,232,0.18)" stroke-width="0.5"/></g>
+        <g transform="translate(160,160) rotate(120)"><ellipse cx="0" cy="-68" rx="8" ry="24" fill="rgba(245,240,232,0.1)" stroke="rgba(245,240,232,0.18)" stroke-width="0.5"/></g>
+        <g transform="translate(160,160) rotate(180)"><ellipse cx="0" cy="-68" rx="8" ry="24" fill="rgba(245,240,232,0.1)" stroke="rgba(245,240,232,0.18)" stroke-width="0.5"/></g>
+        <g transform="translate(160,160) rotate(240)"><ellipse cx="0" cy="-68" rx="8" ry="24" fill="rgba(245,240,232,0.1)" stroke="rgba(245,240,232,0.18)" stroke-width="0.5"/></g>
+        <g transform="translate(160,160) rotate(300)"><ellipse cx="0" cy="-68" rx="8" ry="24" fill="rgba(245,240,232,0.1)" stroke="rgba(245,240,232,0.18)" stroke-width="0.5"/></g>
+        <g transform="translate(160,160) rotate(22.5)"><ellipse cx="0" cy="-118" rx="7" ry="22" fill="rgba(245,240,232,0.07)" stroke="rgba(245,240,232,0.14)" stroke-width="0.5"/></g>
+        <g transform="translate(160,160) rotate(67.5)"><ellipse cx="0" cy="-118" rx="7" ry="22" fill="rgba(245,240,232,0.07)" stroke="rgba(245,240,232,0.14)" stroke-width="0.5"/></g>
+        <g transform="translate(160,160) rotate(112.5)"><ellipse cx="0" cy="-118" rx="7" ry="22" fill="rgba(245,240,232,0.07)" stroke="rgba(245,240,232,0.14)" stroke-width="0.5"/></g>
+        <g transform="translate(160,160) rotate(157.5)"><ellipse cx="0" cy="-118" rx="7" ry="22" fill="rgba(245,240,232,0.07)" stroke="rgba(245,240,232,0.14)" stroke-width="0.5"/></g>
+        <g transform="translate(160,160) rotate(202.5)"><ellipse cx="0" cy="-118" rx="7" ry="22" fill="rgba(245,240,232,0.07)" stroke="rgba(245,240,232,0.14)" stroke-width="0.5"/></g>
+        <g transform="translate(160,160) rotate(247.5)"><ellipse cx="0" cy="-118" rx="7" ry="22" fill="rgba(245,240,232,0.07)" stroke="rgba(245,240,232,0.14)" stroke-width="0.5"/></g>
+        <g transform="translate(160,160) rotate(292.5)"><ellipse cx="0" cy="-118" rx="7" ry="22" fill="rgba(245,240,232,0.07)" stroke="rgba(245,240,232,0.14)" stroke-width="0.5"/></g>
+        <g transform="translate(160,160) rotate(337.5)"><ellipse cx="0" cy="-118" rx="7" ry="22" fill="rgba(245,240,232,0.07)" stroke="rgba(245,240,232,0.14)" stroke-width="0.5"/></g>
+        <text x="160" y="304" text-anchor="middle" fill="rgba(154,144,136,0.35)" font-size="8" font-family="Jost,sans-serif" letter-spacing="2">OVERHEAD VIEW</text>
+      </svg>
+      <div class="viz-label">Participants lie radially, heads toward center<br>looking up at 850's lighted ceiling</div>
+    </div>
+  </div>
+</section>
+
+<section class="artist">
+  <div class="section-label">The Artist</div>
+  <div class="artist-layout">
+    <div class="artist-left">
+      <h2>Jenna Marie Hansen.<br>Work in the building.</h2>
+      <p>Jenna Marie Hansen is a figurative artist whose practice centers on continuous line work — gesture as language, the body as a carrier of emotion and connection. Her work holds a room rather than fills it.</p>
+      <p>Her presence in 850 gives the activation something District Vision cannot buy: an artist whose work belongs to this space. The building owner isn't hosting a pop-up. They are hosting an artist's environment.</p>
+      <p>Sessions are held in the presence of her work. The ceiling is above. The figures are present. Participants lie in the middle of both — held between architecture and art.</p>
+      <div class="pull">"The spirit uses energetics. She materializes what is invisible."</div>
+      <p>The combination is specific to this address. It cannot be replicated elsewhere on the corridor. That specificity is the pitch to the building owner and the press hook for the activation.</p>
+    </div>
+    <div class="artist-card">
+      <div class="ac-tag">Artist · 850 N Palm Canyon Drive</div>
+      <h3>Jenna Marie Hansen</h3>
+      <div class="ac-sub">Figurative · Continuous Line · San Francisco / Palm Springs</div>
+      <p>Hansen works in figurative acrylic — continuous line drawings that trace the energetics of the human body. Her practice is built around the idea that gesture is a form of language; that what the body does in space carries meaning beyond what can be said.</p>
+      <p>In the context of the 850 activation, her work functions as the room's emotional architecture — the human figure already present as witness, not spectacle.</p>
+      <a href="https://www.jennamariehansen.com" target="_blank">jennamariehansen.com →</a>
+    </div>
+  </div>
+</section>
+
+<section class="program">
+  <div class="section-label">Programming</div>
+  <div class="program-intro">
+    <h2>Three formats.<br>One ceiling.</h2>
+    <p>All sessions are lie-down. All sessions are 30–45 minutes. Capacity is kept small by design — 12 to 20 participants — intimate enough to feel personal, repeatable enough to run multiple times daily.</p>
+  </div>
+  <div class="program-grid">
+    <div class="program-item">
+      <div class="num">01</div>
+      <h4>Morning Meditation</h4>
+      <p>Guided and silent. Participants recline and look up. A facilitator leads a short opening then holds space for stillness under the ceiling. Minimal or no music.</p>
+      <div class="format-tag">30 min · 8–12 participants · 7–9 AM</div>
+    </div>
+    <div class="program-item">
+      <div class="num">02</div>
+      <h4>Sound Bath</h4>
+      <p>Crystal bowls, gongs, or live instrument played in the room. Sound moves through the space; the ceiling holds the visual field. The most accessible format for walk-up visitors.</p>
+      <div class="format-tag">45 min · 12–20 participants · Midday</div>
+    </div>
+    <div class="program-item">
+      <div class="num">03</div>
+      <h4>Breathwork</h4>
+      <p>Guided breathwork with a local facilitator. Participants remain reclined throughout. Evening sessions targeting Palm Springs residents as an after-work offering.</p>
+      <div class="format-tag">40 min · 8–14 participants · Late Afternoon</div>
+    </div>
+  </div>
+</section>
+
+<section class="owner">
+  <div class="section-label">For the Building Owner</div>
+  <div class="owner-layout">
+    <div class="owner-left">
+      <h2>What this does for 850.</h2>
+      <p>Vacant space costs more than the absence of rent. It signals stagnation on a corridor that prospective tenants are watching. This activation keeps 850 alive and in motion while long-term tenant outreach runs in parallel — the space is occupied, programmed, and generating attention rather than sitting dark.</p>
+      <p>The June–September window is deliberate. Print publications — Palm Springs Life, Desert Magazine, regional lifestyle press — work on lead times of two to four months. An activation that opens in June can land in fall editorial. A vacant space cannot.</p>
+      <ul class="value-list">
+        <li><strong>Keeps the space activated during tenant outreach.</strong> Programming runs while we work the market. Every session is a reason for someone to walk through the door — including prospective tenants, their brokers, and the people who talk to both.</li>
+        <li><strong>Print press lead times require a long window.</strong> Regional and national wellness publications plan two to four months out. June–September gives us enough runway to pitch fall issues of Palm Springs Life, Desert Magazine, and wellness verticals. A shorter pop-up gets social coverage. This window gets ink.</li>
+        <li><strong>Gives prospective tenants a reason to visit.</strong> A floor plan is an abstraction. A functioning, attended space is evidence. Prospects who experience the room during the activation understand what it can hold — and arrive with an idea already forming.</li>
+        <li><strong>No build-out.</strong> Mats, sound equipment, soft goods. Everything comes out when the pilot ends. No tenant improvement dollars at risk.</li>
+        <li><strong>Foot traffic with data.</strong> Ticketed sessions generate attendance records and email capture — a documented audience that belongs to the address.</li>
+        <li><strong>O+R relationship.</strong> 850 becomes the named pilot for the Range series — an ongoing curatorial relationship, not a one-time rental.</li>
+      </ul>
+    </div>
+    <div class="metrics-box">
+      <div class="box-label">Market Context</div>
+      <div class="metric-row">
+        <div class="metric-num">May '26</div>
+        <div class="metric-label">District Vision opens LA's first retail-meditation hybrid flagship — the format is now validated at street level</div>
+        <div class="metric-source">Highsnobiety / Dossier, May 2026</div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-num">350M+</div>
+        <div class="metric-label">Social views from one desert sound bath concept in the Greater Palm Springs market</div>
+        <div class="metric-source">Good Vibes Sound Bath</div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-num">$6.3T</div>
+        <div class="metric-label">Global wellness economy — the category is not a trend, it's a market</div>
+        <div class="metric-source">Global Wellness Institute, 2023</div>
+      </div>
+      <div class="metric-row">
+        <div class="metric-num">Jun–Sep</div>
+        <div class="metric-label">Pilot window — June through September 2026, no long-term obligation for the building owner</div>
+        <div class="metric-source">Open + Range program structure</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="structure">
+  <div class="section-label">How It Works</div>
+  <h2>Roles and what we need from you.</h2>
+  <table>
+    <thead><tr><th>Area</th><th>Open + Range</th><th>Jenna Marie Hansen</th><th>Building Owner</th></tr></thead>
+    <tbody>
+      <tr><td>Curation</td><td>Program design, facilitator sourcing, scheduling, ticketing, all communications</td><td>Work present in space; participates in select sessions as desired</td><td>Access and approval of activation concept and dates</td></tr>
+      <tr><td>Infrastructure</td><td>Mats, cushions, sound equipment, soft goods — all removable</td><td>Existing work; no additional installation required</td><td>Electrical access; climate control during session hours</td></tr>
+      <tr><td>Marketing</td><td>All promotion, press outreach, social content under O+R and Windermere Commercial umbrella</td><td>Artist documentation and social content featuring the space</td><td>Optional: co-listing the property during activation to generate tenant traffic</td></tr>
+      <tr><td>Revenue</td><td>Ticket or donation revenue offsets costs; structure TBD with building owner</td><td>Artist fee or participation — per separate agreement</td><td>Reduced, deferred, or flat-fee arrangement during pilot</td></tr>
+      <tr><td>Duration</td><td>June – September; option to extend or develop into tenant or recurring arrangement</td><td>Work remains for activation duration</td><td>No obligation beyond pilot window</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="cta-bar">
+  <div class="cta-left"><h2>The ceiling is already there.<br><em>So is everything else.</em></h2></div>
+  <div class="cta-right">
+    <div class="brand">Open + Range</div>
+    <div class="tagline">Putting place to work.</div>
+    <div class="contact">Windermere Commercial Palm Springs<br><a href="mailto:kate@clozingcre.com/brand-to-space/">kate@clozingcre.com/brand-to-space/</a><br>clozingcre.com/brand-to-space/</div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const viz=document.getElementById('lightViz'); if(!viz)return;
+  const canvas=document.createElement('canvas'); canvas.style.width='100%'; canvas.style.height='100%';
+  viz.appendChild(canvas);
+  function resize(){canvas.width=viz.offsetWidth;canvas.height=viz.offsetHeight;} resize();
+  const ctx=canvas.getContext('2d'); let t=0;
+  const lights=[{x:0.2,r:200,g:140,b:80},{x:0.5,r:180,g:130,b:90},{x:0.8,r:190,g:145,b:75},{x:0.35,r:170,g:120,b:100},{x:0.65,r:210,g:155,b:80}];
+  function draw(){
+    const W=canvas.width,H=canvas.height;
+    ctx.clearRect(0,0,W,H); ctx.fillStyle='#070504'; ctx.fillRect(0,0,W,H);
+    const prog=(Math.sin(t*0.007)+1)/2;
+    lights.forEach(l=>{
+      const cx=l.x*W,cy=H*0.05,wobble=Math.sin(t*0.012+l.x*5)*6;
+      let r,g,b;
+      if(prog<0.35){const p=prog/0.35;r=l.r*p;g=l.g*0.8*p;b=l.b*0.5*p;}
+      else if(prog<0.65){const p=(prog-0.35)/0.3;r=l.r*(1-p*0.25);g=l.g*(1-p*0.05);b=l.b*(1+p*0.9);}
+      else{const p=(prog-0.65)/0.35;r=l.r*0.75*(1-p*0.15);g=l.g*0.95;b=l.b*1.9*(1-p*0.2);}
+      r=Math.min(255,r);g=Math.min(255,g);b=Math.min(255,b);
+      const grad=ctx.createRadialGradient(cx+wobble,cy,0,cx+wobble,cy,H*0.9);
+      grad.addColorStop(0,`rgba(${r},${g},${b},0.6)`);
+      grad.addColorStop(0.3,`rgba(${r},${g},${b},0.22)`);
+      grad.addColorStop(0.7,`rgba(${r},${g},${b},0.05)`);
+      grad.addColorStop(1,'rgba(0,0,0,0)');
+      ctx.fillStyle=grad; ctx.fillRect(0,0,W,H);
+      ctx.beginPath(); ctx.arc(cx,cy,2,0,Math.PI*2);
+      ctx.fillStyle=`rgba(${r},${g},${b},0.9)`; ctx.fill();
+    });
+    ctx.fillStyle='rgba(200,169,110,0.06)'; ctx.fillRect(0,H-2,W,2);
+    ctx.fillStyle='rgba(200,169,110,0.35)'; ctx.fillRect(0,H-2,W*prog,2);
+    t++; requestAnimationFrame(draw);
+  }
+  draw(); window.addEventListener('resize',resize);
+})();
+</script>
+</body>
+</html>

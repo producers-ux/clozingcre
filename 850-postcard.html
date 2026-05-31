@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Postcard — Still Light / 850 N Palm Canyon</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Jost', sans-serif;
+    background: #2A2520;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 48px;
+    padding: 48px 24px;
+  }
+
+  .page-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(200,169,110,0.5);
+    text-align: center;
+    margin-bottom: -24px;
+  }
+
+  /* CARD WRAPPER — 6×4 at 150dpi = 900×600px */
+  .card {
+    width: 900px;
+    height: 600px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.7);
+  }
+
+  /* ─── FRONT ─── */
+  .card-front {
+    background: #0D0B09;
+  }
+
+  /* Animated ceiling canvas */
+  .card-front canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Thin grid overlay */
+  .grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(200,169,110,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200,169,110,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+
+  /* Gold top bar */
+  .front-topbar {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #C8A96E 0%, #A0674A 70%, transparent 100%);
+  }
+
+  /* Brand + address — top left */
+  .front-brand {
+    position: absolute;
+    top: 36px; left: 44px;
+  }
+  .front-brand .brand-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(200,169,110,0.7);
+  }
+  .front-brand .brand-presents {
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(154,144,136,0.5);
+    margin-top: 4px;
+  }
+
+  /* Series tag — top right */
+  .front-series {
+    position: absolute;
+    top: 36px; right: 44px;
+    text-align: right;
+  }
+  .front-series .series-tag {
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(160,103,74,0.7);
+  }
+  .front-series .series-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 300;
+    font-style: italic;
+    color: rgba(245,240,232,0.4);
+    margin-top: 3px;
+  }
+
+  /* Main headline — bottom left */
+  .front-headline {
+    position: absolute;
+    bottom: 80px; left: 44px;
+    z-index: 10;
+  }
+  .front-headline h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5.2rem;
+    font-weight: 300;
+    line-height: 0.92;
+    color: #FDFAF5;
+    letter-spacing: -0.02em;
+  }
+  .front-headline h1 em {
+    font-style: italic;
+    color: #C4A882;
+  }
+
+  /* Bottom bar */
+  .front-bottom {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 60px;
+    background: rgba(10,8,6,0.85);
+    border-top: 1px solid rgba(200,169,110,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 44px;
+  }
+  .front-bottom .address {
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(154,144,136,0.7);
+  }
+  .front-bottom .date-range {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: rgba(200,169,110,0.8);
+    font-style: italic;
+  }
+  .front-bottom .url {
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    color: rgba(154,144,136,0.5);
+  }
+
+  /* Overhead persons SVG — right side */
+  .front-persons {
+    position: absolute;
+    right: 44px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.22;
+  }
+
+  /* ─── BACK ─── */
+  .card-back {
+    background: #F5F0E8;
+  }
+
+  /* Postcard divider line */
+  .back-divider {
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 50%;
+    width: 1px;
+    background: rgba(42,37,32,0.15);
+  }
+  .back-divider::after {
+    content: 'PLACE STAMP HERE';
+    position: absolute;
+    bottom: 44px;
+    right: -70px;
+    transform: rotate(0);
+    font-size: 0.5rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(42,37,32,0.2);
+    width: 100px;
+    text-align: center;
+  }
+
+  /* Stamp box */
+  .stamp-box {
+    position: absolute;
+    top: 40px; right: 44px;
+    width: 72px; height: 88px;
+    border: 1.5px solid rgba(42,37,32,0.2);
+  }
+
+  /* Address lines — right side */
+  .back-address-lines {
+    position: absolute;
+    bottom: 80px; right: 44px;
+    width: 220px;
+  }
+  .back-address-lines .addr-line {
+    height: 1px;
+    background: rgba(42,37,32,0.18);
+    margin-bottom: 18px;
+  }
+
+  /* Message area — left side */
+  .back-message {
+    position: absolute;
+    top: 44px; left: 44px;
+    width: calc(50% - 72px);
+  }
+
+  /* Gold accent bar */
+  .back-message::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 2px;
+    background: #C8A96E;
+    margin-bottom: 20px;
+  }
+
+  .back-message .back-eyebrow {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #A0674A;
+    margin-bottom: 14px;
+  }
+
+  .back-message h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 300;
+    line-height: 1.1;
+    color: #1A1512;
+    margin-bottom: 18px;
+  }
+  .back-message h2 em { font-style: italic; color: #A0674A; }
+
+  .back-message p {
+    font-size: 0.8rem;
+    color: #5A5248;
+    line-height: 1.8;
+    margin-bottom: 14px;
+  }
+
+  .back-message .back-details {
+    margin-top: 20px;
+  }
+  .back-message .back-detail-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-size: 0.72rem;
+    color: #2A2520;
+    align-items: flex-start;
+    line-height: 1.5;
+  }
+  .back-message .back-detail-row .dl {
+    font-size: 0.58rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #C8A96E;
+    flex: 0 0 56px;
+    padding-top: 1px;
+  }
+
+  /* Back branding */
+  .back-branding {
+    position: absolute;
+    bottom: 30px; left: 44px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .back-branding .b-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: #2A2520;
+    letter-spacing: 0.08em;
+  }
+  .back-branding .b-sep { color: rgba(42,37,32,0.2); font-size: 0.7rem; }
+  .back-branding .b-tag {
+    font-size: 0.58rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #9A9088;
+  }
+
+  /* Back ornament */
+  .back-ornament {
+    position: absolute;
+    bottom: 100px; left: 44px;
+    opacity: 0.08;
+  }
+
+  /* RESPONSIVE label */
+  .card-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(200,169,110,0.4);
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  @media (max-width: 960px) {
+    .card { width: 100%; height: auto; aspect-ratio: 3/2; }
+    .front-headline h1 { font-size: 8vw; }
+  }
+</style>
+</head>
+<body>
+
+<p class="page-label">Postcard — Front · 6 × 4 inches · Print-ready concept</p>
+
+<!-- FRONT -->
+<div class="card card-front" id="frontCard">
+  <canvas id="frontCanvas"></canvas>
+  <div class="grid-overlay"></div>
+  <div class="front-topbar"></div>
+
+  <div class="front-brand">
+    <div class="brand-name">Open + Range</div>
+    <div class="brand-presents">presents</div>
+  </div>
+
+  <div class="front-series">
+    <div class="series-tag">Range Series · No. 01</div>
+    <div class="series-name">Still Light</div>
+  </div>
+
+  <!-- Overhead persons diagram -->
+  <div class="front-persons">
+    <svg width="200" height="200" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="fp1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="rgba(200,169,110,0.5)"/><stop offset="100%" stop-color="rgba(200,169,110,0)"/></radialGradient>
+      </defs>
+      <ellipse cx="160" cy="160" rx="100" ry="100" fill="url(#fp1)"/>
+      <ellipse cx="160" cy="160" rx="11" ry="30" fill="rgba(245,240,232,0.6)" stroke="rgba(245,240,232,0.8)" stroke-width="0.5"/>
+      <g transform="translate(160,160) rotate(0)"><ellipse cx="0" cy="-72" rx="9" ry="26" fill="rgba(245,240,232,0.55)" stroke="rgba(245,240,232,0.7)" stroke-width="0.5"/></g>
+      <g transform="translate(160,160) rotate(60)"><ellipse cx="0" cy="-72" rx="9" ry="26" fill="rgba(245,240,232,0.55)" stroke="rgba(245,240,232,0.7)" stroke-width="0.5"/></g>
+      <g transform="translate(160,160) rotate(120)"><ellipse cx="0" cy="-72" rx="9" ry="26" fill="rgba(245,240,232,0.55)" stroke="rgba(245,240,232,0.7)" stroke-width="0.5"/></g>
+      <g transform="translate(160,160) rotate(180)"><ellipse cx="0" cy="-72" rx="9" ry="26" fill="rgba(245,240,232,0.55)" stroke="rgba(245,240,232,0.7)" stroke-width="0.5"/></g>
+      <g transform="translate(160,160) rotate(240)"><ellipse cx="0" cy="-72" rx="9" ry="26" fill="rgba(245,240,232,0.55)" stroke="rgba(245,240,232,0.7)" stroke-width="0.5"/></g>
+      <g transform="translate(160,160) rotate(300)"><ellipse cx="0" cy="-72" rx="9" ry="26" fill="rgba(245,240,232,0.55)" stroke="rgba(245,240,232,0.7)" stroke-width="0.5"/></g>
+    </svg>
+  </div>
+
+  <div class="front-headline">
+    <h1>Look up.<br>Lie down.<br><em>Stay a while.</em></h1>
+  </div>
+
+  <div class="front-bottom">
+    <div class="address">850 N Palm Canyon Dr · Palm Springs</div>
+    <div class="date-range">June – September 2026</div>
+    <div class="url">clozingcre.com/brand-to-space/</div>
+  </div>
+</div>
+<p class="card-label">Front</p>
+
+<p class="page-label" style="margin-top:24px;">Postcard — Back · Message side</p>
+
+<!-- BACK -->
+<div class="card card-back">
+  <div class="back-divider"></div>
+  <div class="stamp-box"></div>
+  <div class="back-address-lines">
+    <div class="addr-line"></div>
+    <div class="addr-line"></div>
+    <div class="addr-line"></div>
+  </div>
+
+  <div class="back-message">
+    <div class="back-eyebrow">Open + Range · Range Series No. 01</div>
+    <h2>Still Light<br>at <em>850.</em></h2>
+    <p>A lie-down meditation and sound experience held inside the Arthur Elrod studio — under 850's own lighted ceiling, in the presence of works by artist Jenna Marie Hansen.</p>
+    <p>Three formats. Thirty to forty-five minutes. Small groups. Walk-up welcome.</p>
+    <div class="back-details">
+      <div class="back-detail-row">
+        <span class="dl">Where</span>
+        <span>850 N Palm Canyon Drive, Palm Springs CA</span>
+      </div>
+      <div class="back-detail-row">
+        <span class="dl">When</span>
+        <span>June – September 2026 · Morning meditation, midday sound bath, late afternoon breathwork</span>
+      </div>
+      <div class="back-detail-row">
+        <span class="dl">Tickets</span>
+        <span>clozingcre.com/brand-to-space/ · Donation-based sessions available</span>
+      </div>
+      <div class="back-detail-row">
+        <span class="dl">Artist</span>
+        <span>Jenna Marie Hansen · jennamariehansen.com</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Light ornament -->
+  <div class="back-ornament">
+    <svg width="160" height="160" viewBox="0 0 160 160">
+      <circle cx="80" cy="80" r="60" stroke="#C8A96E" stroke-width="0.5" fill="none"/>
+      <circle cx="80" cy="80" r="40" stroke="#C8A96E" stroke-width="0.5" fill="none"/>
+      <circle cx="80" cy="80" r="20" stroke="#C8A96E" stroke-width="0.5" fill="none"/>
+      <line x1="80" y1="0" x2="80" y2="160" stroke="#C8A96E" stroke-width="0.5"/>
+      <line x1="0" y1="80" x2="160" y2="80" stroke="#C8A96E" stroke-width="0.5"/>
+      <line x1="17" y1="17" x2="143" y2="143" stroke="#C8A96E" stroke-width="0.5"/>
+      <line x1="143" y1="17" x2="17" y2="143" stroke="#C8A96E" stroke-width="0.5"/>
+    </svg>
+  </div>
+
+  <div class="back-branding">
+    <span class="b-name">Open + Range</span>
+    <span class="b-sep">·</span>
+    <span class="b-tag">Windermere Commercial Palm Springs</span>
+  </div>
+</div>
+<p class="card-label">Back</p>
+
+<script>
+(function(){
+  const canvas = document.getElementById('frontCanvas');
+  const card = document.getElementById('frontCard');
+  function resize(){
+    canvas.width = card.offsetWidth;
+    canvas.height = card.offsetHeight;
+  }
+  resize();
+  const ctx = canvas.getContext('2d');
+  let t = 0;
+  const lights = [
+    {x:0.18,y:0.0,r:200,g:140,b:80},{x:0.38,y:0.0,r:180,g:125,b:90},
+    {x:0.55,y:0.0,r:210,g:155,b:70},{x:0.72,y:0.0,r:170,g:130,b:85},
+    {x:0.88,y:0.0,r:195,g:145,b:75},
+  ];
+  function draw(){
+    const W=canvas.width,H=canvas.height;
+    ctx.clearRect(0,0,W,H);
+    ctx.fillStyle='#0D0B09'; ctx.fillRect(0,0,W,H);
+    const prog=(Math.sin(t*0.006)+1)/2;
+    lights.forEach(l=>{
+      const cx=l.x*W, cy=H*0.04;
+      const wobble=Math.sin(t*0.01+l.x*6)*10;
+      let r,g,b;
+      if(prog<0.3){const p=prog/0.3;r=l.r*p;g=l.g*0.8*p;b=l.b*0.5*p;}
+      else if(prog<0.7){const p=(prog-0.3)/0.4;r=l.r*(1-p*0.2);g=l.g*(1-p*0.05);b=l.b*(1+p*0.8);}
+      else{const p=(prog-0.7)/0.3;r=l.r*0.8*(1-p*0.1);g=l.g*0.95;b=l.b*1.8*(1-p*0.15);}
+      r=Math.min(255,r);g=Math.min(255,g);b=Math.min(255,b);
+      const grad=ctx.createRadialGradient(cx+wobble,cy,0,cx+wobble,cy,H*1.1);
+      grad.addColorStop(0,`rgba(${r},${g},${b},0.5)`);
+      grad.addColorStop(0.25,`rgba(${r},${g},${b},0.18)`);
+      grad.addColorStop(0.6,`rgba(${r},${g},${b},0.04)`);
+      grad.addColorStop(1,'rgba(0,0,0,0)');
+      ctx.fillStyle=grad; ctx.fillRect(0,0,W,H);
+      ctx.beginPath(); ctx.arc(cx,cy,2.5,0,Math.PI*2);
+      ctx.fillStyle=`rgba(${r},${g},${b},0.95)`; ctx.fill();
+    });
+    t++; requestAnimationFrame(draw);
+  }
+  draw();
+  window.addEventListener('resize',()=>{resize();});
+})();
+</script>
+</body>
+</html>
