@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Press Release — Still Light at 850 | Open + Range</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #1A1512;
+    --mid: #3A3330;
+    --muted: #6A6260;
+    --rule: #D8D0C8;
+    --gold: #A08040;
+    --warm-white: #FDFAF5;
+    --accent: #8A5A38;
+  }
+  body {
+    font-family: 'Jost', sans-serif;
+    background: #EEEAE4;
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .press-wrapper {
+    max-width: 780px;
+    margin: 0 auto;
+    background: var(--warm-white);
+    padding: 64px 72px 80px;
+    box-shadow: 0 4px 40px rgba(0,0,0,0.12);
+  }
+
+  /* MASTHEAD */
+  .masthead {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 24px;
+    margin-bottom: 36px;
+  }
+  .masthead-left .org-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+  }
+  .masthead-left .org-sub {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .masthead-right {
+    text-align: right;
+    font-size: 0.72rem;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+  .masthead-right a { color: var(--gold); text-decoration: none; }
+
+  /* EMBARGO */
+  .embargo {
+    background: var(--ink);
+    color: var(--warm-white);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    display: inline-block;
+    margin-bottom: 36px;
+  }
+
+  /* HEADLINE BLOCK */
+  .pr-headline {
+    margin-bottom: 40px;
+  }
+  .pr-headline .label {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .pr-headline h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+  .pr-headline h1 em { font-style: italic; color: var(--accent); }
+  .pr-headline .deck {
+    font-size: 1.08rem;
+    color: var(--mid);
+    line-height: 1.65;
+    font-weight: 300;
+    border-left: 3px solid var(--gold);
+    padding-left: 18px;
+    margin-top: 18px;
+  }
+
+  /* DATELINE + BODY */
+  .dateline {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+
+  .pr-body p {
+    font-size: 1rem;
+    line-height: 1.85;
+    color: var(--ink);
+    margin-bottom: 1.4rem;
+  }
+
+  .pr-body p:first-child::first-letter {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.2rem;
+    font-weight: 400;
+    float: left;
+    line-height: 0.8;
+    margin-right: 6px;
+    margin-top: 6px;
+    color: var(--accent);
+  }
+
+  .pr-body .pull-quote {
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 24px 0;
+    margin: 2.5rem 0;
+  }
+  .pr-body .pull-quote p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--mid);
+    margin: 0;
+  }
+  .pr-body .pull-quote p::first-letter { font-size: 1.5rem; float: none; margin: 0; color: var(--mid); }
+  .pr-body .pull-quote .attrib {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.68rem;
+    font-style: normal;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 12px;
+    display: block;
+  }
+
+  /* FACTS BOX */
+  .facts-box {
+    background: #F0EBE2;
+    border-left: 3px solid var(--gold);
+    padding: 28px 32px;
+    margin: 2.5rem 0;
+  }
+  .facts-box .facts-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .facts-box table { width: 100%; border-collapse: collapse; }
+  .facts-box td { padding: 6px 0; font-size: 0.9rem; line-height: 1.5; vertical-align: top; border-bottom: 1px solid rgba(0,0,0,0.06); }
+  .facts-box td:first-child { font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); width: 90px; padding-right: 16px; padding-top: 8px; }
+  .facts-box tr:last-child td { border-bottom: none; }
+
+  /* SECTION BREAK */
+  .section-break {
+    text-align: center;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 2.5rem 0 2rem;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .section-break::before, .section-break::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+
+  /* ABOUT BLOCK */
+  .about-block { margin-top: 2.5rem; }
+  .about-block h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 8px;
+  }
+  .about-block p {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 1.2rem;
+  }
+
+  /* CONTACTS */
+  .contacts {
+    margin-top: 3rem;
+    padding-top: 24px;
+    border-top: 2px solid var(--ink);
+  }
+  .contacts .contacts-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .contact-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .contact-col .contact-name { font-size: 0.95rem; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
+  .contact-col .contact-title { font-size: 0.72rem; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 8px; }
+  .contact-col .contact-info { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+  .contact-col .contact-info a { color: var(--gold); text-decoration: none; }
+
+  /* END MARK */
+  .end-mark {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: var(--rule);
+    margin-top: 3rem;
+    letter-spacing: 0.3em;
+  }
+
+  /* NOTE TO EDITORS — downloadable/print wrapper */
+  .print-note {
+    background: #EEEAE4;
+    text-align: center;
+    padding: 16px;
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #9A9088;
+  }
+</style>
+</head>
+<body>
+
+<div class="print-note">Press Release · Embargoed until publication · Open + Range / Windermere Commercial Palm Springs</div>
+
+<div class="press-wrapper">
+
+  <!-- MASTHEAD -->
+  <div class="masthead">
+    <div class="masthead-left">
+      <div class="org-name">Open + Range</div>
+      <div class="org-sub">Windermere Commercial Palm Springs</div>
+    </div>
+    <div class="masthead-right">
+      For Immediate Release<br>
+      [DATE, 2026]<br>
+      <a href="mailto:kate.clozingcre@gmail.com">kate.clozingcre@gmail.com</a><br>
+      442.677.0396<br>
+      clozingcre.com/brand-to-space/
+    </div>
+  </div>
+
+  <div class="embargo">For Immediate Release</div>
+
+  <!-- HEADLINE -->
+  <div class="pr-headline">
+    <div class="label">Range Series No. 01 · Palm Springs, CA</div>
+    <h1><em>Still Light</em> at 850:<br>A Lie-Down Meditation Series Opens at the Historic Arthur Elrod Studio</h1>
+    <p class="deck">Open + Range announces the inaugural activation of its Range programming series — a six-week meditation and sound experience held beneath the lighted ceiling of 850 N Palm Canyon Drive, in the presence of works by figurative artist Jenna Marie Hansen.</p>
+  </div>
+
+  <p class="dateline">Palm Springs, CA — [Month] [Date], 2026</p>
+
+  <div class="pr-body">
+
+    <p>Open + Range, a commercial space activation program launched under Windermere Commercial Palm Springs, announces <em>Still Light</em> — the first installment of its Range series — opening at 850 N Palm Canyon Drive in June 2026. The four-month program transforms the historically significant Arthur Elrod studio into a lie-down meditation and sound environment, using the building's own architectural lighted ceiling as its central feature.</p>
+
+    <p>Sessions run daily in three formats: morning guided meditation, midday sound bath, and late-afternoon breathwork. All are conducted with participants lying on floor mats, looking up. Capacity is kept deliberately small — twelve to twenty participants — and sessions are ticketed or donation-based, with walk-up availability throughout the run.</p>
+
+    <div class="facts-box">
+      <div class="facts-label">Event at a Glance</div>
+      <table>
+        <tr><td>What</td><td><em>Still Light</em> — a lie-down meditation and sound series · Range Series No. 01</td></tr>
+        <tr><td>Where</td><td>850 N Palm Canyon Drive, Palm Springs, CA · Former Arthur Elrod Studio</td></tr>
+        <tr><td>When</td><td>June – September 2026</td></tr>
+        <tr><td>Hours</td><td>Morning meditation 7–9 AM · Sound bath midday · Breathwork late afternoon</td></tr>
+        <tr><td>Format</td><td>Lie-down sessions · 30–45 minutes · Groups of 12–20</td></tr>
+        <tr><td>Tickets</td><td>clozingcre.com/brand-to-space/ · Donation-based sessions available</td></tr>
+        <tr><td>Artist</td><td>Jenna Marie Hansen · jennamariehansen.com</td></tr>
+      </table>
+    </div>
+
+    <p>The activation is designed around a specific architectural observation: 850 N Palm Canyon Drive has a lighted ceiling built into the structure of the building — a feature that has functioned as background in most previous tenancies. A lie-down session format makes the ceiling the primary visual and experiential element of every session. Participants recline and look directly up; the room becomes an interior sky.</p>
+
+    <div class="pull-quote">
+      <p>"The ceiling was always the point. We are simply the first use of the space that treats it that way."</p>
+      <span class="attrib">— Open + Range</span>
+    </div>
+
+    <p>Works by San Francisco-based figurative artist Jenna Marie Hansen are present throughout the activation. Hansen's practice centers on continuous line work — gesture as language, the body as carrier of emotion and connection. Her figures occupy the space as witnesses rather than objects, creating a relational environment for participants who may encounter her work before, during, or after a session.</p>
+
+    <p>The format draws from a demonstrable shift in how Los Angeles-based operators are activating commercial space. District Vision, the independent performance eyewear and apparel brand, opened its first-ever flagship in LA's Arts District in May 2026 as a "hybrid retail and research environment," building daily meditation, breathwork, and movement sessions into the floor plan. The format has been validated at street level; <em>Still Light</em> takes the same logic and removes the retail layer entirely — the room is the offering.</p>
+
+    <p><em>Still Light</em> is the inaugural activation of Open + Range's Range series, a curated programming initiative that uses temporarily vacant or underutilized commercial spaces in the Coachella Valley for arts and wellness programming. The June–September window serves a specific strategic function: it keeps 850 activated and in public view while long-term tenant outreach runs in parallel. Print publications in the regional and national lifestyle space operate on lead times of two to four months; a four-month activation window is long enough to appear in fall editorial cycles that a shorter pop-up would miss entirely. The goal is to draw attention to the space — and give prospective tenants a functioning, attended room to walk into rather than an empty floor plan to imagine.</p>
+
+    <div class="section-break">About</div>
+
+    <div class="about-block">
+      <h3>About Open + Range</h3>
+      <p>Open + Range is a commercial space activation program incubated by Windermere Commercial Palm Springs. Through two distinct tracks — Open (commercial space activation) and Range (visual art and design programming) — O+R puts temporarily vacant and underutilized commercial properties to work for the benefit of the building, the corridor, and the community. The pilot program launches June 2026 at 850 N Palm Canyon Drive, Palm Springs. clozingcre.com/brand-to-space/</p>
+
+      <h3>About Jenna Marie Hansen</h3>
+      <p>Jenna Marie Hansen is a San Francisco-based figurative artist working in acrylic. Her practice centers on continuous line work that traces the energetics of the human body — gesture as language, figure as a site of emotional and spiritual meaning. She has exhibited independently and in group shows in the Bay Area and beyond. jennamariehansen.com · @jennamariehansen</p>
+
+      <h3>About 850 N Palm Canyon Drive</h3>
+      <p>850 N Palm Canyon Drive is a commercially significant address in downtown Palm Springs, California — the former studio of architect and designer Arthur Elrod. The building's architectural features, including its lighted ceiling, reflect the mid-century design sensibility for which Palm Springs is internationally recognized. The property is located on the primary commercial corridor of Palm Springs' downtown district.</p>
+
+      <h3>About Windermere Commercial Palm Springs</h3>
+      <p>Windermere Commercial Palm Springs serves buyers, sellers, landlords, and tenants in the Coachella Valley commercial real estate market. The team combines local market depth with national Windermere resources to support transactions across office, retail, industrial, and investment categories. clozingcre.com</p>
+    </div>
+
+  </div><!-- end pr-body -->
+
+  <!-- CONTACTS -->
+  <div class="contacts">
+    <div class="contacts-label">Media Contact</div>
+    <div class="contact-col">
+      <div class="contact-name">Kate Pawlicki Bourne</div>
+      <div class="contact-title">Founder, Open + Range · Managing Broker, Windermere Commercial Palm Springs</div>
+      <div class="contact-info">
+        <a href="mailto:kate.clozingcre@gmail.com">kate.clozingcre@gmail.com</a><br>
+        442.677.0396<br>
+        clozingcre.com/brand-to-space/
+      </div>
+    </div>
+  </div>
+
+  <div class="end-mark">— # # # —</div>
+
+</div><!-- end press-wrapper -->
+
+<div class="print-note">Photos and high-resolution assets available on request · clozingcre.com/brand-to-space/</div>
+
+</body>
+</html>
