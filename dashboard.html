@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open + Range — Activations</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --sand:#F5F0E8;--clay:#C4A882;--terracotta:#A0674A;
+  --warm-black:#1A1512;--near-black:#0F0D0B;--fog:#9A9088;
+  --gold:#C8A96E;--white:#FDFAF5;--sage:#7A8A78;
+  --rule:rgba(200,169,110,0.18);--rule-dim:rgba(255,255,255,0.05);
+  --active:#7A8A78;--pending:#C8A96E;--incoming:rgba(154,144,136,0.4);
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;background:var(--near-black);color:var(--sand);font-size:16px;line-height:1.7;font-weight:300;min-height:100vh;}
+
+/* ── TOP NAV ── */
+.nav{
+  position:sticky;top:0;z-index:200;
+  height:52px;
+  background:rgba(15,13,11,0.97);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--rule);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 4vw;
+}
+.nav-left{display:flex;align-items:center;gap:2rem;}
+.nav-brand{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.05rem;font-weight:400;letter-spacing:0.06em;color:var(--clay);
+  text-decoration:none;
+}
+.nav-section{
+  font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--gold);
+  background:rgba(200,169,110,0.08);
+  border:1px solid var(--rule);
+  padding:0.25rem 0.7rem;
+}
+.nav-right{
+  font-size:0.65rem;letter-spacing:0.14em;
+  color:var(--fog);
+}
+.nav-right a{color:var(--fog);text-decoration:none;}
+.nav-right a:hover{color:var(--gold);}
+
+/* ── HERO ── */
+.hero{
+  padding:6vw 4vw 4vw;
+  background:radial-gradient(ellipse at 80% 0%,#2A1E10 0%,var(--near-black) 55%);
+  border-bottom:1px solid var(--rule);
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;top:0;left:0;right:0;bottom:0;
+  background:radial-gradient(ellipse at 75% 40%,rgba(200,169,110,0.07) 0%,transparent 55%);
+  pointer-events:none;
+}
+.hero-label{
+  font-size:0.62rem;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:1.2rem;
+}
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.4rem,5vw,4.2rem);font-weight:300;line-height:1.0;
+  color:var(--white);margin-bottom:1rem;
+}
+.hero h1 em{font-style:italic;color:var(--clay);}
+.hero-sub{
+  font-size:0.9rem;color:var(--fog);max-width:500px;line-height:1.9;
+  margin-bottom:2.5rem;
+}
+.hero-stats{display:flex;gap:3rem;align-items:flex-start;}
+.stat-item .stat-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.4rem;font-weight:300;color:var(--white);line-height:1;
+}
+.stat-item .stat-label{
+  font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--fog);margin-top:4px;
+}
+
+/* ── FILTER BAR ── */
+.filter-bar{
+  padding:0 4vw;
+  background:#141210;
+  border-bottom:1px solid var(--rule-dim);
+  display:flex;align-items:center;justify-content:space-between;
+  height:50px;
+}
+.filters{display:flex;gap:0;}
+.filter-btn{
+  background:none;border:none;cursor:pointer;
+  font-family:'Jost',sans-serif;font-size:0.62rem;letter-spacing:0.15em;
+  text-transform:uppercase;color:var(--fog);
+  padding:0 1.4rem;height:50px;
+  border-bottom:2px solid transparent;
+  transition:color 0.2s,border-color 0.2s;
+}
+.filter-btn:hover{color:var(--sand);}
+.filter-btn.active{color:var(--gold);border-bottom-color:var(--gold);}
+.add-btn{
+  background:none;border:1px solid var(--rule);cursor:pointer;
+  font-family:'Jost',sans-serif;font-size:0.6rem;letter-spacing:0.15em;
+  text-transform:uppercase;color:var(--gold);
+  padding:0.4rem 1.2rem;
+  transition:background 0.2s,color 0.2s;
+}
+.add-btn:hover{background:var(--gold);color:var(--warm-black);}
+
+/* ── GRID ── */
+.grid-wrap{padding:3vw 4vw 6vw;}
+.activations-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
+  gap:2px;
+}
+
+/* ── ACTIVATION CARD ── */
+.act-card{
+  background:rgba(255,255,255,0.02);
+  border:1px solid var(--rule-dim);
+  position:relative;overflow:hidden;
+  transition:background 0.3s,border-color 0.3s;
+  display:flex;flex-direction:column;
+}
+.act-card:hover{
+  background:rgba(200,169,110,0.04);
+  border-color:var(--rule);
+}
+
+/* Status stripe */
+.act-card::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;height:2px;
+}
+.act-card.status-active::before{background:var(--sage);}
+.act-card.status-pending::before{background:var(--gold);}
+.act-card.status-incoming::before{background:rgba(154,144,136,0.25);}
+
+.card-header{padding:2rem 2rem 1.5rem;}
+
+.card-meta{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:1.4rem;
+}
+.card-series{
+  font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--terracotta);
+}
+.status-pill{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;
+  padding:0.2rem 0.6rem;
+  border:1px solid;
+}
+.status-pill.active{color:var(--sage);border-color:rgba(122,138,120,0.35);}
+.status-pill.pending{color:var(--gold);border-color:rgba(200,169,110,0.3);}
+.status-pill.incoming{color:var(--fog);border-color:rgba(154,144,136,0.2);}
+.status-dot{width:5px;height:5px;border-radius:50%;background:currentColor;}
+.status-pill.active .status-dot{animation:pulse 2.5s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+
+.card-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.6rem;font-weight:300;line-height:1.1;
+  color:var(--white);margin-bottom:0.4rem;
+}
+.card-title em{font-style:italic;color:var(--clay);}
+.card-address{
+  font-size:0.72rem;letter-spacing:0.08em;color:var(--fog);
+  margin-bottom:1.2rem;
+}
+
+.card-desc{
+  font-size:0.82rem;color:var(--fog);line-height:1.8;
+  margin-bottom:1.5rem;
+}
+
+/* Tags */
+.card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.5rem;}
+.tag{
+  font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--fog);border:1px solid var(--rule-dim);
+  padding:0.2rem 0.55rem;
+}
+
+/* Date bar */
+.card-dates{
+  display:flex;gap:0;
+  border-top:1px solid var(--rule-dim);
+  border-bottom:1px solid var(--rule-dim);
+}
+.date-item{
+  flex:1;padding:0.9rem 1.2rem;
+}
+.date-item+.date-item{border-left:1px solid var(--rule-dim);}
+.date-item .dl{
+  font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:3px;
+}
+.date-item .dv{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1rem;font-weight:300;color:var(--sand);
+}
+
+/* Progress bar */
+.card-progress{padding:1.2rem 2rem;}
+.progress-label{
+  display:flex;justify-content:space-between;
+  font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--fog);margin-bottom:6px;
+}
+.progress-track{
+  height:2px;background:rgba(255,255,255,0.06);
+  position:relative;
+}
+.progress-fill{
+  position:absolute;top:0;left:0;height:100%;
+  background:var(--gold);
+  transition:width 1s ease;
+}
+.act-card.status-pending .progress-fill{background:rgba(200,169,110,0.4);}
+.act-card.status-incoming .progress-fill{background:rgba(154,144,136,0.2);}
+
+/* Actions */
+.card-actions{
+  display:flex;gap:0;margin-top:auto;
+  border-top:1px solid var(--rule-dim);
+}
+.card-action{
+  flex:1;background:none;border:none;cursor:pointer;
+  font-family:'Jost',sans-serif;font-size:0.6rem;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--fog);
+  padding:1rem 0;text-align:center;
+  transition:background 0.2s,color 0.2s;
+  text-decoration:none;display:block;
+}
+.card-action+.card-action{border-left:1px solid var(--rule-dim);}
+.card-action:hover{background:rgba(255,255,255,0.03);color:var(--sand);}
+.card-action.primary{color:var(--gold);}
+.card-action.primary:hover{background:rgba(200,169,110,0.08);}
+.card-action.disabled{opacity:0.3;cursor:not-allowed;pointer-events:none;}
+
+/* ── COMING SOON CARD ── */
+.act-card.placeholder{
+  background:rgba(255,255,255,0.01);
+  border:1px dashed rgba(255,255,255,0.06);
+  min-height:320px;
+  justify-content:center;align-items:center;
+  cursor:pointer;
+}
+.act-card.placeholder:hover{
+  background:rgba(200,169,110,0.03);
+  border-color:rgba(200,169,110,0.15);
+}
+.placeholder-inner{text-align:center;padding:3rem;}
+.placeholder-icon{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2rem;color:rgba(200,169,110,0.2);
+  margin-bottom:1rem;line-height:1;
+}
+.placeholder-inner h4{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.3rem;font-weight:300;color:rgba(245,240,232,0.3);
+  margin-bottom:0.5rem;
+}
+.placeholder-inner p{
+  font-size:0.75rem;color:rgba(154,144,136,0.4);line-height:1.7;
+}
+
+/* ── ADD MODAL ── */
+.modal-overlay{
+  display:none;position:fixed;inset:0;z-index:500;
+  background:rgba(10,8,6,0.88);
+  backdrop-filter:blur(8px);
+  align-items:center;justify-content:center;
+  padding:2rem;
+}
+.modal-overlay.open{display:flex;}
+.modal{
+  background:#1A1512;
+  border:1px solid var(--rule);
+  width:100%;max-width:560px;
+  max-height:90vh;overflow-y:auto;
+  position:relative;
+}
+.modal-top{
+  padding:2rem 2.5rem 1.5rem;
+  border-bottom:1px solid var(--rule-dim);
+  display:flex;justify-content:space-between;align-items:flex-start;
+}
+.modal-top h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.7rem;font-weight:300;color:var(--white);line-height:1.1;
+}
+.modal-top h3 em{font-style:italic;color:var(--clay);}
+.modal-close{
+  background:none;border:none;cursor:pointer;
+  font-size:1.2rem;color:var(--fog);line-height:1;
+  padding:0.2rem;transition:color 0.2s;
+}
+.modal-close:hover{color:var(--sand);}
+.modal-body{padding:2rem 2.5rem;}
+.field-group{margin-bottom:1.5rem;}
+.field-group label{
+  display:block;font-size:0.62rem;letter-spacing:0.15em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:8px;
+}
+.field-group input,
+.field-group textarea,
+.field-group select{
+  width:100%;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  padding:0.75rem 1rem;
+  font-family:'Jost',sans-serif;font-size:0.88rem;
+  color:var(--sand);letter-spacing:0.03em;
+  outline:none;transition:border-color 0.2s;
+  -webkit-appearance:none;
+}
+.field-group input:focus,
+.field-group textarea:focus,
+.field-group select:focus{border-color:var(--gold);}
+.field-group input::placeholder,
+.field-group textarea::placeholder{color:var(--fog);opacity:0.5;}
+.field-group textarea{height:90px;resize:vertical;}
+.field-group select option{background:#1A1512;color:var(--sand);}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.modal-foot{
+  padding:1.5rem 2.5rem;
+  border-top:1px solid var(--rule-dim);
+  display:flex;justify-content:flex-end;gap:1rem;
+}
+.btn-cancel{
+  background:none;border:1px solid var(--rule-dim);cursor:pointer;
+  font-family:'Jost',sans-serif;font-size:0.62rem;letter-spacing:0.15em;
+  text-transform:uppercase;color:var(--fog);padding:0.7rem 1.5rem;
+  transition:border-color 0.2s,color 0.2s;
+}
+.btn-cancel:hover{border-color:var(--fog);color:var(--sand);}
+.btn-save{
+  background:var(--gold);border:none;cursor:pointer;
+  font-family:'Jost',sans-serif;font-size:0.62rem;letter-spacing:0.15em;
+  text-transform:uppercase;color:var(--warm-black);padding:0.7rem 2rem;
+  font-weight:500;transition:background 0.2s;
+}
+.btn-save:hover{background:var(--clay);}
+
+/* ── CLOZE BANNER ── */
+.cloze-banner{
+  margin:0 4vw 2px;
+  background:rgba(200,169,110,0.04);
+  border:1px solid var(--rule);
+  padding:1.2rem 2rem;
+  display:flex;align-items:center;justify-content:space-between;gap:2rem;
+}
+.cloze-banner p{
+  font-size:0.8rem;color:var(--fog);line-height:1.7;
+}
+.cloze-banner p strong{color:var(--sand);font-weight:400;}
+.cloze-badge{
+  flex-shrink:0;
+  font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--gold);border:1px solid var(--rule);
+  padding:0.3rem 0.8rem;white-space:nowrap;
+}
+
+/* ── FOOTER ── */
+.footer{
+  padding:2.5rem 4vw;
+  border-top:1px solid var(--rule-dim);
+  display:flex;justify-content:space-between;align-items:center;
+}
+.footer .f-brand{
+  font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:var(--clay);
+}
+.footer .f-meta{
+  font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;
+  color:rgba(154,144,136,0.35);text-align:right;line-height:1.8;
+}
+
+@media(max-width:640px){
+  .activations-grid{grid-template-columns:1fr;}
+  .hero-stats{gap:2rem;}
+  .filter-bar{flex-direction:column;height:auto;padding:0.8rem 4vw;gap:0.5rem;align-items:flex-start;}
+  .field-row{grid-template-columns:1fr;}
+  .cloze-banner{flex-direction:column;align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-left">
+    <a class="nav-brand" href="#">Open + Range</a>
+    <span class="nav-section">Activations</span>
+  </div>
+  <div class="nav-right">
+    <a href="https://clozingcre.com/brand-to-space/" target="_blank">clozingcre.com</a>
+    &nbsp;&middot;&nbsp; Windermere Commercial Palm Springs
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <p class="hero-label">Range Series — Activation Portfolio</p>
+  <h1>Put place<br><em>to work.</em></h1>
+  <p class="hero-sub">Active and upcoming property activations across the Coachella Valley. Each activation includes an owner review hub, press area, and lead tracking.</p>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num" id="statActive">1</div>
+      <div class="stat-label">Active</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" id="statPending">0</div>
+      <div class="stat-label">Pending approval</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" id="statTotal">1</div>
+      <div class="stat-label">Total activations</div>
+    </div>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="filters">
+    <button class="filter-btn active" onclick="filterCards('all',this)">All</button>
+    <button class="filter-btn" onclick="filterCards('active',this)">Active</button>
+    <button class="filter-btn" onclick="filterCards('pending',this)">Pending</button>
+    <button class="filter-btn" onclick="filterCards('incoming',this)">Incoming</button>
+  </div>
+  <button class="add-btn" onclick="openModal()">+ New Activation</button>
+</div>
+
+<!-- CLOZE INTEGRATION BANNER -->
+<div class="grid-wrap" style="padding-bottom:0;">
+  <div class="cloze-banner">
+    <p><strong>Cloze CRM integration pending.</strong> API access requested — once provisioned, leads captured through each activation hub will sync automatically to Cloze as contacts and projects.</p>
+    <div class="cloze-badge">API Access Requested</div>
+  </div>
+</div>
+
+<!-- GRID -->
+<div class="grid-wrap">
+  <div class="activations-grid" id="activationsGrid">
+
+    <!-- 850 CARD -->
+    <div class="act-card status-active" data-status="active">
+      <div class="card-header">
+        <div class="card-meta">
+          <span class="card-series">Range Series No. 01</span>
+          <span class="status-pill active"><span class="status-dot"></span>Active</span>
+        </div>
+        <div class="card-title"><em>Still Light</em> at 850</div>
+        <div class="card-address">850 N Palm Canyon Dr &middot; Palm Springs, CA &middot; Arthur Elrod Studio</div>
+        <p class="card-desc">Lie-down meditation and sound series built around 850's architectural lighted ceiling. Artwork by Jenna Marie Hansen. Running June&ndash;September 2026.</p>
+        <div class="card-tags">
+          <span class="tag">Wellness</span>
+          <span class="tag">Meditation</span>
+          <span class="tag">Sound Bath</span>
+          <span class="tag">Art in Residence</span>
+          <span class="tag">Retail Activation</span>
+        </div>
+      </div>
+      <div class="card-dates">
+        <div class="date-item">
+          <div class="dl">Opens</div>
+          <div class="dv">June 2026</div>
+        </div>
+        <div class="date-item">
+          <div class="dl">Closes</div>
+          <div class="dv">Sept 2026</div>
+        </div>
+        <div class="date-item">
+          <div class="dl">Owner</div>
+          <div class="dv">Approved</div>
+        </div>
+      </div>
+      <div class="card-progress">
+        <div class="progress-label">
+          <span>Activation progress</span>
+          <span>Concept approved</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill" style="width:35%"></div></div>
+      </div>
+      <div class="card-actions">
+        <a class="card-action primary" href="850-hub.html" target="_blank">Open Hub &nearr;</a>
+        <a class="card-action" href="850-hub.html" target="_blank">Press Area</a>
+        <button class="card-action" onclick="editCard(this)">Edit</button>
+      </div>
+    </div>
+
+    <!-- PLACEHOLDER 1 -->
+    <div class="act-card placeholder" onclick="openModal()">
+      <div class="placeholder-inner">
+        <div class="placeholder-icon">+</div>
+        <h4>Next activation</h4>
+        <p>Add a new property activation to the Range series portfolio.</p>
+      </div>
+    </div>
+
+    <!-- PLACEHOLDER 2 -->
+    <div class="act-card placeholder" onclick="openModal()">
+      <div class="placeholder-inner">
+        <div class="placeholder-icon">+</div>
+        <h4>Next activation</h4>
+        <p>Add a new property activation to the Range series portfolio.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div>
+    <div class="f-brand">Open + Range</div>
+  </div>
+  <div class="f-meta">
+    Windermere Commercial Palm Springs<br>
+    kate.clozingcre@gmail.com &middot; 442.677.0396
+  </div>
+</footer>
+
+<!-- ADD / EDIT MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+  <div class="modal" id="modal">
+    <div class="modal-top">
+      <h3>New<br><em>activation.</em></h3>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="field-group">
+        <label>Activation title</label>
+        <input type="text" id="f-title" placeholder="e.g. Still Light at 850">
+      </div>
+      <div class="field-group">
+        <label>Series name / number</label>
+        <input type="text" id="f-series" placeholder="e.g. Range Series No. 02">
+      </div>
+      <div class="field-group">
+        <label>Address</label>
+        <input type="text" id="f-address" placeholder="e.g. 123 N Palm Canyon Dr · Palm Springs, CA">
+      </div>
+      <div class="field-group">
+        <label>Description</label>
+        <textarea id="f-desc" placeholder="Short description of the activation concept..."></textarea>
+      </div>
+      <div class="field-row">
+        <div class="field-group">
+          <label>Opens</label>
+          <input type="text" id="f-open" placeholder="e.g. July 2026">
+        </div>
+        <div class="field-group">
+          <label>Closes</label>
+          <input type="text" id="f-close" placeholder="e.g. September 2026">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field-group">
+          <label>Status</label>
+          <select id="f-status">
+            <option value="incoming">Incoming</option>
+            <option value="pending">Pending approval</option>
+            <option value="active">Active</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label>Owner status</label>
+          <select id="f-owner">
+            <option value="Outreach">Outreach</option>
+            <option value="In review">In review</option>
+            <option value="Approved">Approved</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-group">
+        <label>Tags (comma separated)</label>
+        <input type="text" id="f-tags" placeholder="e.g. Wellness, Sound Bath, Art">
+      </div>
+      <div class="field-group">
+        <label>Hub URL (once deployed)</label>
+        <input type="text" id="f-hub" placeholder="e.g. 850-hub.html">
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+      <button class="btn-save" onclick="saveCard()">Add Activation</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+
+  // ── State ──
+  var activations = JSON.parse(localStorage.getItem('or_activations') || '[]');
+  var editingId = null;
+
+  // ── Filter ──
+  window.filterCards = function(status, btn) {
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.querySelectorAll('.act-card:not(.placeholder)').forEach(function(c){
+      if (status === 'all' || c.dataset.status === status) {
+        c.style.display = '';
+      } else {
+        c.style.display = 'none';
+      }
+    });
+  };
+
+  // ── Modal ──
+  window.openModal = function() {
+    editingId = null;
+    clearForm();
+    document.getElementById('modal').querySelector('h3').innerHTML = 'New<br><em>activation.</em>';
+    document.querySelector('.btn-save').textContent = 'Add Activation';
+    document.getElementById('modalOverlay').classList.add('open');
+  };
+  window.closeModal = function() {
+    document.getElementById('modalOverlay').classList.remove('open');
+    editingId = null;
+  };
+  window.closeModalOutside = function(e) {
+    if (e.target === document.getElementById('modalOverlay')) closeModal();
+  };
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModal(); });
+
+  function clearForm() {
+    ['f-title','f-series','f-address','f-desc','f-open','f-close','f-tags','f-hub'].forEach(function(id){
+      document.getElementById(id).value = '';
+    });
+    document.getElementById('f-status').value = 'incoming';
+    document.getElementById('f-owner').value = 'Outreach';
+  }
+
+  // ── Save ──
+  window.saveCard = function() {
+    var title   = document.getElementById('f-title').value.trim();
+    var series  = document.getElementById('f-series').value.trim();
+    var address = document.getElementById('f-address').value.trim();
+    var desc    = document.getElementById('f-desc').value.trim();
+    var open    = document.getElementById('f-open').value.trim();
+    var close   = document.getElementById('f-close').value.trim();
+    var status  = document.getElementById('f-status').value;
+    var owner   = document.getElementById('f-owner').value;
+    var tags    = document.getElementById('f-tags').value.trim();
+    var hub     = document.getElementById('f-hub').value.trim();
+
+    if (!title || !address) {
+      alert('Title and address are required.');
+      return;
+    }
+
+    if (editingId !== null) {
+      var idx = activations.findIndex(function(a){ return a.id === editingId; });
+      if (idx > -1) {
+        activations[idx] = {id:editingId,title,series,address,desc,open,close,status,owner,tags,hub};
+      }
+    } else {
+      activations.push({
+        id: Date.now(),
+        title, series, address, desc, open, close, status, owner, tags, hub
+      });
+    }
+
+    localStorage.setItem('or_activations', JSON.stringify(activations));
+    closeModal();
+    renderDynamic();
+    updateStats();
+  };
+
+  // ── Edit ──
+  window.editCard = function(btn) {
+    var card = btn.closest('.act-card');
+    var id   = parseInt(card.dataset.id);
+    var act  = activations.find(function(a){ return a.id === id; });
+    if (!act) return;
+    editingId = id;
+    document.getElementById('f-title').value   = act.title   || '';
+    document.getElementById('f-series').value  = act.series  || '';
+    document.getElementById('f-address').value = act.address || '';
+    document.getElementById('f-desc').value    = act.desc    || '';
+    document.getElementById('f-open').value    = act.open    || '';
+    document.getElementById('f-close').value   = act.close   || '';
+    document.getElementById('f-status').value  = act.status  || 'incoming';
+    document.getElementById('f-owner').value   = act.owner   || 'Outreach';
+    document.getElementById('f-tags').value    = act.tags    || '';
+    document.getElementById('f-hub').value     = act.hub     || '';
+    document.getElementById('modal').querySelector('h3').innerHTML = 'Edit<br><em>activation.</em>';
+    document.querySelector('.btn-save').textContent = 'Save Changes';
+    document.getElementById('modalOverlay').classList.add('open');
+  };
+
+  // ── Render dynamic cards ──
+  function renderDynamic() {
+    // Remove all dynamic cards
+    document.querySelectorAll('.act-card[data-dynamic]').forEach(function(c){ c.remove(); });
+
+    var grid = document.getElementById('activationsGrid');
+    var placeholders = grid.querySelectorAll('.act-card.placeholder');
+
+    activations.forEach(function(act) {
+      var tagHTML = (act.tags || '').split(',').map(function(t){
+        return t.trim() ? '<span class="tag">'+escHTML(t.trim())+'</span>' : '';
+      }).join('');
+
+      var progress = act.status === 'active' ? '35' : act.status === 'pending' ? '15' : '5';
+      var ownerLabel = act.status === 'active' ? (act.owner||'Approved') : (act.owner||'Outreach');
+
+      var hubLink = act.hub || '#';
+      var hubDisabled = act.hub ? '' : ' disabled';
+
+      var card = document.createElement('div');
+      card.className = 'act-card status-' + act.status;
+      card.dataset.status = act.status;
+      card.dataset.dynamic = '1';
+      card.dataset.id = act.id;
+      card.innerHTML = `
+        <div class="card-header">
+          <div class="card-meta">
+            <span class="card-series">${escHTML(act.series||'Range Series')}</span>
+            <span class="status-pill ${act.status}">
+              <span class="status-dot"></span>${capitalize(act.status)}
+            </span>
+          </div>
+          <div class="card-title">${escHTML(act.title)}</div>
+          <div class="card-address">${escHTML(act.address)}</div>
+          <p class="card-desc">${escHTML(act.desc||'')}</p>
+          <div class="card-tags">${tagHTML}</div>
+        </div>
+        <div class="card-dates">
+          <div class="date-item"><div class="dl">Opens</div><div class="dv">${escHTML(act.open||'TBD')}</div></div>
+          <div class="date-item"><div class="dl">Closes</div><div class="dv">${escHTML(act.close||'TBD')}</div></div>
+          <div class="date-item"><div class="dl">Owner</div><div class="dv">${escHTML(ownerLabel)}</div></div>
+        </div>
+        <div class="card-progress">
+          <div class="progress-label"><span>Activation progress</span><span>${capitalize(act.status)}</span></div>
+          <div class="progress-track"><div class="progress-fill" style="width:${progress}%"></div></div>
+        </div>
+        <div class="card-actions">
+          <a class="card-action primary${hubDisabled ? ' disabled' : ''}" href="${escHTML(hubLink)}" target="_blank">Open Hub &nearr;</a>
+          <a class="card-action${hubDisabled ? ' disabled' : ''}" href="${escHTML(hubLink)}" target="_blank">Press Area</a>
+          <button class="card-action" onclick="editCard(this)">Edit</button>
+        </div>`;
+
+      // Insert before placeholders
+      grid.insertBefore(card, placeholders[0]);
+    });
+  }
+
+  // ── Stats ──
+  function updateStats() {
+    // Count 850 (hardcoded) + dynamic
+    var all = activations;
+    var active  = 1 + all.filter(function(a){ return a.status==='active'; }).length;
+    var pending = all.filter(function(a){ return a.status==='pending'; }).length;
+    var total   = 1 + all.length;
+    document.getElementById('statActive').textContent  = active;
+    document.getElementById('statPending').textContent = pending;
+    document.getElementById('statTotal').textContent   = total;
+  }
+
+  // ── Helpers ──
+  function escHTML(str) {
+    return String(str)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+  function capitalize(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
+
+  // ── Init ──
+  renderDynamic();
+  updateStats();
+
+})();
+</script>
+</body>
+</html>
