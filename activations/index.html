@@ -1,1 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Open + Range Activations — events, pop-ups, and cultural programming in commercial spaces across Palm Springs and the Coachella Valley.">
+  <title>Activations | Open + Range | Clozing CRE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/shared.css">
+  <style>
+    .page-header {
+      padding: 80px;
+      border-bottom: 1px solid var(--border);
+      background: var(--sand);
+    }
 
+    .page-header-inner {
+      max-width: 600px;
+    }
+
+    .page-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(52px, 6vw, 80px);
+      font-weight: 300;
+      line-height: 1.0;
+      margin-bottom: 24px;
+    }
+
+    .page-sub {
+      font-size: 17px;
+      color: var(--ink-mid);
+      line-height: 1.7;
+    }
+
+    .upcoming-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 24px 80px;
+      border-bottom: 1px solid var(--border);
+      background: var(--cream);
+    }
+
+    .upcoming-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--sage);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .upcoming-text {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sage);
+    }
+
+    .activation-full {
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 280px 1fr;
+    }
+
+    .activation-full-left {
+      padding: 60px 48px 60px 80px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .activation-full-number {
+      font-family: var(--font-serif);
+      font-size: 96px;
+      font-weight: 300;
+      color: var(--border);
+      line-height: 1;
+      margin-bottom: 0;
+    }
+
+    .activation-full-date {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--ink-mid);
+      margin-bottom: 4px;
+    }
+
+    .activation-full-time {
+      font-size: 12px;
+      color: var(--ink-light);
+    }
+
+    .activation-full-right {
+      padding: 60px 80px 60px 64px;
+    }
+
+    .activation-full-tag {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+
+    .tag-open { background: var(--sage); color: var(--cream); }
+    .tag-range { background: var(--rust); color: var(--cream); }
+    .tag-past { background: var(--sand-dark); color: var(--ink-light); }
+
+    .activation-full-title {
+      font-family: var(--font-serif);
+      font-size: 36px;
+      font-weight: 300;
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+
+    .activation-full-location {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 28px;
+    }
+
+    .activation-full-body {
+      font-size: 15px;
+      color: var(--ink-mid);
+      line-height: 1.8;
+      max-width: 560px;
+      margin-bottom: 28px;
+    }
+
+    .schedule-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+
+    .schedule-item {
+      display: flex;
+      gap: 24px;
+      font-size: 14px;
+    }
+
+    .schedule-time {
+      font-weight: 600;
+      color: var(--rust);
+      min-width: 60px;
+    }
+
+    .schedule-event { color: var(--ink-mid); }
+
+    .past-section {
+      padding: 60px 80px;
+      border-bottom: 1px solid var(--border);
+      background: var(--sand);
+    }
+
+    .past-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      margin-top: 32px;
+    }
+
+    .past-card {
+      background: var(--sand);
+      padding: 32px;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.2s;
+    }
+
+    .past-card:hover { background: var(--sand-dark); }
+
+    .past-card-date {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 12px;
+    }
+
+    .past-card-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .past-card-loc {
+      font-size: 12px;
+      color: var(--ink-light);
+    }
+
+    @media (max-width: 900px) {
+      .page-header { padding: 48px 32px; }
+      .upcoming-label { padding: 20px 32px; }
+      .activation-full { grid-template-columns: 1fr; }
+      .activation-full-left { padding: 40px 32px; border-right: none; border-bottom: 1px solid var(--border); flex-direction: row; align-items: center; gap: 24px; }
+      .activation-full-right { padding: 40px 32px; }
+      .activation-full-number { font-size: 48px; }
+      .past-section { padding: 48px 32px; }
+      .past-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="https://clozingcre.com" class="nav-logo">Clozing CRE</a>
+    <ul class="nav-links">
+      <li><a href="https://clozingcre.com#expertise">Expertise</a></li>
+      <li class="nav-dropdown">
+        <a href="#">Practice</a>
+        <div class="dropdown-menu">
+          <span class="dropdown-label">Services</span>
+          <a href="https://clozingcre.com#expertise">Investment Sales</a>
+          <a href="https://clozingcre.com#expertise">1031 Exchange Advisory</a>
+          <a href="https://clozingcre.com#expertise">Tenant Representation</a>
+          <a href="https://clozingcre.com#expertise">Landlord Services</a>
+          <a href="/brand-to-space/" style="color:var(--rust);">Open + Range ↗</a>
+          <span class="dropdown-label">Resources</span>
+          <a href="https://producers-ux.github.io/windermerecre/1031-workflow-toolkit.html">1031 Toolkit</a>
+        </div>
+      </li>
+      <li><a href="https://clozingcre.com/listings.html">Listings</a></li>
+      <li><a href="https://clozingcre.com#team">Team</a></li>
+      <a href="https://clozingcre.com#contact" class="nav-cta">Connect</a>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <div class="page-header-inner">
+      <span class="section-label">Open + Range</span>
+      <h1 class="page-headline serif">Activations</h1>
+      <p class="page-sub">Events, pop-ups, and cultural programming that put commercial spaces to work in the Coachella Valley.</p>
+    </div>
+  </div>
+
+  <div class="upcoming-label">
+    <div class="upcoming-dot"></div>
+    <span class="upcoming-text">Upcoming Events · June 12 Launch · Summer – Fall 2026</span>
+  </div>
+
+  <!-- ACTIVATION 1 -->
+  <div class="activation-full">
+    <div class="activation-full-left">
+      <div class="activation-full-number">01</div>
+      <div>
+        <div class="activation-full-date">June 12, 2026</div>
+        <div class="activation-full-time">Time TBD &mdash; confirmed soon</div>
+      </div>
+    </div>
+    <div class="activation-full-right">
+      <span class="activation-full-tag tag-open">Open</span>
+      <h2 class="activation-full-title">The Elrod — Launch Day</h2>
+      <div class="activation-full-location">850 N Palm Canyon Drive · Palm Springs, CA</div>
+      <p class="activation-full-body">
+        This studio was Arthur Elrod's. Constructed between 1968 and 1970, it sits at the center of what would become Palm Springs' Uptown Design District — a neighborhood that, in many ways, Elrod helped define. His clients were Hollywood royalty. He dressed the homes of Walt Disney and Lucille Ball. Frank Sinatra. Bob Hope.
+      </p>
+      <p class="activation-full-body">
+        Elrod didn't just decorate rooms. He shaped a vision of desert living that still echoes through every wishlist, every mood board, every renovation in the Coachella Valley today. This building was where that work happened.
+      </p>
+      <p class="activation-full-body">Opening in partnership with Palm Springs Cultural Center on June 12. The Elrod studio is now available for long-term lease. Every session is a showing.</p>
+      <!-- Schedule TBD -->
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="mailto:kate.clozingcre@gmail.com?subject=Elrod Launch Day RSVP" class="btn btn-primary">RSVP</a>
+        <a href="https://www.loopnet.com/Listing/850-N-Palm-Canyon-Dr-Palm-Springs-CA/39793613/" target="_blank" class="btn">View Listing</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACTIVATION 2 -->
+  <div class="activation-full">
+    <div class="activation-full-left">
+      <div class="activation-full-number">02</div>
+      <div>
+        <div class="activation-full-date">June 12, 2026</div>
+        <div class="activation-full-time">Time TBD &mdash; confirmed soon</div>
+      </div>
+    </div>
+    <div class="activation-full-right">
+      <span class="activation-full-tag tag-open">Open</span>
+      <h2 class="activation-full-title">Villa Mykonos — Private Investor Tour</h2>
+      <div class="activation-full-location">67590 Jones Rd · Cathedral City, CA 92234</div>
+      <p class="activation-full-body">
+        Ten units. Huge 2BD/2BTH rooms. One pool. Grounds that feel like somewhere else entirely. For investors in an active exchange, this is the Coachella Valley asset worth pausing for. Multi-building compound. Hospitality potential. A story that attracts the right tenants and the right buyers when the time comes.
+      </p>
+      <p class="activation-full-body">
+        O+R is hosting a private tour for 1031 buyers and their advisors. We'll walk the property with your timeline in mind. Identification window closing? Let's talk.
+      </p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="mailto:kate.clozingcre@gmail.com?subject=Villa Mykonos Tour Inquiry" class="btn btn-primary">Request Access</a>
+        <a href="https://www.loopnet.com/Listing/67590-Jones-Rd-Cathedral-City-CA/37356814/" target="_blank" class="btn">View on LoopNet</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACTIVATION 3 -->
+  <div class="activation-full">
+    <div class="activation-full-left">
+      <div class="activation-full-number">03</div>
+      <div>
+        <div class="activation-full-date">June 12, 2026</div>
+        <div class="activation-full-time">Time TBD &mdash; confirmed soon</div>
+      </div>
+    </div>
+    <div class="activation-full-right">
+      <span class="activation-full-tag tag-open">Open</span>
+      <h2 class="activation-full-title">The Elrod — Community Meetup</h2>
+      <div class="activation-full-location">850 N Palm Canyon Drive · Palm Springs, CA</div>
+      <p class="activation-full-body">
+        The third event in the series. Come meet the community building around this space, tour The Elrod pop-up, and see what's next for 850. O+R is back with the next chapter.
+      </p>
+      <p class="activation-full-body">
+        Stop in, look around, and meet the people making things happen in Palm Springs. Free. All welcome.
+      </p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="mailto:kate.clozingcre@gmail.com?subject=Elrod Community Meetup" class="btn btn-primary">RSVP</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAST (placeholder) -->
+  <div class="past-section">
+    <span class="section-label">Archive</span>
+    <h2 class="section-title serif" style="font-family:var(--font-serif); font-size:28px; font-weight:300;">Past Activations</h2>
+    <p style="font-size:14px; color:var(--ink-light); margin-top:8px;">O+R launches Summer 2026. Past event recaps will appear here.</p>
+  </div>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="footer-logo">Open + Range</span>
+        <p class="footer-tagline">Brand-to-Space Matching. A Clozing CRE practice. Windermere Commercial Palm Springs.</p>
+      </div>
+      <div class="footer-col">
+        <h4>O+R</h4>
+        <a href="../">Brand-to-Space</a>
+        <a href="./">Activations</a>
+        <a href="../blog/">Field Notes</a>
+      </div>
+      <div class="footer-col">
+        <h4>Clozing CRE</h4>
+        <a href="https://clozingcre.com">Home</a>
+        <a href="https://clozingcre.com/listings.html">Listings</a>
+        <a href="https://producers-ux.github.io/windermerecre/1031-workflow-toolkit.html">1031 Toolkit</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:kate.clozingcre@gmail.com">kate.clozingcre@gmail.com</a>
+        <a href="tel:+14426770396">(442) 677-0396</a>
+        <a href="https://or-cre.com/collections/all" target="_blank">GTR Store →</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Open + Range · Clozing CRE · Windermere Commercial Palm Springs</span>
+      <span>CA DRE Licensed · WA Managing Broker</span>
+    </div>
+  </footer>
+
+</body>
+</html>
