@@ -1,1 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stay Connected — Clozing CRE</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+  :root {
+    --sand: #F5F0E8;
+    --clay: #C4A882;
+    --gold: #C8A96E;
+    --fog: #9A9088;
+    --warm-black: #1A1512;
+    --deep: #2A2018;
+    --rule: rgba(200,169,110,0.2);
+    --white: #FDFAF5;
+  }
+
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--warm-black);
+    color: var(--sand);
+    font-weight: 300;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.5rem;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 480px;
+    background: var(--deep);
+    border: 1px solid var(--rule);
+    padding: 3rem 2.5rem 2.5rem;
+  }
+
+  .eyebrow {
+    font-size: 0.6rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.6rem;
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--clay);
+  }
+
+  .sub {
+    font-size: 0.88rem;
+    color: var(--fog);
+    line-height: 1.85;
+    margin-bottom: 2rem;
+  }
+
+  .rule {
+    height: 1px;
+    background: var(--rule);
+    margin-bottom: 2rem;
+  }
+
+  .field {
+    margin-bottom: 1.1rem;
+  }
+
+  label {
+    display: block;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--fog);
+    margin-bottom: 0.4rem;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  select {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--rule);
+    padding: 0.85rem 1rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 300;
+    color: var(--sand);
+    outline: none;
+    transition: border-color 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 0;
+  }
+
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  select:focus {
+    border-color: var(--gold);
+  }
+
+  input::placeholder {
+    color: var(--fog);
+    opacity: 0.4;
+  }
+
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C8A96E' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+    cursor: pointer;
+  }
+
+  select option {
+    background: var(--deep);
+    color: var(--sand);
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    background: var(--gold);
+    border: none;
+    cursor: pointer;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--warm-black);
+    padding: 1rem 2rem;
+    margin-top: 0.5rem;
+    transition: background 0.2s;
+  }
+
+  button[type="submit"]:hover {
+    background: var(--clay);
+  }
+
+  button[type="submit"]:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .error-msg {
+    font-size: 0.75rem;
+    color: #C4745A;
+    margin-top: 0.4rem;
+    display: none;
+  }
+
+  /* THANK YOU STATE */
+  .thankyou {
+    display: none;
+    text-align: center;
+    padding: 1rem 0;
+  }
+
+  .thankyou .check {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .thankyou h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+
+  .thankyou p {
+    font-size: 0.88rem;
+    color: var(--fog);
+    line-height: 1.85;
+  }
+
+  .footer-note {
+    margin-top: 2rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    color: rgba(154,144,136,0.5);
+    text-align: center;
+    line-height: 1.8;
+  }
+
+  .footer-note a {
+    color: var(--gold);
+    text-decoration: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+
+  <div id="form-state">
+    <span class="eyebrow">850 N Palm Canyon Drive &middot; Open + Range</span>
+    <h1>Stay in<br>the <em>loop.</em></h1>
+    <p class="sub">Sign in as a guest of today's open house, or join the Clozing CRE list for updates on 850, the Open + Range program, and commercial opportunities along the North Palm Canyon corridor.</p>
+    <div class="rule"></div>
+
+    <form id="signup-form" action="https://formspree.io/f/maqzdkrp" method="POST">
+
+      <div class="field">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name" required>
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+        <div class="error-msg" id="email-error">Please enter a valid email address.</div>
+      </div>
+
+      <div class="field">
+        <label for="role">I am a</label>
+        <select id="role" name="role">
+          <option value="" disabled selected>Select one</option>
+          <option value="Real estate professional">Real estate professional</option>
+          <option value="Building owner">Building owner or investor</option>
+          <option value="Prospective tenant">Prospective tenant</option>
+          <option value="Community member">Community member / public</option>
+          <option value="Press or media">Press or media</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <input type="hidden" name="_subject" value="850 Open House Sign-In — Clozing CRE">
+      <input type="hidden" name="source" value="850 Open House QR Code — June 12 2026">
+
+      <button type="submit" id="submit-btn">Sign In</button>
+    </form>
+  </div>
+
+  <div class="thankyou" id="thankyou-state">
+    <span class="check">&#10022;</span>
+    <h2>You're on the list.</h2>
+    <p>Thank you for stopping by 850 N Palm Canyon Drive. We'll be in touch with updates on the space, the Open + Range program, and what's happening along the corridor.</p>
+  </div>
+
+  <div class="footer-note">
+    Clozing CRE &middot; Windermere Commercial Palm Springs<br>
+    <a href="https://clozingcre.com">clozingcre.com</a> &middot; kate.clozingcre@gmail.com
+  </div>
+
+</div>
+
+<script>
+  const form = document.getElementById('signup-form');
+  const formState = document.getElementById('form-state');
+  const thankyouState = document.getElementById('thankyou-state');
+  const submitBtn = document.getElementById('submit-btn');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (res.ok) {
+        formState.style.display = 'none';
+        thankyouState.style.display = 'block';
+      } else {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Sign In';
+        alert('Something went wrong. Please try again or see a team member.');
+      }
+    } catch (err) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Sign In';
+      alert('Connection error. Please try again.');
+    }
+  });
+</script>
+
+</body>
+</html>
