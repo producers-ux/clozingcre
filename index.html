@@ -392,6 +392,94 @@ footer{background:var(--obsidian);padding:64px 96px 48px;border-top:1px solid rg
   .market-tile{padding:28px 20px}
   .section-headline{font-size:clamp(28px,9vw,40px)}
 }
+
+/* ── EVENT FEATURE PANEL ── */
+.event-feature{
+  display:grid;grid-template-columns:1fr 1fr;
+  background:var(--obsidian-mid);
+  border-top:1px solid rgba(107,124,94,0.2);
+  border-bottom:1px solid rgba(196,160,82,.2);
+  overflow:hidden;
+}
+.event-feature-photo{
+  position:relative;overflow:hidden;
+  min-height:460px;
+}
+.event-feature-photo img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center top;
+  display:block;image-orientation:from-image;
+  transition:transform 0.6s ease;
+}
+.event-feature:hover .event-feature-photo img{transform:scale(1.03);}
+.event-feature-photo::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to right,transparent 60%,var(--obsidian-mid) 100%),
+             linear-gradient(to top,rgba(26,23,20,0.4) 0%,transparent 40%);
+}
+.event-feature-body{
+  padding:56px 64px;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.event-feature-tags{display:flex;gap:10px;align-items:center;margin-bottom:28px;flex-wrap:wrap;}
+.ef-tag-or{
+  font-size:11px;letter-spacing:0.2em;text-transform:uppercase;
+  color:#8FA480;border:1px solid rgba(107,124,94,0.4);
+  padding:5px 14px;
+  display:flex;align-items:center;gap:7px;
+}
+.ef-dot{width:5px;height:5px;border-radius:50%;background:#8FA480;animation:efPulse 2s ease-in-out infinite;}
+@keyframes efPulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+.ef-tag-recap{
+  font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
+  color:rgba(200,160,82,0.55);
+}
+.event-feature-eyebrow{
+  font-size:13px;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:16px;
+  display:flex;align-items:center;gap:14px;
+}
+.event-feature-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold);}
+.event-feature h2{
+  font-family:var(--serif);font-size:clamp(28px,3vw,44px);
+  font-weight:400;line-height:1.1;
+  color:var(--white);margin-bottom:20px;
+}
+.event-feature h2 em{font-style:italic;color:var(--gold-light);}
+.event-feature-desc{
+  font-size:17px;color:var(--sand);line-height:1.8;
+  margin-bottom:32px;max-width:420px;
+}
+.event-feature-meta{
+  display:flex;flex-direction:column;gap:6px;
+  margin-bottom:36px;
+  padding-left:16px;
+  border-left:2px solid rgba(107,124,94,0.4);
+}
+.ef-meta-line{font-size:13px;color:rgba(200,190,170,0.5);letter-spacing:0.04em;}
+.ef-meta-line strong{color:rgba(200,190,170,0.75);font-weight:400;}
+.event-feature-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
+.btn-feature-primary{
+  background:#6B7C5E;color:var(--white);
+  padding:14px 28px;text-decoration:none;
+  font-size:13px;letter-spacing:0.12em;text-transform:uppercase;
+  font-weight:500;transition:background 0.2s;
+}
+.btn-feature-primary:hover{background:#8FA480;}
+.btn-feature-ghost{
+  font-size:13px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--sand);text-decoration:none;
+  display:flex;align-items:center;gap:8px;
+  transition:color 0.2s;
+}
+.btn-feature-ghost:hover{color:var(--gold);}
+.btn-feature-ghost::after{content:'→';}
+@media(max-width:900px){
+  .event-feature{grid-template-columns:1fr;}
+  .event-feature-photo{min-height:300px;}
+  .event-feature-photo::after{background:linear-gradient(to top,var(--obsidian-mid) 0%,transparent 50%);}
+  .event-feature-body{padding:40px 24px 48px;}
+}
 </style>
 </head>
 <body>
@@ -512,6 +600,37 @@ footer{background:var(--obsidian);padding:64px 96px 48px;border-top:1px solid rg
     <div class="license-badge">WA Managing Broker</div>
   </div>
 </div>
+
+<!-- EVENT FEATURE: June 12 Open House Recap -->
+<a href="brand-to-space/june12/recap.html" class="event-feature" aria-label="Read the Open House recap at 850 N Palm Canyon">
+  <div class="event-feature-photo">
+    <img
+      src="850door.jpg"
+      alt="850 N Palm Canyon Drive — the original riveted entry door, Arthur Elrod Associates"
+      loading="lazy"
+    />
+  </div>
+  <div class="event-feature-body">
+    <div class="event-feature-tags">
+      <span class="ef-tag-or"><span class="ef-dot"></span>Open + Range</span>
+      <span class="ef-tag-recap">Event Recap</span>
+    </div>
+    <div class="event-feature-eyebrow">June 12, 2026 &middot; Palm Springs</div>
+    <h2>The doors opened<br>at <em>850.</em></h2>
+    <p class="event-feature-desc">
+      Champagne, conversation, and 4,180&nbsp;SF of mid-century history &mdash; the former Arthur Elrod studio at 850&nbsp;N&nbsp;Palm Canyon opened for an afternoon. Here&rsquo;s what happened.
+    </p>
+    <div class="event-feature-meta">
+      <div class="ef-meta-line"><strong>Location</strong> &nbsp;850 N Palm Canyon Drive, Palm Springs</div>
+      <div class="ef-meta-line"><strong>Co-presenter</strong> &nbsp;Palm Springs Cultural Center</div>
+      <div class="ef-meta-line"><strong>Space</strong> &nbsp;Still available for long-term lease</div>
+    </div>
+    <div class="event-feature-actions">
+      <span class="btn-feature-primary">View Recap + Photos</span>
+      <span class="btn-feature-ghost">850 N Palm Canyon</span>
+    </div>
+  </div>
+</a>
 
 <!-- EXPERTISE -->
 <section class="focus-section" id="expertise">
