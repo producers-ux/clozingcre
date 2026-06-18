@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open House Recap — 850 N Palm Canyon × PSCC | June 12 | Open + Range</title>
+<meta name="description" content="Event recap: Champagne Open House at the former Arthur Elrod studio, 850 N Palm Canyon Drive, Palm Springs. June 12, 2026. Open + Range × Clozing CRE.">
+<meta property="og:title" content="What happened at 850 — Champagne Open House Recap · June 12, 2026">
+<meta property="og:description" content="Open + Range × Palm Springs Cultural Center · 4,180 SF of mid-century history opened its doors for an afternoon.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://clozingcre.com/brand-to-space/june12/recap">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --dark:#1A1008; --terra:#7A3E22; --cream:#F5EDD0; --bone:#FDFAF2;
+  --amber:#C8902A; --fog:#9A9088; --gold:#C8A96E; --white:#FDFAF5;
+  --sage:#6B7C5E; --sage-light:#8FA480;
+  --rule:rgba(200,169,110,0.18); --rule-dark:rgba(122,62,34,0.18);
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;background:#EEEAE4;color:#1A1512;font-size:16px;line-height:1.7;font-weight:300;}
+
+/* ── NAV ── */
+.nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(238,234,228,0.97);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(122,62,34,0.15);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 5vw;height:56px;
+}
+.nav-brand{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;letter-spacing:0.06em;color:#8A5A38;}
+.nav-links{display:flex;gap:2rem;align-items:center;}
+.nav-links a{font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:#6A6260;text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover{color:#8A5A38;}
+.nav-back{font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:#8A5A38;text-decoration:none;border:1px solid rgba(122,62,34,0.3);padding:0.35rem 0.9rem;transition:background 0.2s,color 0.2s;}
+.nav-back:hover{background:#8A5A38;color:var(--cream);}
+
+/* ── SHARE BAR ── */
+.share-bar{
+  background:#2C3D28;padding:0.85rem 5vw;
+  display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap;
+}
+.share-label{font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--sage-light);}
+.share-buttons{display:flex;gap:0.5rem;align-items:center;}
+.share-btn{
+  padding:0.38rem 1rem;font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;
+  background:transparent;border:1px solid rgba(143,164,128,0.4);
+  color:rgba(245,237,208,0.55);cursor:pointer;font-family:'Jost',sans-serif;
+  text-decoration:none;display:inline-block;
+  transition:background 0.2s,color 0.2s,border-color 0.2s;
+}
+.share-btn:hover{background:rgba(143,164,128,0.2);color:var(--cream);border-color:var(--sage-light);}
+.share-btn.copied{background:var(--sage-light);color:#1A1008;}
+
+/* ── HERO ── */
+.hero{
+  min-height:92vh;
+  display:grid;grid-template-columns:1fr 1fr;
+  position:relative;overflow:hidden;
+  background:radial-gradient(ellipse at 40% 30%, #5A3218 0%, #2A1A0A 55%, #180E04 100%);
+}
+.hero-left{
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:80px 6vw 8vw 7vw;position:relative;z-index:2;
+}
+.hero-top-rule{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#7A3E22 0%,#C8902A 50%,transparent 90%);z-index:10;}
+.co-badge{display:flex;align-items:center;gap:12px;margin-bottom:2rem;}
+.co-dot{width:5px;height:5px;border-radius:50%;background:var(--sage-light);}
+.co-text{font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage-light);}
+.co-sep{color:rgba(200,169,110,0.3);}
+.co-pscc{font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(200,168,130,0.5);}
+
+/* Recap badge */
+.recap-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(107,124,94,0.2);border:1px solid rgba(143,164,128,0.35);
+  padding:0.4rem 1rem;margin-bottom:1.5rem;width:fit-content;
+}
+.recap-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--sage-light);}
+.recap-badge-text{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage-light);}
+
+.hero-eyebrow{font-size:0.82rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(220,185,110,0.9);margin-bottom:1.2rem;font-weight:400;opacity:0;animation:fadeUp 0.9s ease forwards 0.3s;}
+.hero-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6.5vw,6rem);font-weight:300;line-height:1.0;color:#FDFAF5;max-width:580px;margin-bottom:1.2rem;opacity:0;animation:fadeUp 0.9s ease forwards 0.5s;}
+.hero-h1 em{font-style:italic;color:#A08040;}
+.hero-date-block{display:flex;align-items:baseline;gap:2rem;margin-bottom:1.6rem;opacity:0;animation:fadeUp 0.9s ease forwards 0.7s;}
+.hero-date{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:300;font-style:italic;color:#C4A882;letter-spacing:0.02em;}
+.hero-time{font-size:0.75rem;letter-spacing:0.18em;text-transform:uppercase;color:#9A9088;}
+.hero-sub{font-size:1rem;color:#9A9088;max-width:460px;line-height:1.9;opacity:0;animation:fadeUp 0.9s ease forwards 0.9s;}
+.hero-sub em{font-style:italic;color:#C4A882;}
+
+/* Right side — door photo */
+.hero-right{position:relative;overflow:hidden;}
+.hero-right::before{
+  content:'';position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:
+    linear-gradient(90deg,#180E04 0%,rgba(24,14,4,0.65) 16%,transparent 44%),
+    linear-gradient(180deg,rgba(10,6,2,0.5) 0%,transparent 12%,transparent 78%,rgba(10,6,2,0.75) 100%);
+}
+.hero-door-img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center top;
+  display:block;
+  /* EXIF orientation upper-right — browser handles rotation via CSS */
+  image-orientation:from-image;
+}
+/* Photo credit */
+.door-credit{
+  position:absolute;bottom:2rem;right:1.5rem;z-index:5;
+  text-align:right;
+}
+.door-credit span{font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(200,168,130,0.4);}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+/* ── RECAP INTRO ── */
+.recap-intro{
+  background:#F0EBE2;border-top:1px solid #D8D0C8;
+  display:grid;grid-template-columns:280px 1fr;gap:0;
+}
+.recap-meta{
+  border-right:1px solid #D8D0C8;
+  padding:4vw 2.5rem;
+  position:sticky;top:56px;align-self:start;
+}
+.meta-item{margin-bottom:2rem;}
+.meta-label{font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:#8A7060;margin-bottom:0.4rem;}
+.meta-value{font-size:0.88rem;color:#1A1512;line-height:1.65;}
+.meta-value a{color:#8A5A38;text-decoration:none;}
+.meta-divider{width:1.5rem;height:1px;background:rgba(122,62,34,0.25);margin:1.8rem 0;}
+
+.recap-body{padding:4vw 5vw;}
+.section-label{
+  font-size:0.65rem;letter-spacing:0.22em;text-transform:uppercase;
+  color:#8A5A38;margin-bottom:2.5rem;
+  display:flex;align-items:center;gap:1rem;
+}
+.section-label::after{content:'';display:block;flex:0 0 32px;height:1px;background:#8A5A38;opacity:0.4;}
+
+.recap-body h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3.2rem);font-weight:300;color:#1A1512;line-height:1.1;margin-bottom:1.8rem;}
+.recap-body h2 em{font-style:italic;color:#8A5A38;}
+.recap-body p{font-size:0.98rem;color:#2A1E14;line-height:1.95;margin-bottom:1.3rem;font-weight:400;}
+.recap-body p strong{font-weight:500;color:#1A1008;}
+
+.pullquote{
+  border-left:2px solid #A08040;padding:1.2rem 1.8rem;margin:2rem 0;
+  background:rgba(122,62,34,0.04);
+}
+.pullquote p{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-style:italic;font-weight:300;color:#1A1512;line-height:1.5;margin:0;}
+.pullquote cite{display:block;font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:#6A5040;margin-top:0.7rem;font-style:normal;}
+
+/* ── SCROLL STRIP ── */
+.strip-section{background:#1A1008;padding:0 0 3.5rem;}
+.strip-header{
+  padding:2.5rem 5vw 2rem;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.strip-header .section-label{margin:0;}
+.strip-nav{display:flex;gap:0.4rem;}
+.strip-btn{
+  width:38px;height:38px;background:transparent;
+  border:1px solid rgba(200,169,110,0.2);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(200,169,110,0.5);font-size:1rem;
+  transition:all 0.2s;
+}
+.strip-btn:hover{border-color:var(--gold);color:var(--gold);}
+
+.photo-strip{
+  display:flex;gap:3px;overflow-x:auto;scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;padding:0 5vw;
+  -ms-overflow-style:none;scrollbar-width:none;
+  cursor:grab;
+}
+.photo-strip::-webkit-scrollbar{display:none;}
+.photo-strip.grabbing{cursor:grabbing;}
+
+/* ─────────────────────────────────────────────────────────────────────
+   PHOTO SLOTS — To add real photos from your Dropbox album:
+   Replace each <div class="photo-ph phN"></div> with:
+   <img src="YOUR_DIRECT_URL" alt="Caption" loading="lazy" />
+   
+   Dropbox direct link formula:
+     1. Open photo in Dropbox → Share → Copy link  
+     2. Change "www.dropbox.com" → "dl.dropboxusercontent.com"
+     3. Remove "?dl=0" from the URL
+     Result: https://dl.dropboxusercontent.com/s/HASH/filename.jpg
+   ───────────────────────────────────────────────────────────────────── */
+.strip-photo{
+  flex:0 0 auto;scroll-snap-align:start;
+  position:relative;overflow:hidden;
+}
+.strip-photo.wide {width:clamp(380px,52vw,660px);height:400px;}
+.strip-photo.tall {width:clamp(240px,28vw,330px);height:400px;}
+.strip-photo.sq   {width:400px;height:400px;}
+
+.strip-photo img{width:100%;height:100%;object-fit:cover;display:block;image-orientation:from-image;transition:transform 0.5s ease;}
+.strip-photo:hover img{transform:scale(1.04);}
+
+/* Gradient placeholder when no img present */
+.photo-ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;}
+.photo-ph::before{content:'◻';font-size:2rem;opacity:0.2;}
+.photo-ph::after{content:attr(data-label);font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;opacity:0.3;color:inherit;}
+.ph1{background:linear-gradient(145deg,#2C3D28 0%,#5A7050 100%);color:#F5EDD0;}
+.ph2{background:linear-gradient(135deg,#5A3218 0%,#A07040 100%);color:#FDFAF2;}
+.ph3{background:linear-gradient(155deg,#1A2D4A 0%,#3D6080 100%);color:#F5EDD0;}
+.ph4{background:linear-gradient(125deg,#2A1A0A 0%,#7A5030 100%);color:#FDFAF2;}
+.ph5{background:linear-gradient(165deg,#1A1E14 0%,#4A5A3A 100%);color:#F5EDD0;}
+.ph6{background:linear-gradient(135deg,#3A1E08 0%,#C8902A 100%);color:#1A1008;}
+.ph7{background:linear-gradient(145deg,#1A2D4A 0%,#2C3D28 60%,#5A7050 100%);color:#F5EDD0;}
+.ph8{background:linear-gradient(135deg,#241808 0%,#A08040 100%);color:#1A1008;}
+.ph9{background:linear-gradient(155deg,#2A2018 0%,#5A4030 100%);color:#F5EDD0;}
+.ph10{background:linear-gradient(145deg,#1A3020 0%,#3A6040 100%);color:#F5EDD0;}
+
+.strip-caption{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:2rem 1.2rem 1rem;
+  background:linear-gradient(to top,rgba(24,16,8,0.8) 0%,transparent 100%);
+  opacity:0;transition:opacity 0.3s;
+}
+.strip-photo:hover .strip-caption{opacity:1;}
+.strip-caption span{font-size:0.62rem;letter-spacing:0.1em;color:rgba(245,237,208,0.8);}
+
+.strip-hint{
+  text-align:center;padding:1.2rem 0 0;
+  font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:rgba(200,169,110,0.3);
+}
+.strip-hint a{color:rgba(200,169,110,0.5);text-decoration:none;}
+.strip-hint a:hover{color:var(--gold);}
+
+/* ── COLLAGE GRID ── */
+.collage-section{
+  background:#FAF7F0;border-top:1px solid #DDD5C8;padding:0;
+}
+.collage-grid{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  grid-template-rows:240px 240px 200px;
+  gap:3px;
+}
+.cg{overflow:hidden;position:relative;}
+.cg img{width:100%;height:100%;object-fit:cover;display:block;image-orientation:from-image;transition:transform 0.5s ease;}
+.cg:hover img{transform:scale(1.04);}
+.cg .photo-ph{width:100%;height:100%;}
+
+/* OPEN+RANGE watermark on first cell */
+.cg:first-child::after{
+  content:'OPEN + RANGE';position:absolute;top:1rem;left:1rem;
+  font-size:0.52rem;letter-spacing:0.25em;text-transform:uppercase;
+  color:rgba(245,237,208,0.45);border:1px solid rgba(245,237,208,0.18);
+  padding:0.28rem 0.6rem;pointer-events:none;
+}
+
+.cg-1 {grid-column:1/6;  grid-row:1/3;}  /* hero-left tall */
+.cg-2 {grid-column:6/9;  grid-row:1/2;}  /* top-mid */
+.cg-3 {grid-column:9/13; grid-row:1/2;}  /* top-right */
+.cg-4 {grid-column:6/9;  grid-row:2/3;}  /* mid-center */
+.cg-5 {grid-column:9/13; grid-row:2/3;}  /* mid-right */
+.cg-6 {grid-column:1/4;  grid-row:3/4;}  /* bot-left */
+.cg-7 {grid-column:4/7;  grid-row:3/4;}  /* bot-mid-left */
+.cg-8 {grid-column:7/10; grid-row:3/4;}  /* bot-mid-right */
+.cg-9 {grid-column:10/13;grid-row:3/4;}  /* bot-right */
+
+/* ── ELROD CONTEXT ── */
+.elrod-context{
+  background:#F0EBE2;border-top:1px solid #D8D0C8;
+  display:grid;grid-template-columns:1fr 1fr;gap:6vw;
+  padding:6vw 7vw;align-items:start;
+}
+.elrod-photo-wrap{display:inline-block;}
+.elrod-photo-wrap img{display:block;width:220px;height:auto;border:1px solid rgba(122,62,34,0.2);box-shadow:0 4px 20px rgba(0,0,0,0.1);}
+.elrod-photo-credit{margin-top:8px;}
+.epc-name{display:block;font-family:'Cormorant Garamond',serif;font-size:0.9rem;font-style:italic;color:#5A4030;letter-spacing:0.04em;}
+.epc-src{display:block;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:#8A7060;margin-top:3px;}
+
+.elrod-text h3{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;color:#1A1512;line-height:1.1;margin-bottom:1.5rem;}
+.elrod-text h3 em{font-style:italic;color:#8A5A38;}
+.elrod-text p{font-size:0.95rem;color:#2A1E14;line-height:1.9;margin-bottom:1.2rem;font-weight:400;}
+
+/* ── ABOUT O+R ── */
+.about-or{
+  background:#2C3D28;padding:6vw 7vw;
+  display:grid;grid-template-columns:1fr 1fr;gap:6vw;
+}
+.or-col .or-tag{font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--sage-light);margin-bottom:1.2rem;display:flex;align-items:center;gap:0.8rem;}
+.or-col .or-tag::before{content:'';display:block;width:1.5rem;height:1px;background:var(--sage-light);opacity:0.5;}
+.or-col h3{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;color:#F5EDD0;line-height:1.1;margin-bottom:1.5rem;}
+.or-col h3 em{font-style:italic;color:rgba(200,169,110,0.85);}
+.or-col p{font-size:0.92rem;color:rgba(245,237,208,0.55);line-height:1.9;margin-bottom:1.2rem;}
+
+/* ── SPACE AVAILABLE ── */
+.space-available{background:#EEEAE4;border-top:1px solid #D8D0C8;padding:5vw 7vw;}
+.space-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:300;color:#1A1512;line-height:1.1;margin-bottom:2rem;}
+.space-heading em{font-style:italic;color:#8A5A38;}
+.space-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:2.5rem;}
+.space-stat{background:#F5F0E8;border:1px solid #D8D0C8;padding:1.8rem 1.5rem;}
+.s-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:#1A1512;line-height:1;}
+.s-label{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:#4A3828;margin-top:0.4rem;font-weight:500;}
+
+.lease-cta{
+  background:#F5F0E8;border:1px solid #D8D0C8;padding:2.5rem 3rem;
+  display:flex;justify-content:space-between;align-items:center;gap:2rem;
+}
+.lease-cta h4{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:#1A1512;line-height:1.2;}
+.lease-cta h4 em{font-style:italic;color:#8A5A38;}
+.brokers{text-align:right;font-size:0.82rem;color:#1A1512;line-height:1.9;font-weight:400;}
+.brokers a{color:#8A5A38;text-decoration:none;}
+
+/* ── CTA / INQUIRY ── */
+.inquiry-bar{
+  background:#5A3218;padding:5vw 7vw;
+  display:flex;justify-content:space-between;align-items:center;gap:4rem;flex-wrap:wrap;
+}
+.inquiry-left h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:300;color:#FDFAF2;line-height:1.05;}
+.inquiry-left h2 em{font-style:italic;color:#C8A96E;}
+.inquiry-left p{font-size:0.9rem;color:rgba(245,237,208,0.55);margin-top:0.8rem;line-height:1.8;max-width:460px;}
+.inquiry-actions{display:flex;flex-direction:column;gap:0.7rem;min-width:220px;}
+.btn-primary{
+  display:block;text-align:center;
+  background:var(--amber);color:#1A1008;
+  padding:0.9rem 2.2rem;text-decoration:none;
+  font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;
+  font-family:'Jost',sans-serif;font-weight:500;
+  transition:background 0.2s;
+}
+.btn-primary:hover{background:#E0A030;}
+.btn-secondary{
+  display:block;text-align:center;
+  border:1px solid rgba(200,169,110,0.3);color:rgba(245,237,208,0.55);
+  padding:0.9rem 2.2rem;text-decoration:none;
+  font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;
+  font-family:'Jost',sans-serif;font-weight:400;
+  transition:border-color 0.2s,color 0.2s;
+}
+.btn-secondary:hover{border-color:var(--gold);color:var(--gold);}
+
+/* ── FOOTER ── */
+footer{
+  background:#D8C9A8;border-top:1px solid rgba(122,62,34,0.2);
+  padding:2.5rem 5vw;
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;
+}
+.f-brand{font-family:'Cormorant Garamond',serif;font-size:1rem;color:#8A5A38;}
+.f-tag{font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:#6A5040;margin-top:4px;}
+.f-links{display:flex;gap:1.5rem;align-items:center;}
+.f-links a{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:#4A3828;text-decoration:none;}
+.f-links a:hover{color:#8A5A38;}
+
+/* ── MOBILE ── */
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .hero{grid-template-columns:1fr;min-height:auto;}
+  .hero-right{display:none;}
+  .hero-left{padding:100px 6vw 8vw;}
+  .recap-intro{grid-template-columns:1fr;}
+  .recap-meta{position:static;border-right:none;border-bottom:1px solid #D8D0C8;}
+  .strip-photo.wide{width:85vw;height:280px;}
+  .strip-photo.tall{width:65vw;height:280px;}
+  .strip-photo.sq{width:75vw;height:280px;}
+  .collage-grid{grid-template-columns:1fr 1fr;grid-template-rows:repeat(5,180px);}
+  .cg-1{grid-column:1/3;grid-row:1/2;}
+  .cg-2{grid-column:1/2;grid-row:2/3;}
+  .cg-3{grid-column:2/3;grid-row:2/3;}
+  .cg-4{grid-column:1/3;grid-row:3/4;}
+  .cg-5{grid-column:1/2;grid-row:4/5;}
+  .cg-6{grid-column:2/3;grid-row:4/5;}
+  .cg-7{grid-column:1/3;grid-row:5/6;}
+  .cg-8,.cg-9{display:none;}
+  .elrod-context,.about-or{grid-template-columns:1fr;gap:2.5rem;padding:7vw 6vw;}
+  .inquiry-bar{flex-direction:column;gap:2rem;padding:8vw 6vw;}
+  .lease-cta{flex-direction:column;}
+  .brokers{text-align:left;}
+  .space-grid{grid-template-columns:1fr 1fr;}
+  .space-grid .space-stat:last-child{grid-column:1/3;}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav">
+  <div class="nav-brand">Open + Range &middot; Clozing CRE</div>
+  <div class="nav-links">
+    <a href="#recap">Recap</a>
+    <a href="#photos">Photos</a>
+    <a href="#space">The Space</a>
+    <a href="https://clozingcre.com/brand-to-space/">Brand to Space</a>
+    <a href="https://clozingcre.com">ClozingCRE</a>
+  </div>
+  <a href="index.html" class="nav-back">&larr; Event Info</a>
+</nav>
+
+<!-- ── SHARE BAR ── -->
+<div class="share-bar">
+  <span class="share-label">Share this recap</span>
+  <div class="share-buttons">
+    <button class="share-btn" onclick="copyLink(this)">Copy Link</button>
+    <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url=https://clozingcre.com/brand-to-space/june12/recap" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="share-btn" href="mailto:?subject=Open%20House%20Recap%3A%20850%20N%20Palm%20Canyon&body=Open%20%2B%20Range%20opened%20the%20former%20Arthur%20Elrod%20studio%20on%20June%2012.%20Full%20recap%20with%20photos%3A%20https%3A%2F%2Fclozingcre.com%2Fbrand-to-space%2Fjune12%2Frecap">Email</a>
+    <a class="share-btn" href="https://www.dropbox.com/sc/7bczkfjlb0g43yj/AABk8wd79kY4B1uZlbI_llcFa" target="_blank" rel="noopener">Full Photo Album &nearr;</a>
+  </div>
+</div>
+
+<!-- ── HERO ── -->
+<div class="hero" id="recap">
+  <div class="hero-top-rule"></div>
+
+  <div class="hero-left">
+    <div class="co-badge">
+      <div class="co-dot"></div>
+      <div class="co-text">Open + Range</div>
+      <div class="co-sep">&times;</div>
+      <div class="co-pscc">Palm Springs Cultural Center</div>
+    </div>
+
+    <div class="recap-badge">
+      <div class="recap-badge-dot"></div>
+      <span class="recap-badge-text">Event Recap &mdash; June 12, 2026</span>
+    </div>
+
+    <p class="hero-eyebrow">Former Arthur Elrod Studio &middot; 850 N Palm Canyon Drive</p>
+    <h1 class="hero-h1">The doors <em>opened.</em><br>Here&rsquo;s what happened.</h1>
+    <div class="hero-date-block">
+      <div class="hero-date">June 12, 2026</div>
+      <div class="hero-time">2&ndash;5 PM &middot; Palm Springs</div>
+    </div>
+    <p class="hero-sub">
+      Champagne, conversation, and 4,180 SF of mid-century history.<br>
+      <em>The space is still available.</em>
+    </p>
+  </div>
+
+  <!-- 850door.jpg — real image from the repo -->
+  <div class="hero-right">
+    <img
+      class="hero-door-img"
+      src="https://clozingcre.com/850door.jpg"
+      alt="850 N Palm Canyon Drive — the original riveted entry door, Arthur Elrod Associates, 1968"
+      loading="eager"
+    />
+    <div class="door-credit">
+      <span>850 N Palm Canyon &middot; May 2026</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── RECAP INTRO ── -->
+<div class="recap-intro">
+
+  <!-- Sticky metadata sidebar -->
+  <aside class="recap-meta">
+    <div class="meta-item">
+      <div class="meta-label">Event</div>
+      <div class="meta-value">Champagne Open House</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Date &amp; Time</div>
+      <div class="meta-value">Thursday, June 12, 2026<br>2&ndash;5 PM</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Location</div>
+      <div class="meta-value">850 N Palm Canyon Drive<br>Palm Springs, CA 92262</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Space</div>
+      <div class="meta-value">Former Arthur Elrod Studio<br>4,180 SF Available</div>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <div class="meta-label">Presented By</div>
+      <div class="meta-value">Open + Range &times; <a href="https://clozingcre.com">Clozing CRE</a></div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Co-Presenter</div>
+      <div class="meta-value">Palm Springs Cultural Center</div>
+    </div>
+    <div class="meta-item">
+      <div class="meta-label">Listing Agents</div>
+      <div class="meta-value">
+        Slavyan Panayotov<br>
+        Kate Pawlicki Bourne<br>
+        <a href="https://clozingcre.com">Windermere Commercial</a>
+      </div>
+    </div>
+    <div class="meta-divider"></div>
+    <div class="meta-item">
+      <div class="meta-label">Photography</div>
+      <div class="meta-value"><a href="https://www.dropbox.com/sc/7bczkfjlb0g43yj/AABk8wd79kY4B1uZlbI_llcFa" target="_blank">View Full Album &nearr;</a></div>
+    </div>
+  </aside>
+
+  <!-- Recap body -->
+  <div class="recap-body">
+    <div class="section-label">Event Recap</div>
+    <h2>Where the <em>right space</em><br>finds its people.</h2>
+
+    <p>
+      On the afternoon of June 12, 2026, <strong>Open + Range</strong> opened the doors of 850 N Palm Canyon Drive &mdash; the former studio of legendary designer Arthur Elrod &mdash; to an invited gathering of buyers, brand principals, designers, and cultural figures from across Palm Springs and the Coachella Valley.
+    </p>
+    <p>
+      Presented in partnership with the <strong>Palm Springs Cultural Center</strong>, the event was intentionally quiet. No signage. No pitches. Just champagne, the original riveted entry door, the architectural lighted ceiling that Elrod specified himself, and 4,180 square feet of mid-century commercial history that the city hasn&rsquo;t seen activated in years.
+    </p>
+
+    <div class="pullquote">
+      <p>&ldquo;You put the right people in the right room and something happens that a brochure can&rsquo;t do.&rdquo;</p>
+      <cite>&mdash; Kate Pawlicki Bourne, Clozing CRE Principal</cite>
+    </div>
+
+    <p>
+      Guests moved freely through the ground-floor showroom and into the adjacent offices &mdash; imagining the space as a flagship retail destination, a design studio, a gallery, a wellness concept. Several high-quality tenant conversations began that afternoon and are continuing. The space is <strong>still available</strong>.
+    </p>
+    <p>
+      Open + Range exists to do exactly this: take remarkable vacant commercial properties and make an introduction that a listing alone can&rsquo;t make. June 12 was the first activation of 850 N Palm Canyon. It will not be the last.
+    </p>
+    <p>
+      If you attended and want to continue the conversation &mdash; or if you missed the event and would like a private tour &mdash; reach out directly to the Clozing CRE team.
+    </p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     HORIZONTAL SCROLL PHOTO STRIP
+     ══════════════════════════════════════════════════════════════════ -->
+<section class="strip-section" id="photos">
+  <div class="strip-header">
+    <div class="section-label" style="color:rgba(200,169,110,0.6);margin:0;">
+      Event Photography
+      <span style="font-size:0.55rem;letter-spacing:0.12em;color:rgba(200,169,110,0.35);margin-left:0.5rem;">Drag or use arrows</span>
+    </div>
+    <div class="strip-nav">
+      <button class="strip-btn" id="prevBtn" aria-label="Previous">&#8592;</button>
+      <button class="strip-btn" id="nextBtn" aria-label="Next">&#8594;</button>
+    </div>
+  </div>
+
+  <div class="photo-strip" id="photoStrip">
+
+    <!-- SLOT 1 — Wide / Lead · Replace div.photo-ph with <img src="DROPBOX_URL" alt="..." loading="lazy" /> -->
+    <div class="strip-photo wide">
+      <img src="https://clozingcre.com/850door.jpg" alt="850 N Palm Canyon — the original riveted entry door" loading="eager" />
+      <div class="strip-caption"><span>The original riveted entry door &mdash; 850 N Palm Canyon</span></div>
+    </div>
+
+    <!-- SLOT 2 — Tall · event photo placeholder -->
+    <div class="strip-photo tall">
+      <div class="photo-ph ph1" data-label="Interior · Space Overview"></div>
+      <div class="strip-caption"><span>The main floor &mdash; 4,180 SF of mid-century history</span></div>
+    </div>
+
+    <!-- SLOT 3 — Wide -->
+    <div class="strip-photo wide">
+      <div class="photo-ph ph2" data-label="Guests · Champagne Hour"></div>
+      <div class="strip-caption"><span>Guests arriving for the afternoon open house</span></div>
+    </div>
+
+    <!-- SLOT 4 — Tall -->
+    <div class="strip-photo tall">
+      <div class="photo-ph ph3" data-label="Architecture · Lighted Ceiling"></div>
+      <div class="strip-caption"><span>The architectural lighted ceiling &mdash; original Elrod spec</span></div>
+    </div>
+
+    <!-- SLOT 5 — Square -->
+    <div class="strip-photo sq">
+      <div class="photo-ph ph4" data-label="Champagne · The Moment"></div>
+      <div class="strip-caption"><span>The afternoon&rsquo;s signature moment</span></div>
+    </div>
+
+    <!-- SLOT 6 — Wide -->
+    <div class="strip-photo wide">
+      <div class="photo-ph ph5" data-label="Team · Principals"></div>
+      <div class="strip-caption"><span>ClozingCRE principals &mdash; Slav Panayotov &amp; Kate Pawlicki Bourne</span></div>
+    </div>
+
+    <!-- SLOT 7 — Tall -->
+    <div class="strip-photo tall">
+      <div class="photo-ph ph6" data-label="Detail · Entry"></div>
+      <div class="strip-caption"><span>Detail &mdash; riveted steel entry door</span></div>
+    </div>
+
+    <!-- SLOT 8 — Wide -->
+    <div class="strip-photo wide">
+      <div class="photo-ph ph7" data-label="Exterior · N Palm Canyon"></div>
+      <div class="strip-caption"><span>850 N Palm Canyon Drive &mdash; Uptown Design District</span></div>
+    </div>
+
+    <!-- SLOT 9 — Tall -->
+    <div class="strip-photo tall">
+      <div class="photo-ph ph8" data-label="Conversation · Buyers"></div>
+      <div class="strip-caption"><span>Buyers and brand partners in conversation</span></div>
+    </div>
+
+    <!-- SLOT 10 — Square -->
+    <div class="strip-photo sq">
+      <div class="photo-ph ph9" data-label="Space · Rear Offices"></div>
+      <div class="strip-caption"><span>The rear office suites &mdash; original Elrod layout</span></div>
+    </div>
+
+    <!-- SLOT 11 — Wide (Arthur Elrod photo) -->
+    <div class="strip-photo tall">
+      <img src="https://clozingcre.com/arthurelrodpshs.png" alt="Arthur Elrod, 1924–1974 — Courtesy Palm Springs Historical Society" loading="lazy" style="object-position:center top;" />
+      <div class="strip-caption"><span>Arthur Elrod, 1924&ndash;1974 &mdash; Courtesy Palm Springs Historical Society</span></div>
+    </div>
+
+    <!-- SLOT 12 — Wide placeholder for any final photo -->
+    <div class="strip-photo wide">
+      <div class="photo-ph ph10" data-label="Evening · Space Lit"></div>
+      <div class="strip-caption"><span>850 N Palm Canyon in the late afternoon light</span></div>
+    </div>
+
+  </div>
+
+  <div class="strip-hint">
+    View the complete album &rarr;
+    <a href="https://www.dropbox.com/sc/7bczkfjlb0g43yj/AABk8wd79kY4B1uZlbI_llcFa" target="_blank" rel="noopener">Dropbox Gallery</a>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     MASONRY COLLAGE
+     ══════════════════════════════════════════════════════════════════ -->
+<div class="collage-section">
+  <div class="collage-grid">
+    <!-- COLLAGE SLOT 1 — hero left, 2-row tall. Use the door photo or best event photo -->
+    <div class="cg cg-1">
+      <img src="https://clozingcre.com/850door.jpg" alt="850 N Palm Canyon entry door" loading="lazy" />
+    </div>
+    <!-- SLOTS 2–9 — Replace photo-ph divs with <img src="DROPBOX_URL" ... /> -->
+    <div class="cg cg-2"><div class="photo-ph ph2" data-label="Interior"></div></div>
+    <div class="cg cg-3"><div class="photo-ph ph6" data-label="Guests"></div></div>
+    <div class="cg cg-4"><div class="photo-ph ph3" data-label="Ceiling"></div></div>
+    <div class="cg cg-5"><div class="photo-ph ph1" data-label="Team"></div></div>
+    <div class="cg cg-6"><div class="photo-ph ph4" data-label="Exterior"></div></div>
+    <div class="cg cg-7"><div class="photo-ph ph5" data-label="Champagne"></div></div>
+    <div class="cg cg-8"><div class="photo-ph ph8" data-label="Conversation"></div></div>
+    <div class="cg cg-9"><div class="photo-ph ph7" data-label="Detail"></div></div>
+  </div>
+</div>
+
+<!-- ── ARTHUR ELROD CONTEXT ── -->
+<div class="elrod-context">
+  <div>
+    <div class="elrod-photo-wrap">
+      <img src="https://clozingcre.com/arthurelrodpshs.png" alt="Arthur Elrod — Courtesy Palm Springs Historical Society" />
+      <div class="elrod-photo-credit">
+        <span class="epc-name">Arthur Elrod, 1924&ndash;1974</span>
+        <span class="epc-src">Courtesy Palm Springs Historical Society</span>
+      </div>
+    </div>
+  </div>
+  <div class="elrod-text">
+    <h3>The designer who<br>built <em>this studio.</em></h3>
+    <p>Arthur Elrod arrived in Palm Springs in 1947 and spent the next two decades defining what the desert interior could be. His firm shaped the interiors of the most celebrated mid-century homes in the Coachella Valley, working alongside architects including John Lautner, William Cody, Donald Wexler, and Hugh Kaptur.</p>
+    <p>850 N Palm Canyon Drive was his studio from 1968. The building&rsquo;s architectural lighted ceiling, the original riveted entry door, the proportions of the showroom &mdash; all reflect the design language his firm brought to the corridor and to the world. This space is one of the last remaining directly connected to his practice. It is ready for its next chapter.</p>
+  </div>
+</div>
+
+<!-- ── ABOUT OPEN + RANGE ── -->
+<div class="about-or">
+  <div class="or-col">
+    <div class="or-tag">Open + Range</div>
+    <h3>Brand activation for<br><em>remarkable spaces.</em></h3>
+    <p>Open + Range is a program within Clozing CRE at Windermere Commercial Palm Springs. We take vacant or transitional commercial properties and create cultural activations that introduce them to the right audience &mdash; investors, developers, brands &mdash; before a traditional listing can.</p>
+    <p>June 12 was the first Open + Range activation of 850 N Palm Canyon. If you have a commercial space that deserves this kind of attention, let&rsquo;s talk.</p>
+  </div>
+  <div class="or-col">
+    <div class="or-tag">Next Activations</div>
+    <h3><em>Still Light</em> at<br>850 N Palm Canyon.</h3>
+    <p>The second activation in the Open + Range series at 850 N Palm Canyon is planned for Fall 2026 &mdash; a meditation and sound series beneath the building&rsquo;s original architectural lighted ceiling. Works by artist Jenna Marie Hansen. Details forthcoming.</p>
+    <p>Get on the list at <a href="mailto:kate.clozingcre@gmail.com" style="color:rgba(200,169,110,0.7);text-decoration:none;">kate.clozingcre@gmail.com</a> or visit <a href="https://clozingcre.com/brand-to-space/" style="color:rgba(200,169,110,0.7);text-decoration:none;">clozingcre.com/brand-to-space</a></p>
+  </div>
+</div>
+
+<!-- ── SPACE STATS ── -->
+<section class="space-available" id="space">
+  <div class="section-label">The Space</div>
+  <h2 class="space-heading">850 N Palm Canyon is<br><em>available for long-term lease.</em></h2>
+  <div class="space-grid">
+    <div class="space-stat">
+      <div class="s-num">4,180</div>
+      <div class="s-label">Square feet &middot; Studio, showroom &amp; offices</div>
+    </div>
+    <div class="space-stat">
+      <div class="s-num">14</div>
+      <div class="s-label">Dedicated parking spaces</div>
+    </div>
+    <div class="space-stat">
+      <div class="s-num">1968</div>
+      <div class="s-label">Original riveted entry door &middot; Elrod Associates</div>
+    </div>
+  </div>
+  <div class="lease-cta">
+    <div>
+      <h4>Attended June 12?<br><em>Let&rsquo;s continue the conversation.</em></h4>
+    </div>
+    <div class="brokers">
+      Slavyan Panayotov &amp; Kate Pawlicki Bourne<br>
+      Windermere Commercial Palm Springs<br>
+      <a href="mailto:kate.clozingcre@gmail.com">kate.clozingcre@gmail.com</a> &middot; 442.677.0396<br>
+      <a href="https://www.loopnet.com/Listing/850-N-Palm-Canyon-Dr-Palm-Springs-CA/39793613/" target="_blank">View on LoopNet &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── INQUIRY CTA ── -->
+<div class="inquiry-bar">
+  <div class="inquiry-left">
+    <h2>The space is<br><em>still open.</em></h2>
+    <p>850 N Palm Canyon is actively seeking its next tenant. Private tours available. This is a direct conversation &mdash; no portals, no waiting.</p>
+  </div>
+  <div class="inquiry-actions">
+    <a href="mailto:kate.clozingcre@gmail.com?subject=850%20N%20Palm%20Canyon%20%E2%80%94%20Private%20Tour%20Request&body=I%20attended%20(or%20saw%20the%20recap%20of)%20the%20Open%20House%20at%20850%20N%20Palm%20Canyon%20and%20would%20like%20to%20arrange%20a%20private%20showing." class="btn-primary">Request a Private Tour</a>
+    <a href="https://clozingcre.com/brand-to-space/" class="btn-secondary">More on Brand to Space</a>
+    <a href="https://clozingcre.com" class="btn-secondary">ClozingCRE &rarr;</a>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div>
+    <div class="f-brand">Open + Range &middot; Clozing CRE</div>
+    <div class="f-tag">A program within Clozing CRE &middot; Windermere Commercial Palm Springs &middot; CA DRE Licensed</div>
+  </div>
+  <div class="f-links">
+    <a href="index.html">Event Info</a>
+    <a href="https://clozingcre.com/brand-to-space/">Brand to Space</a>
+    <a href="https://clozingcre.com">ClozingCRE.com</a>
+  </div>
+</footer>
+
+<script>
+// ── Nav scroll (subtle scroll-detection handled by sticky already)
+
+// ── Horizontal photo strip — arrows
+const strip = document.getElementById('photoStrip');
+document.getElementById('prevBtn').addEventListener('click', () => {
+  strip.scrollBy({left: -520, behavior: 'smooth'});
+});
+document.getElementById('nextBtn').addEventListener('click', () => {
+  strip.scrollBy({left: 520, behavior: 'smooth'});
+});
+
+// ── Drag-to-scroll
+let isDown = false, startX, scrollLeft;
+strip.addEventListener('mousedown', e => {
+  isDown = true; strip.classList.add('grabbing');
+  startX = e.pageX - strip.offsetLeft;
+  scrollLeft = strip.scrollLeft;
+});
+['mouseleave','mouseup'].forEach(ev => strip.addEventListener(ev, () => {
+  isDown = false; strip.classList.remove('grabbing');
+}));
+strip.addEventListener('mousemove', e => {
+  if (!isDown) return;
+  e.preventDefault();
+  strip.scrollLeft = scrollLeft - (e.pageX - strip.offsetLeft - startX) * 1.5;
+});
+
+// ── Touch swipe
+let touchStartX = 0;
+strip.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, {passive:true});
+strip.addEventListener('touchmove', e => {
+  strip.scrollLeft -= (e.touches[0].clientX - touchStartX) * 0.6;
+  touchStartX = e.touches[0].clientX;
+}, {passive:true});
+
+// ── Copy link
+function copyLink(btn) {
+  navigator.clipboard.writeText(window.location.href).then(() => {
+    btn.textContent = 'Copied ✓';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy Link'; btn.classList.remove('copied'); }, 2500);
+  });
+}
+
+// ── Native share (mobile)
+if (navigator.share) {
+  const shareBar = document.querySelector('.share-buttons');
+  const nativeBtn = document.createElement('button');
+  nativeBtn.className = 'share-btn';
+  nativeBtn.textContent = 'Share ↑';
+  nativeBtn.addEventListener('click', () => {
+    navigator.share({
+      title: 'Open House Recap: 850 N Palm Canyon — June 12, 2026',
+      text: 'Open + Range × Clozing CRE opened the former Arthur Elrod studio. Here\'s what happened.',
+      url: window.location.href
+    });
+  });
+  shareBar.appendChild(nativeBtn);
+}
+</script>
+</body>
+</html>
