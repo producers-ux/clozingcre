@@ -136,9 +136,9 @@ body{font-family:'Jost',sans-serif;background:#EEEAE4;color:#1A1512;font-size:19
 /* ── ELROD + O+R ── */
 .elrod-context{background:#F0EBE2;border-top:1px solid #D8D0C8;display:grid;grid-template-columns:1fr 1fr;gap:6vw;padding:6vw 7vw;align-items:start;}
 .elrod-photo-wrap img{display:block;width:220px;height:auto;border:1px solid rgba(122,62,34,0.2);box-shadow:0 4px 20px rgba(0,0,0,0.1);}
-.doc-card{display:flex;gap:1.4rem;align-items:flex-start;background:#FAF7F0;border:1px solid #D8D0C8;padding:1.2rem;margin:0 0 1.6rem;border-radius:2px;}
+.doc-card{display:flex;gap:1.1rem;align-items:center;background:#FAF7F0;border:1px solid #D8D0C8;padding:1rem;margin:0 0 1.6rem;border-radius:2px;}
 .doc-card img{width:180px;height:auto;flex-shrink:0;border:1px solid rgba(122,62,34,0.15);display:block;}
-.doc-card-text{font-size:1rem;line-height:1.7;color:#2A1E14;}
+.doc-card-text{font-size:1rem;line-height:1.55;color:#2A1E14;}
 .doc-card-text strong{color:#1A1008;}
 .doc-credit{display:block;margin-top:0.5rem;font-size:0.72rem;letter-spacing:0.06em;color:#8A7060;}
 @media(max-width:600px){.doc-card{flex-direction:column;}.doc-card img{width:100%;height:auto;}}
@@ -279,7 +279,7 @@ footer{background:#D8C9A8;border-top:1px solid rgba(122,62,34,0.2);padding:2.5re
     <div class="doc-card">
       <img src="june12-screening.jpg" alt="Arthur Elrod: Desert Cool film Q&amp;A at the Palm Springs Cultural Center" loading="lazy" />
       <div class="doc-card-text">
-        Later that evening, the <a href="https://www.psculturalcenter.org/" target="_blank" rel="noopener" style="color:#5A4030;text-decoration:underline;">Palm Springs Cultural Center</a> screened <strong><em>Arthur Elrod: Desert Cool</em></strong> to a packed house, with a Q&amp;A from filmmakers <strong>Adele Cygelman</strong> and <strong>Alan Kraemer</strong>, moderated by Conrad Corral &mdash; a fitting close to a day built around community collaboration.
+        Later that evening, the <a href="https://www.psculturalcenter.org/" target="_blank" rel="noopener" style="color:#5A4030;text-decoration:underline;">Palm Springs Cultural Center</a> screened <strong><em>Arthur Elrod: Desert Cool</em></strong> to a packed house, with a Q&amp;A from filmmakers <strong>Adele Cygelman</strong> and <strong>Alan Kraemer</strong>, moderated by <strong>Conrad Corral</strong> &mdash; a fitting close to a day built around community collaboration.
         <span class="doc-credit">Film Q&amp;A &mdash; Palm Springs Cultural Center, June 12, 2026</span>
       </div>
     </div>
@@ -639,6 +639,12 @@ footer{background:#D8C9A8;border-top:1px solid rgba(122,62,34,0.2);padding:2.5re
   </div>
 </footer>
 
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-close" onclick="closeLightbox()">&times;</div>
+  <img id="lightboxImg" src="" alt="850 N Palm Canyon — enlarged view" />
+  <div class="lightbox-cap" id="lightboxCap"></div>
+</div>
+
 <script>
 const strip = document.getElementById('photoStrip');
 document.getElementById('prevBtn').addEventListener('click', () => strip.scrollBy({left:-560,behavior:'smooth'}));
@@ -670,11 +676,5 @@ function closeLightbox(){
 lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLightbox(); });
 document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeLightbox(); });
 </script>
-
-<div class="lightbox" id="lightbox">
-  <div class="lightbox-close" onclick="closeLightbox()">&times;</div>
-  <img id="lightboxImg" src="" alt="850 N Palm Canyon — enlarged view" />
-  <div class="lightbox-cap" id="lightboxCap"></div>
-</div>
 </body>
 </html>
