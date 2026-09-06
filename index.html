@@ -22,7 +22,7 @@
 
     /* ── UNIFORM IMAGE HEIGHTS ── */
     --img-listing: 220px;   /* listing cards */
-    --img-event: 240px;     /* event/news cards */
+    --img-event: 340px;     /* event/news cards */
     --img-hero: 480px;      /* hero banner */
   }
 
@@ -198,10 +198,13 @@
   /* Two cards side by side, uniform image height */
   .event-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1px;
     border: 0.5px solid var(--border);
     margin-top: 32px;
+  }
+  @media (max-width: 700px) {
+    .event-grid { grid-template-columns: 1fr; }
   }
   .event-card {
     background: #fff;
@@ -333,6 +336,13 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1px;
     border: 0.5px solid var(--border);
+  }
+  /* First Look grid: exactly 4 cards — force a clean 2×2 instead of 3-then-1 */
+  .listings-grid.firstlook-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  @media (max-width: 700px) {
+    .listings-grid.firstlook-grid { grid-template-columns: 1fr; }
   }
 
   /* ── CARD ── */
@@ -640,9 +650,10 @@
 </section>
 
 <!-- ═══ EVENTS / NEWS ═══ -->
-<div class="section" style="padding-top: 56px; padding-bottom: 56px;">
+<div class="section" style="padding-top: 72px; padding-bottom: 72px;">
   <p class="section-eyebrow">Open + Range</p>
   <h2 class="section-title">Activations & <em>Events.</em></h2>
+  <p class="section-sub">From landmark studios to weekend tour stops — how Open + Range brings brand and culture into commercial space.</p>
 
   <!-- EVENT CARDS — both images forced to --img-event height -->
   <div class="event-grid">
@@ -870,11 +881,7 @@
     <div class="fl-divider-line"></div>
   </div>
 
-  <div class="listings-grid">
-
-    <div class="card">
-      <div class="card-img-placeholder">
-        <div class="prop-code">EP · 73750 El Paseo</div>
+  <div class="listings-grid firstlook-grid">
         <div class="prop-status">Photo Coming Soon</div>
       </div>
       <div class="card-body">
