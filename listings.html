@@ -122,17 +122,18 @@
 
 <div class="filters">
   <span class="filter-label">Filter:</span>
-  <button class="filter-btn active">All Listings</button>
-  <button class="filter-btn">For Sale</button>
-  <button class="filter-btn">For Lease</button>
-  <button class="filter-btn">NNN</button>
-  <button class="filter-btn">1031 Ready</button>
-  <button class="filter-btn">First Look</button>
+  <button class="filter-btn active" data-filter="all">All Listings</button>
+  <button class="filter-btn" data-filter="sale">For Sale</button>
+  <button class="filter-btn" data-filter="lease">For Lease</button>
+  <button class="filter-btn" data-filter="nnn">NNN</button>
+  <button class="filter-btn" data-filter="1031">1031 Ready</button>
+  <button class="filter-btn" data-filter="firstlook">First Look</button>
 </div>
 
 <!-- ══════════════════════════════════════════════
      PUBLIC LISTINGS — FOR LEASE
 ══════════════════════════════════════════════ -->
+<div class="listing-section" data-section="lease">
 <div class="section-label">
   <h2>Public Listings · For Lease · On LoopNet &amp; CoStar</h2>
 </div>
@@ -140,7 +141,7 @@
 <div class="listings-grid">
 
   <!-- 850 N Palm Canyon -->
-  <div class="card">
+  <div class="card" data-category="lease">
     <img class="card-img" src="https://images1.loopnet.com/i2/mli7FSipUZ1G3KFzJM971vy50SZPITYUMsUpHBAgzK4/116/850-N-Palm-Canyon-Dr-Palm-Springs-CA-Primary-Photo-1-LargeHighDefinition.jpg" alt="850 N Palm Canyon Dr, Palm Springs" loading="lazy">
     <div class="card-body">
       <div class="card-badge-row"><span class="badge badge-lease">For Lease</span></div>
@@ -162,7 +163,7 @@
   </div>
 
   <!-- 81730 Hwy 111 — LEASE -->
-  <div class="card">
+  <div class="card" data-category="lease">
     <img class="card-img" src="https://images1.loopnet.com/i2/AjcOHZ4Uw-hwuUyKs8p2B2FuBIYDMK69PhVBqRYwHXw/116/66735-Pierson-Blvd-Desert-Hot-Springs-CA-Primary-Photo-1-LargeHighDefinition.jpg" alt="81730 Hwy 111, Indio" loading="lazy">
     <div class="card-body">
       <div class="card-badge-row"><span class="badge badge-lease">For Lease</span></div>
@@ -184,7 +185,7 @@
   </div>
 
   <!-- 82365 Ca-111 Unit #110 -->
-  <div class="card">
+  <div class="card" data-category="lease">
     <div class="card-img-placeholder">
       <div class="prop-code">82365 Ca-111 · Unit #110</div>
       <div class="prop-status">Indio, CA</div>
@@ -208,7 +209,7 @@
   </div>
 
   <!-- 44349 Jackson St Unit #2 -->
-  <div class="card">
+  <div class="card" data-category="lease">
     <div class="card-img-placeholder">
       <div class="prop-code">44349 Jackson St · Unit #2</div>
       <div class="prop-status">Indio, CA</div>
@@ -232,10 +233,12 @@
   </div>
 
 </div><!-- /lease grid -->
+</div><!-- /listing-section: lease -->
 
 <!-- ══════════════════════════════════════════════
      PUBLIC LISTINGS — FOR SALE
 ══════════════════════════════════════════════ -->
+<div class="listing-section" data-section="sale">
 <div class="section-label" style="margin-top: 40px;">
   <h2>Public Listings · For Sale · On LoopNet &amp; CoStar</h2>
 </div>
@@ -243,7 +246,7 @@
 <div class="listings-grid">
 
   <!-- Villa Mykonos / 67590 Jones Rd — Coming Soon -->
-  <div class="card">
+  <div class="card" data-category="sale 1031">
     <img class="card-img" src="https://images1.loopnet.com/i2/f3GZy5yjC_ukzI9zC03CFS32EmJDApU6KFon6U_TEtQ/116/67590-Jones-Rd-Cathedral-City-CA-Primary-Photo-1-LargeHighDefinition.jpg" alt="67590 Jones Rd, Cathedral City" loading="lazy">
     <div class="card-body">
       <div class="card-badge-row">
@@ -268,7 +271,7 @@
   </div>
 
   <!-- 66735 Pierson — OZ / Seller Finance -->
-  <div class="card">
+  <div class="card" data-category="sale">
     <img class="card-img" src="https://images1.loopnet.com/i2/AjcOHZ4Uw-hwuUyKs8p2B2FuBIYDMK69PhVBqRYwHXw/116/66735-Pierson-Blvd-Desert-Hot-Springs-CA-Primary-Photo-1-LargeHighDefinition.jpg" alt="66735 Pierson Blvd, Desert Hot Springs" loading="lazy">
     <div class="card-body">
       <div class="card-badge-row">
@@ -293,7 +296,7 @@
   </div>
 
   <!-- 0 Carrizo Road — Land -->
-  <div class="card">
+  <div class="card" data-category="sale">
     <div class="card-img-placeholder">
       <div class="prop-code">0 Carrizo Rd · Mountain Center</div>
       <div class="prop-status">Land For Sale</div>
@@ -320,10 +323,12 @@
   </div>
 
 </div><!-- /for sale grid -->
+</div><!-- /listing-section: sale -->
 
 <!-- ══════════════════════════════════════════════
      FIRST LOOK — OFF MARKET
 ══════════════════════════════════════════════ -->
+<div class="listing-section" data-section="firstlook">
 <div class="first-look-header">
   <div>
     <h2>First Look — <em>Off Market.</em></h2>
@@ -335,7 +340,7 @@
 <div class="listings-grid" style="margin-top: 24px;">
 
   <!-- 73750 El Paseo -->
-  <div class="card">
+  <div class="card" data-category="sale firstlook">
     <div class="card-img-placeholder">
       <div class="prop-code">EP · 73750 El Paseo</div>
       <div class="prop-status">Photo Coming Soon</div>
@@ -362,7 +367,7 @@
   </div>
 
   <!-- Sherwin-Williams NNN -->
-  <div class="card">
+  <div class="card" data-category="sale nnn firstlook 1031">
     <div class="card-img-placeholder">
       <div class="prop-code">SW · 1488 N. Palm Canyon</div>
       <div class="prop-status">Under Construction</div>
@@ -389,7 +394,7 @@
   </div>
 
   <!-- Arena Blanca Land -->
-  <div class="card">
+  <div class="card" data-category="sale firstlook">
     <div class="card-img-placeholder">
       <div class="prop-code">AB · Arena Blanca Rd</div>
       <div class="prop-status">Photo Coming Soon</div>
@@ -418,7 +423,7 @@
   </div>
 
   <!-- 81730 Hwy 111 — SALE (First Look version) -->
-  <div class="card">
+  <div class="card" data-category="sale firstlook">
     <div class="card-img-placeholder">
       <div class="prop-code">IN · 81730 Hwy 111</div>
       <div class="prop-status">Indio · First Look</div>
@@ -445,6 +450,7 @@
   </div>
 
 </div><!-- /first look grid -->
+</div><!-- /listing-section: firstlook -->
 
 <!-- CTA -->
 <div class="cta-strip">
@@ -484,10 +490,25 @@
 </footer>
 
 <script>
+  function applyFilter(filter) {
+    document.querySelectorAll('.card').forEach(card => {
+      const cats = (card.dataset.category || '').split(' ');
+      const show = filter === 'all' || cats.includes(filter);
+      card.style.display = show ? '' : 'none';
+    });
+    // Hide a whole section (header + grid) if none of its cards match
+    document.querySelectorAll('.listing-section').forEach(section => {
+      const cards = section.querySelectorAll('.card');
+      const anyVisible = Array.from(cards).some(c => c.style.display !== 'none');
+      section.style.display = anyVisible ? '' : 'none';
+    });
+  }
+
   document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+      applyFilter(btn.dataset.filter);
     });
   });
 </script>
