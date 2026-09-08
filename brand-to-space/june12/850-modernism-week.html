@@ -17,7 +17,7 @@
 :root{
   --dark:#151E27; --terra:#A9822C; --cream:#EFE9DC; --bone:#F7F4EC;
   --amber:#A9822C; --fog:#56635C; --gold:#A9822C; --white:#F3EFE4;
-  --sage:#151E27; --sage-light:#2A3540;
+  --sage:#151E27; --sage-light:#9AA7AC;
   --rule:rgba(169,130,44,0.18); --rule-dark:rgba(169,130,44,0.18);
 }
 html{scroll-behavior:smooth;}
@@ -27,6 +27,14 @@ body{font-family:'Jost',sans-serif;background:#F7F4EC;color:#151E27;font-size:19
 .nav{position:sticky;top:0;z-index:100;background:rgba(247,244,236,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(169,130,44,0.15);display:flex;align-items:center;justify-content:space-between;padding:0 5vw;height:76px;}
 .nav-brand{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:500;letter-spacing:0.06em;color:#A9822C;}
 .nav-links{display:flex;gap:2rem;align-items:center;}
+.menu-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;padding:8px;cursor:pointer;}
+.menu-toggle span{width:22px;height:2px;background:#151E27;display:block;transition:transform 0.2s,opacity 0.2s;}
+.menu-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.menu-toggle.open span:nth-child(2){opacity:0;}
+.menu-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-menu{display:none;flex-direction:column;background:#F7F4EC;border-bottom:1px solid #CFC7B4;padding:8px 6vw 20px;}
+.mobile-menu a{padding:14px 0;border-top:1px solid #CFC7B4;font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;color:#151E27;text-decoration:none;}
+.mobile-menu.open{display:flex;}
 .nav-links a{font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;color:#56635C;text-decoration:none;transition:color 0.2s;}
 .nav-links a:hover{color:#A9822C;}
 .nav-back{font-size:0.78rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--bone);background:#A9822C;text-decoration:none;border:1px solid #A9822C;padding:0.7rem 1.6rem;transition:background 0.2s,transform 0.15s;box-shadow:0 2px 10px rgba(169,130,44,0.25);white-space:nowrap;}
@@ -48,7 +56,7 @@ body{font-family:'Jost',sans-serif;background:#F7F4EC;color:#151E27;font-size:19
 .co-dot{width:5px;height:5px;border-radius:50%;background:var(--sage-light);}
 .co-text{font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--sage-light);}
 .co-sep{color:rgba(169,130,44,0.3);}
-.co-pscc{font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(207,199,180,0.5);}
+.co-pscc{font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(207,199,180,0.85);}
 .recap-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(21,30,39,0.2);border:1px solid rgba(42,53,64,0.35);padding:0.4rem 1rem;margin-bottom:1.5rem;width:fit-content;}
 .recap-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--sage-light);}
 .recap-badge-text{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--sage-light);}
@@ -196,6 +204,8 @@ footer{background:#CFC7B4;border-top:1px solid rgba(169,130,44,0.2);padding:2.5r
 /* ── MOBILE ── */
 @media(max-width:768px){
   .nav-links{display:none;}
+  .menu-toggle{display:flex;}
+  .nav-back{display:none;}
   .hero{grid-template-columns:1fr;min-height:auto;}
   .hero-right{height:60vw;}
   .door-label{top:1rem;left:1rem;padding:0.5rem 0.9rem;}
@@ -226,7 +236,18 @@ footer{background:#CFC7B4;border-top:1px solid rgba(169,130,44,0.2);padding:2.5r
     <a href="https://ccgwindermere.com">CCG</a>
   </div>
   <a href="https://modernismweek.com/" target="_blank" rel="noopener" class="nav-back">Modernism Week Tour Info &rarr;</a>
+  <button class="menu-toggle" aria-label="Menu" onclick="document.querySelector('.mobile-menu').classList.toggle('open');this.classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="mobile-menu">
+  <a href="#recap">Hydration Station</a>
+  <a href="#photos">Photos</a>
+  <a href="#space">The Space</a>
+  <a href="https://ccgwindermere.com/#capabilities">Brand to Space</a>
+  <a href="https://ccgwindermere.com">CCG</a>
+  <a href="https://modernismweek.com/" target="_blank" rel="noopener">Modernism Week Tour Info &rarr;</a>
+</div>
 
 <div class="share-bar">
   <span class="share-label">Share this tour</span>
